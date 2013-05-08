@@ -9,6 +9,8 @@ gem 'haml'
 gem 'haml-rails'
 gem 'simple_form'
 
+gem 'pivotal-tracker'   #https://github.com/jsmestad/pivotal-tracker
+gem 'github_api'        #https://github.com/peter-murach/github
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
