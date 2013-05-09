@@ -1,14 +1,10 @@
-%h1 Hello There
+%h1 Welcome to Softline
 
-= github
+= auth_message
 %br
 
-- if @current_user
-  = @current_user.login
-  = @current_user.name
-  = image_tag @current_user.avatar_url
-
-  %h2 #{@first_repo.name}
+- if current_user
+  %h2 Recent repo: #{@first_repo.name}
   %table
     %th Date
     %th Author
@@ -17,6 +13,6 @@
     - @first_commits.each do |c|
       %tr
         %td #{distance_of_time_in_words(Time.now, c.commit.author.date)} ago
-        %td #{c.author.login} 
+        %td #{c.commit.author.name} 
         %td #{c.commit.message}
         %td #{link_to "Code", c.html_url, target: '_blank'}
