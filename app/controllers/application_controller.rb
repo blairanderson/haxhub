@@ -5,7 +5,9 @@ class ApplicationController < ActionController::Base
 
   def current_user
     # @current_user ||= User.find_or_create(session[:username]) # To use when user model created
-    github_token.users.find(self)
+    if github_token
+      @current_user ||= github_token.users.find(self)
+    end
   end
 
   def github_token
