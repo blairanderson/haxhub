@@ -1,14 +1,22 @@
 %h1 Hello There
 
-= @current_user.login
-= @current_user.name
-= image_tag @current_user.avatar_url
-
 = github
-%ul
-  - @repos.each do |repo|
-    %li
-      =link_to repo.full_name,repo.svn_url
+%br
 
+- if @current_user
+  = @current_user.login
+  = @current_user.name
+  = image_tag @current_user.avatar_url
 
-= @users.inspect
+  %h2 #{@first_repo.name}
+  %table
+    %th Date
+    %th Author
+    %th Message
+    %th Code
+    - @first_commits.each do |c|
+      %tr
+        %td #{distance_of_time_in_words(Time.now, c.commit.author.date)} ago
+        %td #{c.author.login} 
+        %td #{c.commit.message}
+        %td #{link_to "Code", c.html_url, target: '_blank'}

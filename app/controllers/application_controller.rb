@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  def current_user
+  # def current_user
   #   unless session[:username]
       
   #   end

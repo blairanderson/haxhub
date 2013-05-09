@@ -9,6 +9,9 @@ class DashboardController < ApplicationController
       @repos = github.repos.all
       @users = github.users.all
       @current_user = github.users.find(self)
+      @first_repo = @repos.first
+      @first_commits = github.repos.commits.all @first_repo.owner.login, @first_repo.name
+
     else
       @repos = []
     end
