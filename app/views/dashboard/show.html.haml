@@ -1,3 +1,14 @@
 %h1 Hello There
 
-=link_to "Sign In with Github", github_auth_path
+= @current_user.login
+= @current_user.name
+= image_tag @current_user.avatar_url
+
+= github
+%ul
+  - @repos.each do |repo|
+    %li
+      =link_to repo.full_name,repo.svn_url
+
+
+= @users.inspect
