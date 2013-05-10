@@ -1,18 +1,1 @@
-%h1 Welcome to Softline
-
 = auth_message
-%br
-
-- if current_user
-  %h2 Recent repo: #{@first_repo.name}
-  %table
-    %th Date
-    %th Author
-    %th Message
-    %th Code
-    - @first_commits.each do |c|
-      %tr
-        %td #{distance_of_time_in_words(Time.now, c.commit.author.date)} ago
-        %td #{c.commit.author.name} 
-        %td #{c.commit.message}
-        %td #{link_to "Code", c.html_url, target: '_blank'}
