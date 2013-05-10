@@ -1,39 +1,35 @@
 class AuthenticationController < ApplicationController
 
-  def github
-    client_id = '81d9e96eebf415c911d1'
-    redirect_uri = github_redirect_url
-    client_secret = "f539d89fc3d4735ed65d827db173fa778d9fdb84"
+  def github_auth
+    github_auth = GithubService.prepare
 
-    github = Github.new(
-      :client_id => client_id,
-      :client_secret => client_secret,
-      :ssl => {:verify => false}
-      )
+    github = Github.new(github_auth)
 
-    redirect_to github.authorize_url #in production send redirect_url
+    redirect_to github.authorize_url
   end
 
-  def github_redirect
-    client_id = '81d9e96eebf415c911d1'
-    redirect_uri = github_redirect_url
-    client_secret = "f539d89fc3d4735ed65d827db173fa778d9fdb84"
-
-    github = Github.new(
-      :client_id => client_id,
-      :client_secret => client_secret,
-      :ssl => {:verify => false}
-      )
+  def github_callback
+    github_auth = GithubService.prepare
+    
+    github = Github.new(github_auth)
 
     if params['code']
-      token = github.get_token( params['code'] )
+      access_token = github.get_token( params['code'] )
+      github.oauth_token = access_token.token
+      session[:github_token] = access_token.token
+      user = github.users.find(self)
+      
+      new_user = User.find_or_create(user, access_token.token )
+
+      session[:login] = new_user.login
     end
-    session[:github_token] = token.token
+
     redirect_to root_path, notice: "You just gave us your soul... "
   end
 
   def destroy
     session[:github_token] = nil
+    session[:login] = nil
     redirect_to root_path
   end
 

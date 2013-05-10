@@ -1,20 +1,19 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user, :github_token
+  helper_method :current_user, :logged_in?, :current_githuber
 
   def current_user
-    # @current_user ||= User.find_or_create(session[:username]) # To use when user model created
-    if github_token
-      @current_user ||= github_token.users.find(self)
-    end
+    @current_user ||= User.find_by_login(session[:login])
   end
 
-  def github_token
-    if session[:github_token]    
-      @github_token ||= Github.new(
-        oauth_token: session[:github_token],
+  def logged_in?
+    true if current_user
+  end
+
+  def current_githuber 
+    @current_githuber ||= Github.new(
+        oauth_token: current_user.token,
         ssl: {:verify => false})
-    end
   end
 end
