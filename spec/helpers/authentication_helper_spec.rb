@@ -5,8 +5,8 @@ describe AuthenticationHelper do
     context "given there is a current_user" do
       it "returns logged in / log out? options" do
         # user = FactoryGirl.create(:user)
-        # helper.stub(current_user: user)
-        # expect(auth_message).to eq nil
+        # ApplicationController.stub(current_user: user)
+        # expect(current_user).to eq nil
       end
     end
 
