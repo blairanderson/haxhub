@@ -5,3 +5,41 @@ ul.thumbnails {
   padding: 50px;
   margin-top: 40px;
 }
+
+.span3.feed {
+  border-collapse: collapse;
+  border: solid 1px #999999;
+  box-shadow: 2px 2px 4px #cccccc;
+  -moz-box-shadow: 2px 2px 4px #cccccc;
+  -webkit-box-shadow: 2px 2px 4px #cccccc;
+  width: 25%;
+  height: 500px;
+  margin: 0px;
+}
+
+p.feed-title {
+  padding: 3px;
+  margin-bottom: 0px;
+  font-family: Arial, Sans-Serif;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 13px;
+  border-left: solid 1px #AAAAAA;
+  border-bottom: solid 1px #AAAAAA;
+  text-align: center;
+  min-height: 20px;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+.feed-data {
+  font-weight: bold;
+  font-size: 14px;
+  background-color: #EAEAEA;
+  border-left: solid 1px #AAAAAA;
+  border-bottom: solid 1px #AAAAAA;
+  text-align: center;
+  min-height: 40px;
+  padding: 2px;
+  margin: 1px;
+}
