@@ -10,7 +10,7 @@ class AuthenticationController < ApplicationController
 
   def github_callback
     github_auth = GithubService.prepare
-    
+
     github = Github.new(github_auth)
 
     if params['code']
@@ -18,13 +18,13 @@ class AuthenticationController < ApplicationController
       github.oauth_token = access_token.token
       session[:github_token] = access_token.token
       user = github.users.find(self)
-      
+
       new_user = User.find_or_create(user, access_token.token )
 
       session[:login] = new_user.login
     end
 
-    redirect_to root_path, notice: "You just gave us your soul... "
+    redirect_to dashboard_path
   end
 
   def destroy
