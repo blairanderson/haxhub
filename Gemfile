@@ -34,6 +34,6 @@ group :development do
   gem 'binding_of_caller'
 end
 
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
+group :test do
+  gem 'simplecov'
+end
