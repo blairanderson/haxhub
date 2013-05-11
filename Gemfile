@@ -10,6 +10,7 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'pivotal-tracker', '0.5.5'   #https://github.com/jsmestad/pivotal-tracker
 gem 'github_api'        #https://github.com/peter-murach/github
+gem 'bootstrap-sass'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -18,7 +19,7 @@ group :assets do
 end
 
 
-group :test, :development do 
+group :test, :development do
   gem 'sqlite3'
   gem 'rspec-rails', "~> 2.0"
   gem 'capybara'
@@ -30,7 +31,7 @@ group :test, :development do
   gem 'capybara'
 end
 
-group :development do 
+group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end

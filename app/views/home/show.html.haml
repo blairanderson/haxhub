@@ -1,0 +1,21 @@
+.container.lead
+  %h1.lead Track your team's progress.
+  %p.lead HaxHub is a dashboard tool for developer teams that allows you to track your team progress on Github, Travis-CI and Pivotal Tracker.
+  = link_to "Sign up today", github_auth_path, class: "btn btn-large btn-warning"
+%container
+  %ul.thumbnails
+    %li.span4
+      .thumbnail
+        %img{:src => "http://placehold.it/400x300"}
+          %h3 GitHub
+          %p Thumbnail caption...
+    %li.span4
+      .thumbnail
+        %img{:src => "http://placehold.it/400x300"}
+          %h3 Pivotal Tracker
+          %p Thumbnail caption...
+    %li.span4
+      .thumbnail
+        %img{:src => "http://placehold.it/400x300"}
+          %h3 Travis CI
+          %p Thumbnail caption...

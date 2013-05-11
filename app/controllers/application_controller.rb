@@ -10,10 +10,4 @@ class ApplicationController < ActionController::Base
   def logged_in?
     true if current_user
   end
-
-  # def current_githuber 
-  #   @current_githuber ||= Github.new(
-  #       oauth_token: current_user.token,
-  #       ssl: {:verify => false})
-  # end
 end

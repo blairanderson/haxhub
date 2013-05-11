@@ -13,5 +13,5 @@ class GithubService
     end
     github_auth
   end
-  
+
 end
