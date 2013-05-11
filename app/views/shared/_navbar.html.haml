@@ -1,11 +1,8 @@
 .navbar.navbar-fixed-top
   .navbar-inner
     .container
-      %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      %a.brand{:href => "./"}
+      %a.brand HaxHub
       .nav-collapse.collapse
-        %button.pull-right= button_to "login w/github", "#"
-        %button.pull-right= button_to "Sign up", '#'
+        %ul.nav.pull-right
+          %li.nav= link_to "Login", "#"
+          %li.nav= link_to "Sign up", '#'
