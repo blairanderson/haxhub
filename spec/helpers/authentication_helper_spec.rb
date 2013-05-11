@@ -1,15 +1,19 @@
 require 'spec_helper'
 
-# Specs in this file have access to a helper object that includes
-# the AuthenticationHelper. For example:
-#
-# describe AuthenticationHelper do
-#   describe "string concat" do
-#     it "concats two strings with spaces" do
-#       helper.concat_strings("this","that").should == "this that"
-#     end
-#   end
-# end
 describe AuthenticationHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "#auth_message" do
+    context "given there is a current_user" do
+      it "returns logged in / log out? options" do
+        # user = FactoryGirl.create(:user)
+        # ApplicationController.stub(current_user: user)
+        # expect(current_user).to eq nil
+      end
+    end
+
+    context "given there is no current_user" do
+      it "returns a 'sign in with github' message" do
+
+      end
+    end
+  end
 end
