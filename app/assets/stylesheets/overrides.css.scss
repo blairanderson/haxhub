@@ -14,9 +14,16 @@ ul.thumbnails {
   box-shadow: 2px 2px 4px #cccccc;
   -moz-box-shadow: 2px 2px 4px #cccccc;
   -webkit-box-shadow: 2px 2px 4px #cccccc;
-  width: 25%;
   height: 500px;
+  width: 27%;
+  display: inline;
   margin: 0px;
+}
+
+.span3.bs-docs-sidebar {
+  width: 18%;
+  display: inline;
+  margin-left: 0px;
 }
 
 p.feed-title {
@@ -47,7 +54,7 @@ p.feed-title {
 }
 /* Navbar */
 
-.navbar-fixed-top .navbar-inner, .navbar-static-top .navbar-inner {
+.navbar-top .navbar-inner, .navbar-static-top .navbar-inner {
   box-shadow: none;
 }
 
@@ -87,6 +94,10 @@ p.feed-title {
   font-size: 1.2em;
   text-decoration: none;
   text-shadow: none;
+}
+
+.navbar-top {
+  margin-bottom: 5px;
 }
 
 /* Mashead */
