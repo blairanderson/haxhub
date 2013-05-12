@@ -4,12 +4,7 @@ class Repo < ActiveRecord::Base
   has_many :git_actions
   belongs_to :project
 
-  def self.translate_all_to_ruby(user = current_user)
-    current_github = Github.new(
-      oauth_token: user.token,
-      ssl: {:verify => false}) 
-
-    repos = current_github.repos.all
+  def self.translate_all_to_ruby(repos)    
     repos.each do |repo|
       translate_to_ruby(repo)
     end
@@ -27,5 +22,13 @@ class Repo < ActiveRecord::Base
     self.save
     self
   end
-end
 
+  private
+
+  # This needs to be likely reworked into new class
+  def self.api_repos(user = current_user)
+    Github.new(
+      oauth_token: user.token,
+      ssl: {:verify => false}).repos.all
+  end
+end
