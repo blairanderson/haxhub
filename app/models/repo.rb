@@ -26,6 +26,8 @@ class Repo < ActiveRecord::Base
   private
 
   # This needs to be likely reworked into new class
+  # Example use in rails console:
+  # repos = Repo.api_repos(User.last)
   def self.api_repos(user = current_user)
     Github.new(
       oauth_token: user.token,
