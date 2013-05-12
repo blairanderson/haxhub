@@ -1,13 +1,14 @@
-# Softline (name pending)
+# HaxHub
+
 _a gSchool project by Blair Anderson, James Denton, Geoffrey Schorkopf and Jorge Tellez_
 
 ### Introduction
 
-Softline is an app which integrates the APIs of Github, Pivotal Tracker, and Travis CI to serve an all-in-one software project feed.
+HaxHub is a Rails app which integrates the APIs of Github, Pivotal Tracker, and Travis CI to serve as an all-in-one software project feed.
 
-The background requirements for this project can be found at: http://tutorials.jumpstartlab.com/projects/feed_engine.html
+The background requirements for this project can be found at: http://tutorials.jumpstartlab.com/projects/feed_engine.html.
 
-Softline-specific requirements can be found at: http://tutorials.jumpstartlab.com/projects/feed_engine_concepts.html
+HaxHub-specific requirements can be found at: http://tutorials.jumpstartlab.com/projects/feed_engine_concepts.html under the heading "Softline."
 
 ### View the Live Site
 
@@ -17,14 +18,23 @@ There is currently no production site for this app.
 
 Once you've git cloned this repo, make sure to run
 
-```bundle install``` to load the gems used in this project
+```bundle install``` to load the gems used in this project.
 
-Then, to view the site from your computer, you can then run ```unicorn``` to view it at http://localhost:8080.
+Then, to view the site from your computer, you can then run ```unicorn -p 3000``` to view it at http://localhost:3000.
 
-### To Run Rspec Tests on the Code
+### Run Our Test Suite
 
 Make sure to run:
 
 ``` rake db:test:prepare```
 
-to setup your test database.
+to setup your test database. Then run:
+
+``` bundle exec rspec```
+
+### Tweet Us, Y'all
+
+blairand
+gschork
+novohispano 
+xacaxulu
