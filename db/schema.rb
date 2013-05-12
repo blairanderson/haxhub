@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512040940) do
+ActiveRecord::Schema.define(:version => 20130512043147) do
 
   create_table "authors", :force => true do |t|
     t.string   "login"
@@ -40,9 +40,11 @@ ActiveRecord::Schema.define(:version => 20130512040940) do
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "repo_id"
   end
 
   create_table "repos", :force => true do |t|
+    t.integer  "project_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
