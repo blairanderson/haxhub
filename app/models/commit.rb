@@ -1,5 +1,5 @@
 class Commit < ActiveRecord::Base
-  attr_accesible :message
+  attr_accessible :message, :repo, :author
 
   belongs_to :repo
   belongs_to :author

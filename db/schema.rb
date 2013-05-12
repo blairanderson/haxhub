@@ -11,7 +11,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130511190754) do
+ActiveRecord::Schema.define(:version => 20130512040940) do
+
+  create_table "authors", :force => true do |t|
+    t.string   "login"
+    t.string   "full_name"
+    t.string   "gravatar_url"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "commits", :force => true do |t|
+    t.string   "message"
+    t.integer  "repo_id"
+    t.integer  "author_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "project_users", :force => true do |t|
     t.integer  "user_id",    :null => false
@@ -22,6 +38,11 @@ ActiveRecord::Schema.define(:version => 20130511190754) do
 
   create_table "projects", :force => true do |t|
     t.string   "title"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "repos", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
