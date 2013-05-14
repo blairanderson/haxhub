@@ -1,5 +1,6 @@
 Softline::Application.routes.draw do
   root to: 'home#show'
+  resources :projects, only: [:create]
 
   get '/dashboard' => 'dashboard#show'
 

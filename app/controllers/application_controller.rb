@@ -8,6 +8,12 @@ class ApplicationController < ActionController::Base
   end
 
   def logged_in?
-    true if current_user
+    current_user ? true : false
+  end
+
+  def require_login
+    unless logged_in?
+      redirect_to root_path, notice: "Please log in."
+    end
   end
 end
