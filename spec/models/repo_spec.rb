@@ -65,7 +65,7 @@ describe Repo do
       it 'should not work with just a username' do 
         string = "blairand"
         repo = Repo.create_from_github(string)
-        expect(repo).to be_invalid
+        expect(repo).to_not be
       end
 
     end
