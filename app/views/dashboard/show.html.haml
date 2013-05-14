@@ -6,16 +6,8 @@
       %li.side-nav{'data-toggle' => 'tooltip', 'data-animation'=> true,'data-placement' => 'right' , 'data-original-title' => "fn + control + option + #{index+1} for settings hot-key"}
         = render "project_settings", {project: project, count: index}
     %li
-      %a{"data-toggle" => "modal", :href => "#newProjectModal", :role => "button"}Add a Project
-      #newProjectModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
-        .modal-header
-          %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-          %h3#myModalLabel Add GitHub Repo
-        .modal-body
-          %p.lead It would be cool for jquery to count the projects and pop up this modal if no projects exist.  
-          %br
-          = render 'add_project'
-
+      = render 'add_project', {search: @repo_auto_complete}
+  
 .span3.feed
   %p.feed-title GitHub
   .feed-data Pull request 324234
