@@ -1,4 +1,4 @@
-%a.side-nav{:href => "#buttonDropdowns", 'data-toggle' => 'tooltip', 'data-animation'=> true, 'data-original-title' => "type fn + control + option + #{count+1} for hot-key" }
+%a.side-nav{:href => "#buttonDropdowns"}
   = project.title
   .pull-right
     .btn.btn-warning.btn-mini{"data-toggle" => "modal", :href => "#myModal#{project.id}", :role => "button", :accesskey => "#{count+1}"} Settings
@@ -13,4 +13,4 @@
         %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
         %button.btn.btn-warning{"aria-hidden" => "true", "data-dismiss" => "modal"} Save changes
 
-$('.side-nav').tooltip()
+
