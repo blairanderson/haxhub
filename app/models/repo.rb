@@ -8,10 +8,14 @@ class Repo < ActiveRecord::Base
 
   def self.create_from_github(input = "")
     owner, name = user_and_repo_from_string(input)
-    repo = Repo.where(
-      owner: owner, 
-      name: name
-      ).first_or_create
+    if owner && name
+      repo = Repo.where(
+        owner: owner, 
+        name: name
+        ).first_or_create
+    else
+      return false
+    end
   end
 
 private
@@ -26,4 +30,14 @@ private
     result.split('/')
   end
 
+  # private
+
+  # # This needs to be likely reworked into new class
+  # # Example use in rails console:
+  # # repos = Repo.api_repos(User.last)
+  # def self.api_repos(user = current_user)
+  #   Github.new(
+  #     oauth_token: user.token,
+  #     ssl: {:verify => false}).repos.all
+  # end
 end
