@@ -1,14 +1,14 @@
-%a{:href => "#buttonDropdowns"}
+%a.side-nav{:href => "#buttonDropdowns"}
   = project.title
   .pull-right
-    .btn-mini{"data-toggle" => "modal", :href => "#myModal", :role => "button"} Settings
-    / Modal
-    #myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+    .btn.btn-warning.btn-mini{"data-toggle" => "modal", :href => "#myModal#{project.id}", :role => "button"} Settings
+    %div.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1", :id => "myModal#{project.id}"}
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-        %h3#myModalLabel Project / Settings
+        %h2#myModalLabel
+          = "#{project.title} Settings"
       .modal-body
         = render 'update_form'
       .modal-footer
         %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
-        %button.btn.btn-primary{"aria-hidden" => "true", "data-dismiss" => "modal"} Save changes
+        %button.btn.btn-warning{"aria-hidden" => "true", "data-dismiss" => "modal"} Save changes

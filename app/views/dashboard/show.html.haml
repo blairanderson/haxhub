@@ -1,8 +1,9 @@
-
-.span3.bs-docs-sidebar
-  %ul.nav.nav-tabs.nav-stacked
+.span3.side-nav
+  %ul.side-nav
+    %li.side-nav.logo
+      = link_to current_user.login, '#', class: 'side-nav logo'
     - @projects.each do |project|
-      %li
+      %li.side-nav
         = render "project_settings", {project: project}
     %li
       %a{"data-toggle" => "modal", :href => "#newProjectModal", :role => "button"}Add a Project
