@@ -29,7 +29,8 @@ li.side-nav {
   border-color:    #AAAAAA;
   color:           #0088cc;
   margin-bottom:   20px;
-  padding-bottom:  20px;
+  padding-top:     4px;
+  padding-bottom:  23px;
   padding-right:   10px;
   text-decoration: none;
 }
@@ -41,10 +42,12 @@ a.side-nav {
 }
 
 a.side-nav.logo {
-  font-size: 40px;
+  font-size: 20px;
   color: orange;
   font-weight: bold;
   border: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .span3.side-nav {
@@ -54,6 +57,10 @@ a.side-nav.logo {
   margin: 0px;
   border: none;
   margin-right: 10px;
+}
+
+span.side-nav {
+  width: 5%;
 }
 
 // FEED

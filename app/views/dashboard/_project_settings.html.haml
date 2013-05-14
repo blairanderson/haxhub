@@ -1,12 +1,12 @@
 %a.side-nav{:href => "#buttonDropdowns"}
-  = project.title
-  .pull-right
+  %span.side-nav= project.title
+  %span.pull-right
     .btn.btn-warning.btn-mini{"data-toggle" => "modal", :href => "#myModal#{project.id}", :role => "button"} Settings
     %div.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1", :id => "myModal#{project.id}"}
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
         %h2#myModalLabel
-          = "#{project.title} Settings"
+          = "#{project.title}"
       .modal-body
         = render 'update_form'
       .modal-footer
