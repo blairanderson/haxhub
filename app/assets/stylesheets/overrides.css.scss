@@ -35,6 +35,10 @@ li.side-nav {
   text-decoration: none;
 }
 
+li.side-nav.active {
+  padding-left: 20px;
+}
+
 a.side-nav {
   font-size: 20px;
   color: black;
@@ -67,7 +71,7 @@ span.side-nav {
 
 .span3.feed {
   border-collapse: collapse;
-  width: 26%;
+  width: 33%;
   display: inline;
   margin: 0px;
   border: none;
