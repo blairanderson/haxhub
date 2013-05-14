@@ -26,7 +26,7 @@ module ObjectCreationMethods
     defaults = {
       full_name: "Blair Anderson",
       login: 'blairand',
-      token: 'wheeeeee'
+      token: '"21fd512a9c68c223dc859eb4b2520e109b93abf1"'
     }
     User.new(defaults.merge(overrides))
   end

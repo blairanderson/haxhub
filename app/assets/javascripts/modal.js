@@ -1,1 +1,1 @@
-$('#myModal').modal(options)
+$('#myModal').modal()
