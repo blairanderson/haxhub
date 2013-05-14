@@ -8,10 +8,14 @@ class Repo < ActiveRecord::Base
 
   def self.create_from_github(input = "")
     owner, name = user_and_repo_from_string(input)
-    repo = Repo.where(
-      owner: owner, 
-      name: name
-      ).first_or_create
+    if owner && name
+      repo = Repo.where(
+        owner: owner, 
+        name: name
+        ).first_or_create
+    else
+      return false
+    end
   end
 
 private

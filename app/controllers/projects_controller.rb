@@ -2,16 +2,13 @@ class ProjectsController < ApplicationController
   before_filter :require_login
 
   def create
-    repo = Repo.create_from_github(params[:repo_name_owner])
-
-    if current_user.duplicate_projects?(repo)
-      notice =  "Already Own this Repo"
-    else
-      project = Project.create(title: repo.name, repo: repo)
-      current_user.projects << project
-      notice = "Project Added"
+    if repo = Repo.create_from_github(params[:repo_name_owner])
+      unless current_user.duplicate_projects?(repo)
+        project = Project.create(title: repo.name, repo: repo)
+        current_user.projects << project
+        notice = "Project Added"
+      end
     end
-    
     redirect_to dashboard_path, notice: notice
   end
 end
