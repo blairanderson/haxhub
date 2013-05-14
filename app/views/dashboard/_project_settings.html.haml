@@ -1,4 +1,4 @@
-%a.side-nav{:href => "#buttonDropdowns"}
+%a.side-nav{:href => "#tab_#{count+1}", 'data-toggle'=> 'tab'}
   = project.title
   .pull-right
     .btn.btn-warning.btn-mini{"data-toggle" => "modal", :href => "#myModal#{project.id}", :role => "button", :accesskey => "#{count+1}"} Settings
