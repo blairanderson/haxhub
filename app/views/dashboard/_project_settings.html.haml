@@ -1,7 +1,7 @@
 %a.side-nav{:href => "#buttonDropdowns"}
-  %span.side-nav= project.title
-  %span.pull-right
-    .btn.btn-warning.btn-mini{"data-toggle" => "modal", :href => "#myModal#{project.id}", :role => "button"} Settings
+  = project.title
+  .pull-right
+    .btn.btn-warning.btn-mini{"data-toggle" => "modal", :href => "#myModal#{project.id}", :role => "button", :accesskey => "#{count+1}"} Settings
     %div.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1", :id => "myModal#{project.id}"}
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×

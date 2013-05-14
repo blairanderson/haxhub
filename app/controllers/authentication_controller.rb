@@ -18,7 +18,7 @@ class AuthenticationController < ApplicationController
       github.oauth_token = access_token.token
       session[:github_token] = access_token.token
       user = github.users.find(self)
-
+      
       new_user = User.find_or_create(user, access_token.token )
 
       session[:login] = new_user.login
@@ -30,6 +30,7 @@ class AuthenticationController < ApplicationController
   def destroy
     session[:github_token] = nil
     session[:login] = nil
+    session = nil
     redirect_to root_path
   end
 

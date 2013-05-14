@@ -30,26 +30,6 @@ private
     result.split('/')
   end
 
-
-  # def self.translate_all_to_ruby(repos)    
-  #   repos.each do |repo|
-  #     translate_to_ruby(repo)
-  #   end
-  # end
-
-  # def self.translate_to_ruby(repo)
-  #   Repo.create(
-  #     name: repo.name,
-  #     owner: repo.owner.login,
-  #     url: repo.html_url)
-  # end
-
-  # def add_to_project(project)
-  #   self.project = project
-  #   self.save
-  #   self
-  # end
-
   # private
 
   # # This needs to be likely reworked into new class
