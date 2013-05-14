@@ -2,9 +2,9 @@
   %ul.side-nav
     %li.side-nav.logo
       = link_to current_user.login, '#', class: 'side-nav logo'
-    - @projects.each do |project|
+    - @projects.each_with_index do |project, index|
       %li.side-nav
-        = render "project_settings", {project: project}
+        = render "project_settings", {project: project, count: index}
     %li
       %a{"data-toggle" => "modal", :href => "#newProjectModal", :role => "button"}Add a Project
       #newProjectModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
