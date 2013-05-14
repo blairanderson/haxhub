@@ -12,12 +12,12 @@
           #myModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
             .modal-header
               %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-              %h3#myModalLabel Project / Settings
+              %h2#myModalLabel Project / Settings
             .modal-body
               = render 'update_form'
             .modal-footer
               %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
-              %button.btn.btn-primary{"aria-hidden" => "true", "data-dismiss" => "modal"} Save changes
+              %button.btn.btn-warning{"aria-hidden" => "true", "data-dismiss" => "modal"} Save changes
     %li.side-nav
       %a.side-nav{:href => "#buttonDropdowns"}
         Store Engine

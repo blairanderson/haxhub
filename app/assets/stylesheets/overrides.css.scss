@@ -1,5 +1,7 @@
 @import "bootstrap";
 
+// HOME
+
 ul.thumbnails {
   margin-left:  auto;
   margin-top:   40px;
@@ -8,7 +10,7 @@ ul.thumbnails {
   width:        1000px;
 }
 
-/* SIDEBAR */
+// SIDEBAR
 
 ul, menu, dir {
   display: block;
@@ -54,7 +56,7 @@ a.side-nav.logo {
   margin-right: 10px;
 }
 
-/* FEED */
+// FEED
 
 .span3.feed {
   border-collapse: collapse;
@@ -86,7 +88,7 @@ p.feed-title {
   margin: 5px;
 }
 
-/* NAVBAR */
+// NAVBAR
 
 .navbar-top .navbar-inner, .navbar-static-top .navbar-inner {
   box-shadow: none;
@@ -135,7 +137,7 @@ p.feed-title {
   margin-bottom: 5px;
 }
 
-/* MASTHEAD */
+// MASTHEAD
 
 .container.lead {
   height: 200px;
@@ -146,4 +148,10 @@ p.feed-title {
 h1.lead {
   font-size: 72px;
   line-height: 1;
+}
+
+// MODAL
+
+#myModalLabel {
+  color: orange;
 }
