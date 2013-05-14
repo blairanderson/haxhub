@@ -6,6 +6,10 @@ class User < ActiveRecord::Base
   has_many :project_users
   has_many :projects, through: :project_users
 
+  def duplicate_projects?(repo)
+    projects.any?{|project| project.repo.id == repo.id}
+  end
+
   def self.find_or_create(github, token)
     unless user = find_by_login(github.login)
 

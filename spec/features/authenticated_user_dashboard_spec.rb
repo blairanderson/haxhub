@@ -5,4 +5,8 @@ describe 'authenticated user / happy path' do
     visit "/"
     expect(page).to have_link("Sign in with Github")
   end
+
+  it 'should be able to login'
+
+  it 'shold be able to add a new project after logging in'
 end

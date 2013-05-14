@@ -1,42 +1,73 @@
 require 'spec_helper'
 
-describe Repo do
-  describe ".translate_all_to_ruby" do
-    context "current_user exists and has github token" do
-      it "translates github gem repos to repo objects" do
-        # user = FactoryGirl.create(:user)
-        # repo = Repo.translate_to_ruby(user)
-        # expect(repo.class).to be Repo
-        # Requires VCR
+describe Repo do 
+  context 'validations' do 
+    let(:repo) do
+      new_repo
+    end
+
+    before do
+      expect(repo).to be_valid
+    end
+
+    it 'should have a valid owner' do 
+      repo.owner = nil
+      expect( repo ).to be_invalid
+    end
+
+    it 'should have a valid name'  do
+      repo.name = nil
+      expect( repo ).to be_invalid
+    end
+
+    describe '#user_and_repo_from_string' do
+      it 'should work correctly' do
+
       end
     end
-  end
 
-  describe ".translate_to_ruby" do
-    context "current_user exists and has github token" do
-      it "creates single repo object from repo mashie hash" do
-        # user = FactoryGirl.create(:user)
-        # repo = Repo.translate_to_ruby(user)
-        # expect(repo.class).to be Repo
-        # Requires VCR
+    describe '.create_from_github' do
+      it 'should find a repo that alread exists' do
+        repo.save
+        url = "https://github.com/blairand/alpha-feed-engine"
+        new_repo = Repo.create_from_github(url)
+        expect(repo.id).to eq new_repo.id
       end
-    end
-  end
 
-  describe "#add_to_project" do
-    before :each do
-      @project = FactoryGirl.create(:project)
-      @repo = FactoryGirl.create(:repo)
-    end
+      it 'should create repo from git_repo HTTP' do 
+        url = "https://github.com/blairand/alpha-feed-engine"
+        repo = Repo.create_from_github(url)
+        expect(repo.owner).to eq "blairand"
+        expect(repo.name).to eq "alpha-feed-engine"
+      end
 
-    it "adds / overwrites project_id to repo" do
-      @repo.add_to_project(@project)
-      expect(@repo.project).to eq @project
-    end
+      it 'should create repo from git_repo SSH' do 
+        url = "git@github.com:blairand/alpha-feed-engine.git"
+        repo = Repo.create_from_github(url)
+        expect(repo.owner).to eq "blairand"
+        expect(repo.name).to eq "alpha-feed-engine"
+      end
 
-    it "adds / overwrites repo_id to project" do
-      @repo.add_to_project(@project)
-      expect(@project.repo).to eq @repo
+      it 'should create repo from git_repo Read-Only' do 
+        url = "git://github.com/blairand/alpha-feed-engine.git"
+        repo = Repo.create_from_github(url)
+        expect(repo.owner).to eq "blairand"
+        expect(repo.name).to eq "alpha-feed-engine"
+      end
+
+      it 'should create repo from owner/name' do 
+        string = "blairand/alpha-feed-engine"
+        repo = Repo.create_from_github(string)
+        expect(repo.owner).to eq "blairand"
+        expect(repo.name).to eq "alpha-feed-engine"
+      end
+
+      it 'should not work with just a username' do 
+        string = "blairand"
+        repo = Repo.create_from_github(string)
+        expect(repo).to be_invalid
+      end
+
     end
   end
 end

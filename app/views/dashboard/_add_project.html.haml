@@ -1,0 +1,4 @@
+%h3 Github
+=form_tag "/projects", method: :post, class: 'form-inline' do
+  =text_field_tag(:repo_name_owner, 'blairand/alpha-feed-engine', class: "input-large")
+  =submit_tag("Add", class: 'btn')
