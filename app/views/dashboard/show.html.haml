@@ -1,8 +1,8 @@
 .span3.side-nav
-  %p.feed-title 
+  %p.feed-title
   %ul.side-nav#projectTabs
     - @projects.each_with_index do |project, index|
-      %li.side-nav{'data-toggle' => 'tooltip', 'data-animation'=> true,'data-placement' => 'right' , 'data-original-title' => "fn + control + option + #{index+1} for settings hot-key"}
+      %li.side-nav{'data-toggle' => 'tooltip', 'data-animation'=> true, 'data-placement' => 'right', 'data-original-title' => "fn + control + option + #{index+1} for settings hot-key"}
         = render "project_settings", {project: project, count: index}
     %li
       = render 'add_project', {search: @repo_auto_complete}
@@ -11,8 +11,8 @@
   - @projects.each_with_index do |project, index|
     .tab-pane{:id => "tab_#{index+1}"}
       .span3.feed
-        %p.feed-title= "#{project.title} GitHub"
-        .feed-data Pull request 324234
+        %p.feed-title= "GitHub"
+        .feed-data= "#{project.title}"
         .feed-data Pull request 324234
         .feed-data Pull request 324234
         .feed-data Pull request 324234
@@ -24,8 +24,8 @@
         .feed-data Pull request 324234
 
       .span3.feed
-        %p.feed-title= "#{project.title} Travis CI"
-        .feed-data Pull request 324234
+        %p.feed-title= "Travis CI"
+        .feed-data Pull request 2
         .feed-data Pull request 324234
         .feed-data Pull request 324234
         .feed-data Pull request 324234
@@ -36,8 +36,8 @@
         .feed-data Pull request 324234
         .feed-data Pull request 324234
       .span3.feed
-        %p.feed-title= "#{project.title} Pivotal Tracker"
-        .feed-data Pull request 324234
+        %p.feed-title= "Pivotal Tracker"
+        .feed-data Pull request 2
         .feed-data Pull request 324234
         .feed-data Pull request 324234
         .feed-data Pull request 324234
@@ -51,4 +51,5 @@
 %script
   $('#projectTabs a:first').tab('show');
 
-%script $('li.side-nav').tooltip();
+%script
+  $('li.side-nav').tooltip();

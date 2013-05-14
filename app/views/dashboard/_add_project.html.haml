@@ -1,14 +1,14 @@
-%a{"data-toggle" => "modal", :href => "#newProjectModal", :role => "button"}Add a Project
+%a.add_project{"data-toggle" => "modal", :href => "#newProjectModal", :role => "button"}Add a Project
 #newProjectModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
     %h3#myModalLabel Add GitHub Repo
   .modal-body
-    %p.lead It would be cool for jquery to count the projects and pop up this modal if no projects exist.  
+    %p.lead It would be cool for jquery to count the projects and pop up this modal if no projects exist.
     %br
-    %h3 Github
+    %h4 Github
     =form_tag "/projects", method: :post, class: 'form-inline' do
-      =text_field_tag(:repo_name_owner, nil, class: "input-large", placeholder: "start typing some shit...", 'autocomplete' =>'off', 'data-provide' => 'typeahead', 'data-source' => search)
+      =text_field_tag(:repo_name_owner, nil, class: "input input-large", placeholder: "Enter your repo", 'autocomplete' =>'off', 'data-provide' => 'typeahead', 'data-source' => search)
       =submit_tag("Add", class: 'btn')
       / this spacing is for the autocomplete
     %br
