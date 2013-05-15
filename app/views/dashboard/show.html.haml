@@ -12,16 +12,8 @@
     .tab-pane{:id => "tab_#{index+1}"}
       .span3.feed
         %p.feed-title= "GitHub"
-        .feed-data= "#{project.title}"
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
+        - project.repo.git_actions.limit(10).each do |action|
+          .feed-data= action.message
 
       .span3.feed
         %p.feed-title= "Travis CI"

@@ -4,29 +4,41 @@ class GitAction < ActiveRecord::Base
   belongs_to :repo
   belongs_to :author
 
-  def self.translate_all_to_ruby(git_actions)    
-    git_actions.each do |git_action|
-      translate_to_ruby(git_action)
-    end
-  end
-
-  def self.translate_to_ruby(git_action)
-    GitAction.create(
-      message: git_action.commit.message,
-      url: git_action.html_url)
-      # How to deal with repo connection?
-      # .find_or_create method for Author?
-  end
-
-  private
-
-  # This needs to be likely reworked into new class
-  # Example use in rails console:
-  # commits = GitAction.api_commits(User.last, Repo.api_repos(User.last).first)
-  def self.api_commits(user = current_user, repo)
+  def self.fetch_all_commits(user, repo)
     github = Github.new(
       oauth_token: user.token,
       ssl: {:verify => false})
-    github.repos.commits.all repo.owner.login, repo.name
+    commits = github.repos.commits.all(repo.owner, repo.name)
+    build_commits(repo, commits)
+  end
+
+  def self.build_commits(repo, commits)
+    commits.collect do | commit |
+      action      = build_commit(commit)
+      action.repo = repo
+      action.save
+    end
+  end
+
+private
+  def self.build_author(commit)
+    login = commit.committer.login
+    author = Author.where(login: login).first_or_create
+
+    full_name = commit.commit.committer.name
+    author.full_name = full_name
+    
+    avatar_url = commit.committer.avatar_url
+    author.avatar_url = avatar_url
+    
+    author.save
+    author
+  end
+
+  def self.build_commit(commit)
+    author = Author.build_author_from_commit(commit)
+    message = commit.commit.message
+    url     = commit.html_url
+    GitAction.where(message: message, url: url, author_id: author.id ).first_or_create
   end
 end

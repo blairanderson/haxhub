@@ -5,6 +5,7 @@ describe ProjectsController do
     it "creates new project and repo" do
       create_user; user = User.last
       controller.stub(current_user: user)
+      GitAction.stub(:fetch_all_commits).and_return(true)
       repo_name_owner = "blairand/alpha-feed-engine"
       expect {
         post :create, repo_name_owner: repo_name_owner
@@ -14,6 +15,7 @@ describe ProjectsController do
     it "finds duplicate project/repo pair, rejects" do
       create_user; user = User.last
       controller.stub(current_user: user)
+      GitAction.stub(:fetch_all_commits).and_return(true)
       repo_name_owner = "blairand/alpha-feed-engine"
       post :create, repo_name_owner: repo_name_owner
       expect {

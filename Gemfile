@@ -28,7 +28,11 @@ group :test, :development do
   gem 'guard-minitest'
   gem 'rb-fsevent'
   gem 'factory_girl_rails'
-  gem 'capybara'
+  gem 'vcr'
+end
+
+group :test do
+  gem 'webmock'
 end
 
 group :development do
