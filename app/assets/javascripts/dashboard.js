@@ -6,7 +6,7 @@ $(document).ready(function() {
   $('li.side-nav').tooltip();
 
   function startCarousel(){
-    delay = 10000; // We'll wanna set this as the data-field for some form
+    delay = 5000; // We'll wanna set this as the data-field for some form
     
     var tabCarousel = setInterval(function() {
       var tabs = $('#projectTabs > li'),

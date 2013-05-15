@@ -71,6 +71,11 @@ span.side-nav {
   width: 5%;
 }
 
+img.gear-icon {
+  height: 25px;
+  width: 25px;
+}
+
 // FEED
 
 .span3.feed {
@@ -112,6 +117,22 @@ p.feed-title {
 span.pull-left img.thumb {
   height: 80px;
   width: 80px;
+}
+.media-body {
+  height: 80px;
+  position: relative;
+}
+.feed-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 98%;
+}
+.feed-footer .pull-left, .feed-footer .pull-right {
+  font-size: 12px;
+}
+.feed-footer .pull-left {
+  font-style:italic;
 }
 
 // NAVBAR
