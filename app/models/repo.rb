@@ -18,6 +18,11 @@ class Repo < ActiveRecord::Base
     end
   end
 
+  #Create schedule for fetching commits. 
+  #on a 10 minute schedule. 
+
+  
+
 private
 
   def self.user_and_repo_from_string(input='')
