@@ -12,7 +12,7 @@
     .tab-pane{:id => "tab_#{index+1}"}
       .span3.feed.github
         %p.feed-title= "GitHub"
-        - project.repo.git_actions.limit(10).each do |action|
+        - project.repo.git_actions.limit(8).each do |action|
           = render "github_feed_item", {action: action}
 
       .span3.feed.travis

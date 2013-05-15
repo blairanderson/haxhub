@@ -2,7 +2,7 @@
   %span.pull-left
     = image_tag(action.author.avatar_url, class: "media-object thumb img-circle")
   .media-body
-    %span.media-heading= truncate action.message, length: 72
+    %span.media-heading= truncate action.message, length: 65
     .feed-footer.pull-bottom
       %span.pull-left= action.author.login
       %span.pull-right= "authored #{time_ago_in_words action.created_at} ago"
