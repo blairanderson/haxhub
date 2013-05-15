@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'ostruct'
 
 describe GitAction do
   describe '.fetch_all_commits' do 
