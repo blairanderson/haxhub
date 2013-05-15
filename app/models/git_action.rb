@@ -21,9 +21,24 @@ class GitAction < ActiveRecord::Base
   end
 
 private
+  def self.build_author(commit)
+    login = commit.committer.login
+    author = Author.where(login: login).first_or_create
+
+    full_name = commit.commit.committer.name
+    author.full_name = full_name
+    
+    avatar_url = commit.committer.avatar_url
+    author.avatar_url = avatar_url
+    
+    author.save
+    author
+  end
+
   def self.build_commit(commit)
+    author = build_author(commit)
     message = commit.commit.message
     url     = commit.html_url
-    GitAction.where(message: message, url: url).first_or_create
+    GitAction.where(message: message, url: url, author_id: author.id ).first_or_create
   end
 end

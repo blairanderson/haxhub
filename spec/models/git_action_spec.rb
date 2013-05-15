@@ -42,5 +42,16 @@ describe GitAction do
       end
     end
 
+    it 'should create authors' do 
+      VCR.use_cassette('git_action_fetch_all') do
+        GitAction.fetch_all_commits(user,repo)
+      end
+
+      target_author = repo.git_actions.first.author
+      expect( target_author.class ).to eq Author
+      expect( target_author.full_name).to eq "Jorge Tellez"
+      expect( target_author.login).to eq "novohispano"
+    end
+
   end
 end

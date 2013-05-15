@@ -11,14 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130514012206) do
+ActiveRecord::Schema.define(:version => 20130515192728) do
 
   create_table "authors", :force => true do |t|
     t.string   "login"
     t.string   "full_name"
-    t.string   "gravatar_url"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "avatar_url"
   end
 
   create_table "git_actions", :force => true do |t|
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(:version => 20130514012206) do
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "user_name"
+    t.string   "repo_name"
     t.integer  "repo_id"
   end
 
