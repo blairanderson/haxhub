@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
         current_user.projects << project
         notice = "Project Added"
       end
+      GitAction.fetch_all_commits(current_user, repo) # this should be in a cron-job
     end
     redirect_to dashboard_path, notice: notice
   end

@@ -29,6 +29,9 @@ group :test, :development do
   gem 'rb-fsevent'
   gem 'factory_girl_rails'
   gem 'vcr'
+end
+
+group :test do
   gem 'webmock'
 end
 
