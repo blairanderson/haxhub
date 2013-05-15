@@ -93,14 +93,25 @@ p.feed-title {
 }
 
 .feed-data {
-  font-weight: bold;
   font-size: 14px;
   background-color: #EAEAEA;
   border: solid 1px #AAAAAA;
-  text-align: center;
   min-height: 6%;
+  max-height: 80px;
   padding: 5px;
   margin: 5px;
+}
+.github div.feed-data:nth-of-type(even) {
+  background-color: #FAFAFA;
+}
+
+.github div.feed-data:hover {
+  background-color: #F5F6CE;
+}
+
+span.pull-left img.thumb {
+  height: 80px;
+  width: 80px;
 }
 
 // NAVBAR

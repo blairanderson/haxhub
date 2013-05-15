@@ -10,9 +10,9 @@
 .tab-content
   - @projects.each_with_index do |project, index|
     .tab-pane{:id => "tab_#{index+1}"}
-      .span3.feed
+      .span3.feed.github
         %p.feed-title= "#{project.title} GitHub"
-        .feed-data Pull request 324234
+        = render "github_feed_item"
         .feed-data Pull request 324234
         .feed-data Pull request 324234
         .feed-data Pull request 324234
@@ -23,7 +23,7 @@
         .feed-data Pull request 324234
         .feed-data Pull request 324234
 
-      .span3.feed
+      .span3.feed.travis
         %p.feed-title= "#{project.title} Travis CI"
         .feed-data Pull request 324234
         .feed-data Pull request 324234
@@ -35,7 +35,7 @@
         .feed-data Pull request 324234
         .feed-data Pull request 324234
         .feed-data Pull request 324234
-      .span3.feed
+      .span3.feed.pivotal
         %p.feed-title= "#{project.title} Pivotal Tracker"
         .feed-data Pull request 324234
         .feed-data Pull request 324234
