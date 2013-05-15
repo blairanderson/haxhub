@@ -14,4 +14,13 @@ class GithubService
     github_auth
   end
 
+  def self.connection
+    @connection ||= Github.new(GithubService.prepare)
+  end
+
+  def self.current_user(oauth_code)
+    connection.oauth_token = connection.get_token( oauth_code ).token
+    [connection.users.get, connection.oauth_token]
+  end
+
 end

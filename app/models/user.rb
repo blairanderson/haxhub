@@ -12,14 +12,10 @@ class User < ActiveRecord::Base
   end
 
   def self.find_or_create(github, token)
-    unless user = find_by_login(github.login)
-      user = new(
-        full_name: github.name,
-        email:     github.email,
-        login:     github.login
-        )
-    end
-
+    user = find_or_initialize_by_login(github.login,
+                                      {full_name: github.name,
+                                       email:     github.email,
+                                       login:     github.login})
     user.token = token
     user.save
     user
@@ -32,16 +28,8 @@ class User < ActiveRecord::Base
       ssl: {:verify => false}).repos.all.map(&:html_url).to_json
   end
 
-  # private
-
-  # # This needs to be likely reworked into new class
-  # # Example use in rails console:
-  # # repos = Repo.api_repos(User.last)
-  # def self.api_repos(user = current_user)
-  #   Github.new(
-  #     oauth_token: user.token,
-  #     ssl: {:verify => false}).repos.all
-  # end
-
-
+  def self.find_or_create_from_token(oauth_code)
+    user, token = GithubService.current_user(oauth_code)
+    User.find_or_create( user, token )
+  end
 end
