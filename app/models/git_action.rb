@@ -36,7 +36,7 @@ private
   end
 
   def self.build_commit(commit)
-    author = build_author(commit)
+    author = Author.build_author_from_commit(commit)
     message = commit.commit.message
     url     = commit.html_url
     GitAction.where(message: message, url: url, author_id: author.id ).first_or_create
