@@ -1,5 +1,5 @@
 %a.side-nav{:href => "#tab_#{count+1}", 'data-toggle'=> 'tab'}
-  = project.title[0..12] + "..."
+  = truncate project.title, length: 20
   .pull-right
     %img.gear-icon{:src => "assets/gear-icon.png", "data-toggle" => "modal", :href => "#myModal#{project.id}", :role => "button", :accesskey => "#{count+1}"}
     %div.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1", :id => "myModal#{project.id}"}
