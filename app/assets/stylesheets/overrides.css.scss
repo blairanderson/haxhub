@@ -47,7 +47,11 @@ li.side-nav {
 }
 
 li.side-nav.active {
-  padding-left: 20px;
+  padding-left: 10px;
+}
+
+li.side-nav.active a:before {
+  content: "> ";
 }
 
 a.side-nav {
@@ -78,6 +82,11 @@ span.side-nav {
   width: 5%;
 }
 
+img.gear-icon {
+  height: 25px;
+  width: 25px;
+}
+
 // FEED
 
 .span3.feed {
@@ -100,14 +109,41 @@ p.feed-title {
 }
 
 .feed-data {
-  font-weight: bold;
   font-size: 14px;
   background-color: #EAEAEA;
   border: solid 1px #AAAAAA;
-  text-align: center;
   min-height: 6%;
+  max-height: 60px;
   padding: 5px;
   margin: 5px;
+}
+.github div.feed-data:nth-of-type(even) {
+  background-color: #FAFAFA;
+}
+
+.github div.feed-data:hover {
+  background-color: #F5F6CE;
+}
+
+span.pull-left img.thumb {
+  height: 60px;
+  width: 60px;
+}
+.media-body {
+  height: 60px;
+  position: relative;
+}
+.feed-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 98%;
+}
+.feed-footer .pull-left, .feed-footer .pull-right {
+  font-size: 12px;
+}
+.feed-footer .pull-left {
+  font-style:italic;
 }
 
 // NAVBAR
