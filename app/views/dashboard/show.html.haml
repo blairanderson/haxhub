@@ -4,8 +4,8 @@
     - @projects.each_with_index do |project, index|
       %li.side-nav{'data-toggle' => 'tooltip', 'data-animation'=> true,'data-placement' => 'right' , 'data-original-title' => "fn + control + option + #{index+1} for settings hot-key"}
         = render "project_settings", {project: project, count: index}
-    %li
-      = render 'add_project', {search: @repo_auto_complete}
+    
+    = render 'add_project', {search: @repo_auto_complete}
 
 .tab-content
   - @projects.each_with_index do |project, index|
@@ -47,8 +47,3 @@
         .feed-data Pull request 324234
         .feed-data Pull request 324234
         .feed-data Pull request 324234
-
-%script
-  $('#projectTabs a:first').tab('show');
-
-%script $('li.side-nav').tooltip();

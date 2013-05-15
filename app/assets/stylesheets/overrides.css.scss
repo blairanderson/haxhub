@@ -36,7 +36,11 @@ li.side-nav {
 }
 
 li.side-nav.active {
-  padding-left: 20px;
+  padding-left: 10px;
+}
+
+li.side-nav.active a:before {
+  content: "> ";
 }
 
 a.side-nav {
