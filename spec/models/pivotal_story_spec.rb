@@ -8,7 +8,7 @@ describe PivotalStory do
   it "fetches all stories for a given Pivotal Tracker project" do
     VCR.use_cassette('fetch_all_stories') do
       stories = PivotalStory.fetch_all_stories('820647')
-      result = stories.first
+      result  = stories.first
       expect(stories).to_not be nil
       expect(result.project).to eq "SOFTLINE"
       expect(result.requester).to eq "Blair Anderson"
