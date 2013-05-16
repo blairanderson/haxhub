@@ -2,7 +2,7 @@ class GitActionsController < ApplicationController
   before_filter :load_project
 
   def index
-    @git_actions = @project.repo.git_actions
+    @git_actions = @project.repo.git_actions.where('id > ?', params[:before].to_i)
   end
 
 private

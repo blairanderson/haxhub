@@ -1,2 +1,2 @@
-alert("it works!");
+$(".github").append("<%= j render 'dashboard/github_feed_item', action: @git_actions.last %>")
 GitPoller.poll();
