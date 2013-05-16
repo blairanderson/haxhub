@@ -1,6 +1,6 @@
 class DashboardController < ApplicationController
   
-  def show  
+  def show
     if logged_in?
       @projects = current_user.projects
 
