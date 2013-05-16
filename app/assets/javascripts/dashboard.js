@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  $('#myModal').modal()
-
   $('#projectTabs a:first').tab('show');
 
   $('li.side-nav').tooltip();
@@ -22,5 +20,5 @@ $(document).ready(function() {
     clearInterval(tabCarousel)
   };
 
-  startCarousel(); 
+  // startCarousel(); 
 });
