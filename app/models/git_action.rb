@@ -1,5 +1,8 @@
 class GitAction < ActiveRecord::Base
-  attr_accessible :message, :repo, :author, :url
+  attr_accessible :message,
+                  :repo,
+                  :author,
+                  :url
 
   belongs_to :repo
   belongs_to :author
@@ -21,16 +24,17 @@ class GitAction < ActiveRecord::Base
   end
 
 private
+
   def self.build_author(commit)
     login = commit.committer.login
     author = Author.where(login: login).first_or_create
 
     full_name = commit.commit.committer.name
     author.full_name = full_name
-    
+
     avatar_url = commit.committer.avatar_url
     author.avatar_url = avatar_url
-    
+
     author.save
     author
   end

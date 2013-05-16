@@ -248,7 +248,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   pg
-  pivotal-tracker (= 0.5.5)
+  pivotal-tracker
   rails (= 3.2.13)
   rb-fsevent
   rspec-rails (~> 2.0)
