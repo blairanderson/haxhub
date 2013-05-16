@@ -10,7 +10,7 @@
 .tab-content
   - @projects.each_with_index do |project, index|
     .tab-pane{:id => "tab_#{index+1}"}
-      .span3.feed.github
+      .span3.feed.github{"data-url" => "#{git_actions_path(project.id)}"}
         %p.feed-title= "GitHub"
         - project.repo.git_actions.limit(8).each do |action|
           = render "github_feed_item", {action: action}
@@ -38,4 +38,3 @@
         .feed-data Pull request 324234
         .feed-data Pull request 324234
         .feed-data Pull request 324234
-
