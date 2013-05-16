@@ -10,6 +10,7 @@ describe PivotalStory do
       stories = PivotalStory.fetch_all_stories('820647')
       result  = stories.first
       expect(stories).to_not be nil
+      expect(stories.count).to eq 22
       expect(result.project).to eq "SOFTLINE"
       expect(result.requester).to eq "Blair Anderson"
       expect(result.message).to eq "User visits Home Page\n\nAfter clicking the \"Start Here\" Button, they are sent to auth with github. \n\nAfter auth, their account is created and they're redirected to the root_path"
