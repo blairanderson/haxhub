@@ -1,12 +1,12 @@
 class GitActionsController < ApplicationController
-  before_filter :load_project
+  before_filter :load_repo
 
   def index
-    @git_actions = @project.repo.git_actions.where('created_at > ?', params[:before])
+    @git_actions = @repo.git_actions.where('event_at > ?', DateTime.parse(params[:before])+(1.seconds))
   end
 
 private
-  def load_project
-    @project = current_user.projects.find(params[:project_id])
+  def load_repo
+    @repo = current_user.projects.find(params[:project_id]).repo
   end
 end

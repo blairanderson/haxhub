@@ -1,8 +1,8 @@
-.feed-data.media.branch{"data-git-created-at" => "#{action.created_at}"}
+.feed-data.media.branch{"data-git-event-at" => "#{action.event_at}"}
   %span.pull-left
     = image_tag(action.author.avatar_url, class: "media-object thumb img-circle")
   .media-body
     %span.media-heading= truncate action.message, length: 65
     .feed-footer.pull-bottom
       %span.pull-left= action.author.login
-      %span.pull-right= "authored #{time_ago_in_words action.created_at} ago"
+      %span.pull-right= "authored #{time_ago_in_words action.event_at} ago"

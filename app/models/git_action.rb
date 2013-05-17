@@ -1,10 +1,10 @@
 class GitAction < ActiveRecord::Base
-  attr_accessible :message, :repo, :author, :url
+  attr_accessible :message, :repo, :author, :url, :event_at
 
   belongs_to :repo
   belongs_to :author
 
-  default_scope order('created_at DESC')
+  default_scope order('event_at DESC')
 
   def self.fetch_all_commits(user, repo)
     github = Github.new(
@@ -41,7 +41,7 @@ private
     author = Author.build_author_from_commit(commit)
     message    = commit.commit.message
     url        = commit.html_url
-    created_at = DateTime.parse(commit.commit.author.date)
-    GitAction.where(message: message, url: url, author_id: author.id, created_at: created_at ).first_or_create
+    event_at = DateTime.parse(commit.commit.author.date)
+    GitAction.where(message: message, url: url, author_id: author.id, event_at: event_at ).first_or_create
   end
 end
