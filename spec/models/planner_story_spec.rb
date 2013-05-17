@@ -1,13 +1,13 @@
 require 'spec_helper'
 
-describe PivotalStory do
+describe PlannerStory do
   before do
     PivotalTrackerService.prepare
   end
 
   it "fetches all stories for a given Pivotal Tracker project" do
     VCR.use_cassette('fetch_all_stories') do
-      stories = PivotalStory.fetch_all_stories('820647')
+      stories = PlannerStory.fetch_all_stories('820647')
       result  = stories.first
       expect(stories).to_not be nil
       expect(stories.count).to eq 22
@@ -19,7 +19,7 @@ describe PivotalStory do
 
   it "fetches a Pivotal Tracker project" do
     VCR.use_cassette('fetch_all_stories') do
-      project = PivotalStory.fetch_project('820647')
+      project = PlannerStory.fetch_project('820647')
       result  = project.name
       expect(result).to eq "SOFTLINE"
     end
@@ -27,7 +27,7 @@ describe PivotalStory do
 
   it "fetches all stories related to a project" do
     VCR.use_cassette('fetch_all_stories') do
-      project = PivotalStory.fetch_project('820647')
+      project = PlannerStory.fetch_project('820647')
       result  = project.stories.all.count
       expect(result).to eq 22
     end
@@ -35,10 +35,10 @@ describe PivotalStory do
 
   it "buils a story from a project" do
     VCR.use_cassette('fetch_all_stories') do
-      project = PivotalStory.fetch_project('820647')
+      project = PlannerStory.fetch_project('820647')
       story   = project.stories.all.first
-      result  = PivotalStory.build_story(project, story)
-      expect(result.class).to eq PivotalStory
+      result  = PlannerStory.build_story(project, story)
+      expect(result.class).to eq PlannerStory
     end
   end
 end

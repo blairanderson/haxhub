@@ -1,7 +1,10 @@
-class PivotalStory < ActiveRecord::Base
+class PlannerStory < ActiveRecord::Base
   attr_accessible :project,
                   :requester,
-                  :message
+                  :message,
+                  :planner
+
+  belongs_to :planner
 
   def self.fetch_all_stories(project_id)
     PivotalTrackerService.prepare
@@ -21,7 +24,7 @@ private
   end
 
   def self.build_story(project, story)
-    pivotal_story = PivotalStory.new
+    pivotal_story = PlannerStory.new
     pivotal_story.project   = project.name
     pivotal_story.requester = story.requested_by
     pivotal_story.message   = story.description
