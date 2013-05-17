@@ -6,26 +6,25 @@ class PlannerStory < ActiveRecord::Base
 
   belongs_to :planner
 
-  def self.fetch_all_stories(project_id)
-    PivotalTrackerService.prepare
-    project = fetch_project(project_id)
-    stories = project.stories.all
-    build_stories(project, stories)
+  def self.fetch_all_stories(planner)
+    prepare_service
+    stories = planner.stories.all
+    build_stories(planner, stories)
   end
 
 private
 
-  def self.fetch_project(project_id)
-    PivotalTrackerService.project(project_id)
+  def self.prepare_service
+    PivotalTrackerService.prepare
   end
 
-  def self.build_stories(project, stories)
-    stories.collect { |story| build_story(project, story) }
+  def self.build_stories(planner, stories)
+    stories.collect { |story| build_story(planner, story) }
   end
 
-  def self.build_story(project, story)
+  def self.build_story(planner, story)
     pivotal_story = PlannerStory.new
-    pivotal_story.project   = project.name
+    pivotal_story.project   = planner.name
     pivotal_story.requester = story.requested_by
     pivotal_story.message   = story.description
     pivotal_story.save
