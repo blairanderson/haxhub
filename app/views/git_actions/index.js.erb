@@ -1,7 +1,11 @@
-$(".github").prepend(
-  $("<%= j render 'dashboard/github_feed_item', action: @git_actions.last %>")
-    .hide()
-    .fadeIn(3000)
-  );
+<% @git_actions.pop %> // DERP
+<% @git_actions.each do |action| %>
+  $(".github").prepend(
+    $("<%= j render 'dashboard/github_feed_item', action: action %>")
+      .hide()
+      .fadeIn(3000)
+    );
+  $(".github .feed-data").last().hide();
+<% end %>
 
 GitPoller.poll();
