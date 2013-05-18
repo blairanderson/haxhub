@@ -2,9 +2,17 @@ require 'spec_helper'
 
 describe ProjectsController do
   describe "POST create" do
-    it "creates new project and repo" do
-      create_user; user = User.last
+    let(:user) do 
+      create_user
+      User.last
+    end
+
+    before(:each) do 
+      expect(user).to be_valid
       controller.stub(current_user: user)
+    end
+
+    it "creates new project and repo" do
       GitAction.stub(:fetch_all_commits).and_return(true)
       repo_name_owner = "blairand/alpha-feed-engine"
       expect {
@@ -13,8 +21,6 @@ describe ProjectsController do
     end
 
     it "finds duplicate project/repo pair, rejects" do
-      create_user; user = User.last
-      controller.stub(current_user: user)
       GitAction.stub(:fetch_all_commits).and_return(true)
       repo_name_owner = "blairand/alpha-feed-engine"
       post :create, repo_name_owner: repo_name_owner
@@ -23,9 +29,28 @@ describe ProjectsController do
       }.to change(user.projects, :count).by(0)
     end
 
-    xit "shows validation error for bad url" do
-      # Validations need to be worked on
+    it "shows error for submitting string with spaces" do
+      GitAction.stub(:fetch_all_commits).and_return(true)
+      repo_name_owner = "invalid repo name"
+      post :create, repo_name_owner: repo_name_owner
+      expect(flash.notice).to include("Sorry")
+      expect(user.projects.count).to eq 0
+      expect(Project.count).to eq 0
+      expect(Repo.count).to eq 0
     end
+
+    xit "shows error for submitting invalid " do
+      GitAction.stub(:fetch_all_commits).and_return(true)
+      repo_name_owner = "blairand/this is crap"
+      post :create, repo_name_owner: repo_name_owner
+      expect(flash.notice).to include("Sorry")
+      expect(user.projects.count).to eq 0
+      expect(Project.count).to eq 0
+      expect(Repo.count).to eq 0
+    end
+
+    
+
   end
 end
 

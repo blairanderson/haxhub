@@ -16,3 +16,6 @@
 
 # Ignore SimpleCov files and folders
 /coverage
+
+# Ignore VCR stuff
+/spec/fixtures
