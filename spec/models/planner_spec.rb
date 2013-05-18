@@ -13,7 +13,7 @@ describe Planner do
     VCR.use_cassette('build_planner') do
       planner = Planner.build_planner('820647')
       result  = planner.planner_stories.count
-      expect(result).to eq 23
+      expect(result).to eq 24
     end
   end
 end
