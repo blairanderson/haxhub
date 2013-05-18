@@ -16,4 +16,10 @@ class Project < ActiveRecord::Base
     end
     Resque.enqueue(FetchGitActions, user.id, repo.id)
   end
+
+  def self.add_planner(project_id, planner_id)
+    project = Project.find(project_id)
+    planner = Planner.build_planner(planner_id)
+    project.planner = planner
+  end
 end
