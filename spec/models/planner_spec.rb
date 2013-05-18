@@ -1,7 +1,6 @@
 require 'spec_helper'
 
 describe Planner do
-
   it "builds a planner" do
     VCR.use_cassette('build_planner') do
       planner = Planner.build_planner('820647')
