@@ -1,9 +1,13 @@
 class Project < ActiveRecord::Base
-  attr_accessible :title, :users, :repo
+  attr_accessible :title,
+                  :users,
+                  :repo,
+                  :planner
 
   has_many :project_users
   has_many :users, through: :project_users
-  belongs_to :repo
+  has_one  :repo
+  has_one  :planner
 
   def self.create_with_repo(repo_url, user)
     repo = Repo.create_from_github(repo_url)
