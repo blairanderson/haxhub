@@ -1,0 +1,5 @@
+test_puts:
+  every: 30s
+  class: TestPuts
+  args:
+  description: Runs the perform method in test puts

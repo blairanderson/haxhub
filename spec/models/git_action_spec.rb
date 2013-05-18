@@ -49,8 +49,8 @@ describe GitAction do
 
       target_author = repo.git_actions.first.author
       expect( target_author.class ).to eq Author
-      expect( target_author.full_name).to eq "Jorge Tellez"
-      expect( target_author.login).to eq "novohispano"
+      expect( target_author.full_name).to eq "Blair Anderson"
+      expect( target_author.login).to eq "blairand"
     end
 
   end

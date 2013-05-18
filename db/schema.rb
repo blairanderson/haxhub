@@ -29,7 +29,6 @@ ActiveRecord::Schema.define(:version => 20130517231028) do
     t.datetime "updated_at", :null => false
     t.string   "type"
     t.string   "url"
-    t.datetime "event_at"
   end
 
   create_table "planner_stories", :force => true do |t|
@@ -66,7 +65,6 @@ ActiveRecord::Schema.define(:version => 20130517231028) do
   end
 
   create_table "repos", :force => true do |t|
-    t.integer  "project_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "name"

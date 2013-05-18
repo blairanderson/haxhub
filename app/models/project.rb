@@ -2,19 +2,20 @@ class Project < ActiveRecord::Base
   attr_accessible :title,
                   :users,
                   :repo,
-                  :planner
+                  :planner,
+                  :repo_name,
+                  :user_name
 
   has_many :project_users
   has_many :users, through: :project_users
-  has_one  :repo
-  has_one  :planner
+  belongs_to  :repo
+  belongs_to  :planner
 
   def self.create_with_repo(repo_url, user)
     repo = Repo.create_from_github(repo_url)
     unless user.duplicate_projects?(repo)
-      user.projects.create(title: repo.name, repo: repo)
+      user.projects.create(title: repo.name, repo: repo, user_name: repo.owner, repo_name: repo.name)
     end
-
-    GitAction.fetch_all_commits(user, repo) # this should be in a background job
+    Resque.enqueue(FetchGitActions, user.id, repo.id)
   end
 end
