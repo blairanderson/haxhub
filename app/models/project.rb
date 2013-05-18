@@ -19,7 +19,12 @@ class Project < ActiveRecord::Base
 
   def self.add_planner(project_id, planner_id)
     project = Project.find(project_id)
-    planner = Planner.build_planner(planner_id)
-    project.planner = planner
+    project.planner = build_planner(planner_id)
+  end
+
+  private
+
+  def self.build_planner(planner_id)
+    Planner.build_planner(planner_id)
   end
 end
