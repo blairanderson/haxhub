@@ -9,4 +9,13 @@ class ProjectsController < ApplicationController
     end
     redirect_to dashboard_path, notice: notice
   end
+
+  def add_planner
+    project_id = params[:project_id].to_i
+    planner_id = params[:planner_id].to_i
+    if Project.add_planner(project_id, planner_id)
+      notice = "Planner Added"
+    end
+    redirect_to dashboard_path, notice: notice
+  end
 end

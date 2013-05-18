@@ -8,7 +8,7 @@
     - @projects.each_with_index do |project, index|
       %li.side-nav{'data-toggle' => 'tooltip', 'data-animation'=> true, 'data-placement' => 'right', 'data-original-title' => "fn + control + option + #{index+1} for settings hot-key"}
         = render "project_settings", {project: project, count: index}
-    
+
     = render 'add_project', {search: @repo_auto_complete}
 
 .tab-content
@@ -35,13 +35,9 @@
 
       .span3.feed
         %p.feed-title= "Pivotal Tracker"
-        .pivotal
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
+        .travis
+        - if project.planner == nil
+          = "Add a Pivotal Tracker Project"
+        - else
+          - project.planner.planner_stories.limit(8).each do |story|
+            = render "planner_feed_item", {story: story}

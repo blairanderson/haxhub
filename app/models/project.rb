@@ -7,7 +7,8 @@ class Project < ActiveRecord::Base
   has_many :project_users
   has_many :users, through: :project_users
   belongs_to  :repo
-  belongs_to  :planner
+
+  has_one  :planner
 
   def self.create_with_repo(repo_url, user)
     repo = Repo.create_from_github(repo_url)
@@ -19,5 +20,16 @@ class Project < ActiveRecord::Base
     else
       return false
     end
+  end
+
+  def self.add_planner(project_id, planner_id)
+    project = Project.find(project_id)
+    project.planner = build_planner(planner_id)
+  end
+
+  private
+
+  def self.build_planner(planner_id)
+    Planner.build_planner(planner_id)
   end
 end

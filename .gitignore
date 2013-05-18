@@ -21,4 +21,4 @@
 /spec/fixtures
 
 # Ignore Dump file
-dumb.rdb
+/dumb.rdb

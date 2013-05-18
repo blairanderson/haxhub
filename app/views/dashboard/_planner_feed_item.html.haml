@@ -1,0 +1,8 @@
+.feed-data.media.branch
+  %span.pull-left
+    / = image_tag(action.author.avatar_url, class: "media-object thumb img-circle")
+  .media-body
+    %span.media-heading= truncate story.message, length: 65
+    .feed-footer.pull-bottom
+      %span.pull-left= story.requester
+      %span.pull-right= "authored #{time_ago_in_words story.created_at} ago"
