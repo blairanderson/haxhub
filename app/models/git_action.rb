@@ -24,17 +24,31 @@ class GitAction < ActiveRecord::Base
 
 private
   def self.build_author(commit)
-    login = commit.committer.login
-    author = Author.where(login: login).first_or_create
+    login, full_name, avatar_url = gather_author_attributes(commit)
+    author = Author.where( login: login ).first_or_create
 
-    full_name = commit.commit.committer.name
-    author.full_name = full_name
-    
-    avatar_url = commit.committer.avatar_url
-    author.avatar_url = avatar_url
-    
+    author.attributes(full_name: full_name, avatar_url: avatar_url)
     author.save
     author
+  end
+
+  def self.gather_author_attributes(commit)
+    login = fetch_login(commit)
+    full_name = fetch_full_name(commit)
+    avatar_url = fetch_full_name(commit)
+    [login, full_name, avatar_url]
+  end
+
+  def self.fetch_avatar_url(commit)
+    commit.committer.avatar_url
+  end
+
+  def self.fetch_full_name(commit)
+    commit.commit.committer.name
+  end
+
+  def self.fetch_login(commit)
+    commit.committer.login
   end
 
   def self.build_commit(commit)
