@@ -6,7 +6,7 @@ _a gSchool project by Blair Anderson, James Denman, Geoffrey Schorkopf and Jorge
 
 There is currently no production site for this app.
 
-### Installing Softline
+### Installing Haxhub
 
 Once you've git cloned this repo, make sure to run
 
@@ -38,7 +38,7 @@ to setup your test database. Then run:
 
 ### Tweet Us, Y'all
 
-blairand
-gschork
-novohispano 
-xacaxulu
+* blairand
+* gschork
+* novohispano 
+* xacaxulu
