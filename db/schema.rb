@@ -59,8 +59,6 @@ ActiveRecord::Schema.define(:version => 20130517231028) do
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "user_name"
-    t.string   "repo_name"
     t.integer  "repo_id"
     t.integer  "planner_id"
   end
