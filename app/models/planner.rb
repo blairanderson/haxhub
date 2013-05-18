@@ -1,8 +1,8 @@
 class Planner < ActiveRecord::Base
   attr_accessible :name
 
-  has_many :projects
-  has_many :planner_stories
+  belongs_to :project
+  has_many   :planner_stories
 
   def self.build_planner(project_id)
     prepare_service

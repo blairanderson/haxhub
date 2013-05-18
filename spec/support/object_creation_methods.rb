@@ -1,5 +1,4 @@
 module ObjectCreationMethods
-  
   def new_project(overrides = {})
     defaults = {title: "Project Title"}
 
