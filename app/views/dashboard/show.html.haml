@@ -27,18 +27,10 @@
         .feed-data Pull request 324234
         .feed-data Pull request 324234
 
-      .span3.feed.pivotal
+      .span3.feed.github
         %p.feed-title= "Pivotal Tracker"
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
-        .feed-data Pull request 324234
-
-=form_tag "/projects", method: :post, class: 'form-inline' do
-  =text_field_tag(:repo_name_owner, nil, class: "input input-large", placeholder: "Enter your repo")
-  =submit_tag("Add", class: 'btn')
+        - if project.planner == nil
+          = "Add a Pivotal Tracker Project"
+        - else
+          - project.planner.planner_stories.limit(8).each do |story|
+            = render "planner_feed_item", {story: story}
