@@ -18,7 +18,7 @@ gem 'resque-scheduler'
 gem 'redis-store', '~> 1.0.0'
 
 gem 'foreman'
-gem 'clockwork'
+gem 'whenever', :require => false
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
