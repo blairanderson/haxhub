@@ -2,15 +2,11 @@ require 'spec_helper'
 
 describe Project do
   let(:user) do
-    user = new_user
-    user.save
-    user
+    create_user
   end
 
   let(:project) do
-    project = new_project
-    project.save
-    project
+    create_project
   end
 
   it "creates a project with a repo" do
