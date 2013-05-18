@@ -10,6 +10,7 @@ class Planner < ActiveRecord::Base
     name    = planner.name
     new_planner = Planner.find_or_create_by_name(name)
     new_planner.planner_stories = PlannerStory.fetch_all_stories(planner)
+    new_planner
   end
 
   private
