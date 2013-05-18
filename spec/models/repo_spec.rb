@@ -20,8 +20,22 @@ describe Repo do
       expect( repo ).to be_invalid
     end
 
-    describe '#user_and_repo_from_string' do
-      it 'should work correctly' do
+    describe '.fetch_new_commits' do
+      it 'should create gitactions for a given repo' do
+        repo.save
+        repo.git_actions.create
+        expect(repo.git_actions.count).to eq 1
+
+        VCR.use_cassette('fetch_new_commits') do
+          Repo.fetch_new_commits(repo, 10)
+        end
+
+        expect(repo.git_actions.count).to eq 11
+
+        VCR.use_cassette('fetch_new_commits_again') do
+          Repo.fetch_new_commits(repo)
+        end
+        expect(repo.git_actions.count).to eq 31
 
       end
     end

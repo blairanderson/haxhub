@@ -1,4 +1,8 @@
+require 'resque/server'
+
 Softline::Application.routes.draw do
+  mount Resque::Server.new, :at => "/resque"
+  
   root to: 'home#show'
   resources :projects, only: [:create]
 
