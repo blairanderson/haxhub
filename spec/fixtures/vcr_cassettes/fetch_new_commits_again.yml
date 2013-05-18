@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.github.com/repos/blairand/alpha-feed-engine/commits?access_token=21fd512a9c68c223dc859eb4b2520e109b93abf1
+    uri: https://api.github.com/repos/blairand/alpha-feed-engine/commits?per_page=30
     body:
       encoding: US-ASCII
       string: ''
@@ -15,8 +15,6 @@ http_interactions:
       - Github Ruby Gem 0.9.7
       Content-Type:
       - application/json
-      Authorization:
-      - Token token="21fd512a9c68c223dc859eb4b2520e109b93abf1"
       Accept-Encoding:
       - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
   response:
@@ -30,7 +28,7 @@ http_interactions:
         R2l0SHViLmNvbQ==
       !binary "RGF0ZQ==":
       - !binary |-
-        U2F0LCAxOCBNYXkgMjAxMyAwMToxODowNyBHTVQ=
+        U2F0LCAxOCBNYXkgMjAxMyAwMToxODoxMCBHTVQ=
       !binary "Q29udGVudC1UeXBl":
       - !binary |-
         YXBwbGljYXRpb24vanNvbjsgY2hhcnNldD11dGYtOA==
@@ -45,41 +43,35 @@ http_interactions:
         MjAwIE9L
       !binary "WC1SYXRlbGltaXQtTGltaXQ=":
       - !binary |-
-        NTAwMA==
+        NjA=
       !binary "WC1SYXRlbGltaXQtUmVtYWluaW5n":
       - !binary |-
-        NDk5OQ==
+        NTg=
       !binary "VmFyeQ==":
       - !binary |-
-        QWNjZXB0LCBBdXRob3JpemF0aW9uLCBDb29raWU=
+        QWNjZXB0
       - !binary |-
         QWNjZXB0LUVuY29kaW5n
       !binary "Q2FjaGUtQ29udHJvbA==":
       - !binary |-
-        cHJpdmF0ZSwgbWF4LWFnZT02MCwgcy1tYXhhZ2U9NjA=
+        cHVibGljLCBtYXgtYWdlPTYwLCBzLW1heGFnZT02MA==
       !binary "TGFzdC1Nb2RpZmllZA==":
       - !binary |-
         U2F0LCAxOCBNYXkgMjAxMyAwMToxNDozMSBHTVQ=
       !binary "RXRhZw==":
       - !binary |-
-        IjAyZmViZTg1N2Q2Y2NkOGZjZmY3YTYyNWZhZmMyN2IyIg==
-      !binary "WC1PYXV0aC1TY29wZXM=":
-      - !binary ""
-      !binary "WC1BY2NlcHRlZC1PYXV0aC1TY29wZXM=":
-      - !binary |-
-        cmVwbywgcHVibGljX3JlcG8sIHJlcG86c3RhdHVzLCBkZWxldGVfcmVwbw==
+        IjE5N2FjZWQ5NThhYjA4YzVjNDQzMjAxOGE1OTE0MjIxIg==
       !binary "WC1HaXRodWItTWVkaWEtVHlwZQ==":
       - !binary |-
         Z2l0aHViLnYzOyBwYXJhbT1mdWxsOyBmb3JtYXQ9anNvbg==
       !binary "TGluaw==":
       - !binary |-
         PGh0dHBzOi8vYXBpLmdpdGh1Yi5jb20vcmVwb3NpdG9yaWVzLzk4OTUwODIv
-        Y29tbWl0cz9hY2Nlc3NfdG9rZW49MjFmZDUxMmE5YzY4YzIyM2RjODU5ZWI0
-        YjI1MjBlMTA5YjkzYWJmMSZsYXN0X3NoYT02YWY3OGE4NjM3MjIwZTcwYzU2
-        Y2E4NjkwMDlkNTdhZmEwMWFiMDQ5JnRvcD1tYXN0ZXI+OyByZWw9Im5leHQi
-        LCA8aHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvc2l0b3JpZXMvOTg5NTA4
-        Mi9jb21taXRzP2FjY2Vzc190b2tlbj0yMWZkNTEyYTljNjhjMjIzZGM4NTll
-        YjRiMjUyMGUxMDliOTNhYmYxJnNoYT1tYXN0ZXI+OyByZWw9ImZpcnN0Ig==
+        Y29tbWl0cz9sYXN0X3NoYT02YWY3OGE4NjM3MjIwZTcwYzU2Y2E4NjkwMDlk
+        NTdhZmEwMWFiMDQ5JnBlcl9wYWdlPTMwJnRvcD1tYXN0ZXI+OyByZWw9Im5l
+        eHQiLCA8aHR0cHM6Ly9hcGkuZ2l0aHViLmNvbS9yZXBvc2l0b3JpZXMvOTg5
+        NTA4Mi9jb21taXRzP3Blcl9wYWdlPTMwJnNoYT1tYXN0ZXI+OyByZWw9ImZp
+        cnN0Ig==
       !binary "WC1Db250ZW50LVR5cGUtT3B0aW9ucw==":
       - !binary |-
         bm9zbmlmZg==
@@ -272,5 +264,5 @@ http_interactions:
         vCxB7wyiFakAZxWcQ7WSlmINJ9UKFNAELkvQRUPpaDDC4PCiuxy9GGwK8Ocf
         /w/fLikWrIoBAA==
     http_version: 
-  recorded_at: Sat, 18 May 2013 01:18:07 GMT
+  recorded_at: Sat, 18 May 2013 01:18:10 GMT
 recorded_with: VCR 2.4.0

@@ -11,6 +11,14 @@ gem 'simple_form'
 gem 'pivotal-tracker'   #https://github.com/jsmestad/pivotal-tracker
 gem 'github_api'        #https://github.com/peter-murach/github
 gem 'bootstrap-sass'
+gem 'newrelic_rpm'
+
+gem 'resque', "~> 1.22.0"
+gem 'resque-scheduler'
+gem 'redis-store', '~> 1.0.0'
+
+gem 'foreman'
+gem 'clockwork'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
