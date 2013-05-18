@@ -14,7 +14,7 @@ Once you've git cloned this repo, make sure to run
 
 Next, run ```rake db:migrate``` to setup your local database
 
-Then, to view the site from your computer, you can then run ```unicorn -p 3000``` to view it at http://localhost:3000.
+Then, to view the site from your computer, you can then run ```foreman start  -p 3000``` to view it at http://localhost:3000.
 
 
 ### Introduction
