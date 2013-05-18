@@ -1,5 +1,4 @@
 module ObjectCreationMethods
-  
   def new_project(overrides = {})
     defaults = {title: "Project Title"}
 
@@ -7,7 +6,9 @@ module ObjectCreationMethods
   end
 
   def create_project(overrides = {})
-    new_project(overrides).save!
+    project = new_project
+    project.save
+    project
   end
 
   def new_repo(overrides = {})
@@ -19,7 +20,9 @@ module ObjectCreationMethods
   end
 
   def create_repo(overrides = {})
-    new_repo(overrides).save!
+    repo = new_repo
+    repo.save
+    repo
   end
 
   def new_user(overrides = {})
@@ -32,6 +35,8 @@ module ObjectCreationMethods
   end
 
   def create_user(overrides = {})
-    new_user(overrides).save!
+    user = new_user
+    user.save
+    user
   end
 end

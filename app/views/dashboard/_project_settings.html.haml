@@ -2,13 +2,17 @@
   = truncate project.title, length: 20
   .pull-right
     %img.gear-icon{:src => "assets/gear-icon.png", "data-toggle" => "modal", :href => "#myModal#{project.id}", :role => "button", :accesskey => "#{count+1}"}
-    %div.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1", :id => "myModal#{project.id}"}
-      .modal-header
-        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-        %h2#myModalLabel
-          = "#{project.title}"
-      .modal-body
-        = render 'update_form'
-      .modal-footer
-        %button.btn{"aria-hidden" => "true", "data-dismiss" => "modal"} Close
-        %button.btn.btn-warning{"aria-hidden" => "true", "data-dismiss" => "modal"} Save changes
+.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1", :id => "myModal#{project.id}"}
+  .modal-header
+    %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+    %h2#myModalLabel= "#{project.title}"
+  .modal-body
+    %h3 Services
+    %h4 Travis-CI
+    %input.input-large{:placeholder => 'ID'}
+    %button.btn Add
+    %br
+    %h4 Pivotal Tracker
+    =form_tag(add_planner_path(project_id: project.id), method: :post, class: 'form-inline') do
+      =text_field_tag(:planner_id, nil, class: "input input-large", placeholder: "Enter your project id")
+      =submit_tag("Add", class: 'btn')
