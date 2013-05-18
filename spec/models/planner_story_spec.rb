@@ -11,7 +11,7 @@ describe PlannerStory do
       stories = PlannerStory.fetch_all_stories(planner)
       result  = stories.last
       expect(stories).to_not be nil
-      expect(stories.count).to eq 23
+      expect(stories.count).to eq 24
       expect(result.project).to eq "SOFTLINE"
       expect(result.requester).to eq "Blair Anderson"
       expect(result.message).to eq "Majority of API access should be done in the background processes. \n\nThey should check for new data and create it when necessary"
@@ -22,7 +22,7 @@ describe PlannerStory do
     VCR.use_cassette('build_planner_stories') do
       planner = Planner.fetch_project('820647')
       result  = planner.stories.all.count
-      expect(result).to eq 23
+      expect(result).to eq 24
     end
   end
 

@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20130517231028) do
     t.datetime "updated_at", :null => false
     t.string   "type"
     t.string   "url"
+    t.datetime "event_at"
   end
 
   create_table "planner_stories", :force => true do |t|
@@ -58,8 +59,6 @@ ActiveRecord::Schema.define(:version => 20130517231028) do
     t.string   "title"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-    t.string   "user_name"
-    t.string   "repo_name"
     t.integer  "repo_id"
     t.integer  "planner_id"
   end
