@@ -1,10 +1,12 @@
+var github = $('.tab-content').find('.active').find('.github')
+
 <% @git_actions.each do |action| %>
-  $(".github").prepend(
+  $(github).prepend(
     $("<%= j render 'dashboard/github_feed_item', action: action %>")
       .hide()
       .fadeIn(3000)
     );
-  $(".github .feed-data").last().hide();
+  $(github).children().last().hide();
   // Last hide doesn't really work, and add slide down functionality
 <% end %>
 
