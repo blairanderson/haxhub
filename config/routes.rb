@@ -6,7 +6,7 @@ Softline::Application.routes.draw do
   root to: 'home#show'
   resources :projects, only: [:create]
 
-  post '/add_planner' => 'project#add_planner'
+  post '/add_planner' => 'projects#add_planner'
 
   get '/dashboard' => 'dashboard#show'
 

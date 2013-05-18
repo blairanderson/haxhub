@@ -9,8 +9,8 @@ class ProjectsController < ApplicationController
   end
 
   def add_planner
-    project_id = params[:project_id]
-    planner_id = params[:planner_id]
+    project_id = params[:project_id].to_i
+    planner_id = params[:planner_id].to_i
     if Project.add_planner(project_id, planner_id)
       notice = "Planner Added"
     end
