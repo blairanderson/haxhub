@@ -281,7 +281,7 @@ DEPENDENCIES
   jquery-rails
   newrelic_rpm
   pg
-  pivotal-tracker (= 0.5.5)
+  pivotal-tracker
   rails (= 3.2.13)
   rb-fsevent
   redis-store (~> 1.0.0)
