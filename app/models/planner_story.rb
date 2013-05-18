@@ -1,4 +1,4 @@
-class PlannerStory < ActiveRecord::Base
+class Story < ActiveRecord::Base
   attr_accessible :project,
                   :requester,
                   :message,
@@ -26,7 +26,7 @@ private
     pivotal_story = PlannerStory.new
     pivotal_story.project   = planner.name
     pivotal_story.requester = story.requested_by
-    pivotal_story.message   = story.description
+    pivotal_story.message   = story.title
     pivotal_story.save
     pivotal_story
   end

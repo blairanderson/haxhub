@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130517231028) do
+ActiveRecord::Schema.define(:version => 20130518230928) do
 
   create_table "authors", :force => true do |t|
     t.string   "login"
@@ -30,15 +30,6 @@ ActiveRecord::Schema.define(:version => 20130517231028) do
     t.string   "type"
     t.string   "url"
     t.datetime "event_at"
-  end
-
-  create_table "planner_stories", :force => true do |t|
-    t.string   "message"
-    t.string   "project"
-    t.string   "requester"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.integer  "planner_id"
   end
 
   create_table "planners", :force => true do |t|
@@ -68,6 +59,20 @@ ActiveRecord::Schema.define(:version => 20130517231028) do
     t.datetime "updated_at", :null => false
     t.string   "name"
     t.string   "owner"
+  end
+
+  create_table "stories", :force => true do |t|
+    t.string   "message"
+    t.string   "project"
+    t.string   "requester"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
+    t.integer  "planner_id"
+    t.string   "url"
+    t.string   "status"
+    t.string   "type"
+    t.integer  "points",     :default => 0
+    t.integer  "story_id"
   end
 
   create_table "users", :force => true do |t|

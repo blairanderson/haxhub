@@ -1,8 +1,8 @@
 class Planner < ActiveRecord::Base
   attr_accessible :name
 
-  belongs_to :project
-  has_many   :planner_stories
+  has_many :project
+  has_many :stories
 
   def self.build_planner(project_id)
     prepare_service
@@ -11,6 +11,10 @@ class Planner < ActiveRecord::Base
     new_planner = Planner.find_or_create_by_name(name)
     new_planner.planner_stories = fetch_all_stories(planner)
     new_planner
+  end
+
+  def stories
+    planner_stories
   end
 
   private
