@@ -1,4 +1,8 @@
 .span3.side-nav
+  - if flash.notice
+    .alert
+      %button.close{data: {dismiss:"alert"}}X
+      = flash.notice
   %p.feed-title
   %ul.side-nav#projectTabs
     - @projects.each_with_index do |project, index|
