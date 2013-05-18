@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(:version => 20130517231028) do
     t.datetime "updated_at", :null => false
     t.string   "type"
     t.string   "url"
+    t.datetime "event_at"
   end
 
   create_table "planner_stories", :force => true do |t|
