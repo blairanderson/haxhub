@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  attr_accessible :title, :users, :repo
+  attr_accessible :title, :users, :repo, :repo_name, :user_name
 
   has_many :project_users
   has_many :users, through: :project_users

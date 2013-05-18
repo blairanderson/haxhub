@@ -12,6 +12,7 @@ class GitAction < ActiveRecord::Base
     build_commits(repo, commits)
   end
 
+
   def self.build_commits(repo, commits)
     commits.collect do | commit |
       action      = build_commit(commit)
