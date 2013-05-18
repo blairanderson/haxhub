@@ -1,5 +1,5 @@
 class UpdateRepo
-  @queue = :work
+  @queue = :updates
 
   def self.perform(repo_id)
     repo = Repo.find(repo_id)
