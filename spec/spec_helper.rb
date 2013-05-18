@@ -20,7 +20,38 @@ VCR.configure do |c|
   c.hook_into :webmock # or :fakeweb
 end
 
+
+
 RSpec.configure do |config|
+
+  REDIS_PID = "#{Rails.root}/tmp/pids/redis-test.pid"
+  REDIS_CACHE_PATH = "#{Rails.root}/tmp/cache/"
+
+  config.before(:suite) do
+    redis_options = {
+      "daemonize"     => 'yes',
+      "pidfile"       => REDIS_PID,
+      "port"          => 6379,
+      "timeout"       => 300,
+      "save 900"      => 1,
+      "save 300"      => 1,
+      "save 60"       => 10000,
+      "dbfilename"    => "dump.rdb",
+      "dir"           => REDIS_CACHE_PATH,
+      "loglevel"      => "debug",
+      "logfile"       => "stdout",
+      "databases"     => 16
+    }.map { |k, v| "#{k} #{v}" }.join("\n")
+    `echo '#{redis_options}' | redis-server -`
+  end
+
+  config.after(:suite) do
+    %x{
+      cat #{REDIS_PID} | xargs kill -QUIT
+      rm -f #{REDIS_CACHE_PATH}dump.rdb
+    }
+  end
+  
   config.include ObjectCreationMethods
   # ## Mock Framework
   #
@@ -29,6 +60,10 @@ RSpec.configure do |config|
   # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
+
+  # redis_instance = MockRedis.new
+  # Redis.stubs(:new).returns(redis_instance)
+  # Redis::Store.stubs(:new).returns(redis_instance)
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -49,34 +84,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
+  
 end
 
-RSpec.configure do |config|
-  REDIS_PID = "#{Rails.root}/tmp/pids/redis-test.pid"
-  REDIS_CACHE_PATH = "#{Rails.root}/tmp/cache/"
 
-  config.before(:suite) do
-    redis_options = {
-      "daemonize"     => 'yes',
-      "pidfile"       => REDIS_PID,
-      "port"          => 9736,
-      "timeout"       => 300,
-      "save 900"      => 1,
-      "save 300"      => 1,
-      "save 60"       => 10000,
-      "dbfilename"    => "dump.rdb",
-      "dir"           => REDIS_CACHE_PATH,
-      "loglevel"      => "debug",
-      "logfile"       => "stdout",
-      "databases"     => 16
-    }.map { |k, v| "#{k} #{v}" }.join("\n")
-    `echo '#{redis_options}' | redis-server -`
-  end
-
-  config.after(:suite) do
-    %x{
-      cat #{REDIS_PID} | xargs kill -QUIT
-      rm -f #{REDIS_CACHE_PATH}dump.rdb
-    }
-  end
-end

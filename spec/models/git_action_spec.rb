@@ -47,10 +47,13 @@ describe GitAction do
         GitAction.fetch_all_commits(user,repo)
       end
 
+      our_full_names = ['Blair Anderson', 'Jorge Tellez', "Geoff Schorkopf"]
+      our_git_names = ["blairand", 'novohispano', 'gschorkopf']
+
       target_author = repo.git_actions.first.author
       expect( target_author.class ).to eq Author
-      expect( target_author.full_name).to eq "Blair Anderson"
-      expect( target_author.login).to eq "blairand"
+      expect( our_full_names ).to include target_author.full_name
+      expect( our_git_names ).to include target_author.login
     end
 
   end
