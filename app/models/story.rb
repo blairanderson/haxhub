@@ -1,8 +1,12 @@
 class Story < ActiveRecord::Base
-  attr_accessible :project,
-                  :requester,
+  attr_accessible :requester,
                   :message,
-                  :planner
+                  :planner,
+                  :url,
+                  :status,
+                  :type,
+                  :story_id,
+                  :points
 
   belongs_to :planner
 
@@ -13,7 +17,6 @@ class Story < ActiveRecord::Base
   end
 
 private
-
   def self.prepare_service
     PivotalTrackerService.prepare
   end
@@ -23,10 +26,9 @@ private
   end
 
   def self.build_story(planner, story)
-    pivotal_story = PlannerStory.new
-    pivotal_story.project   = planner.name
+    pivotal_story = new
     pivotal_story.requester = story.requested_by
-    pivotal_story.message   = story.title
+    pivotal_story.message   = story.name
     pivotal_story.save
     pivotal_story
   end

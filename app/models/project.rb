@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
 
   has_many :project_users
   has_many :users, through: :project_users
+
   belongs_to  :repo
   belongs_to  :planner
 
@@ -21,14 +22,16 @@ class Project < ActiveRecord::Base
     end
   end
 
-  def self.add_planner(project_id, planner_id)
-    project = Project.find(project_id)
-    project.planner = build_planner(planner_id)
+  def add_planner(pivotal_id)
+    planner = Project.build_planner(pivotal_id)
+    self.planner = planner
+    self.save
+    self
   end
 
   private
 
-  def self.build_planner(planner_id)
-    Planner.build_planner(planner_id)
+  def self.build_planner(pivotal_id)
+    Planner.build_planner(pivotal_id)
   end
 end
