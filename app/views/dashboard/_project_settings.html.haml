@@ -5,7 +5,7 @@
 .modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1", :id => "myModal#{project.id}"}
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-    %h2#myModalLabel= "#{project.title.titleize} Services"
+    %h2#myModalLabel= "Services for #{project.title.titleize}"
   .modal-body
     .container
       .span4
@@ -17,5 +17,5 @@
         %h4 Travis-CI
         =form_tag(add_build_status_path(project_id: project.id), method: :post, class: 'form-inline') do
           %p
-            %input#checkbox-1{:type => "checkbox", :value => "1"}/
+            %input#checkbox-1{:type => "checkbox", :checked => checked?(project), :value => value_for_checkbox(project)}/
             %label{:for => "checkbox-1"}

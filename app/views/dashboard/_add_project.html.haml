@@ -4,13 +4,16 @@
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
     %h3#myModalLabel Add GitHub Repo
   .modal-body
-    %p.lead It would be cool for jquery to count the projects and pop up this modal if no projects exist.
-    %br
     %h4 Github
     =form_tag "/projects", method: :post, class: 'form-inline' do
       =text_field_tag(:repo_name_owner, nil, class: "input input-large", placeholder: "Enter your repo", 'autocomplete' =>'off', 'data-provide' => 'typeahead', 'data-source' => search)
       =submit_tag("Add", class: 'btn')
       / this spacing is for the autocomplete
+    %br
+      Start Typing and We'll Try to Help You Out.
+    %br
+    %br
+    %br
     %br
     %br
     %br

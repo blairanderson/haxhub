@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   end
 
   def add_build_status
-    fail
+    redirect_to dashboard_path
   end
 
   def add_planner
