@@ -16,15 +16,17 @@ class GithubService
   end
 
   def self.connection
-    @connection ||= Github.new(GithubService.prepare)
+    Github.new(GithubService.prepare)
   end
 
   def self.user_connection(user)
-    @connection ||= Github.new(GithubService.prepare(github_token: user.token))
+    Github.new(GithubService.prepare(github_token: user.token))
   end
 
   def self.current_user(oauth_code)
-    connection.oauth_token = connection.get_token( oauth_code ).token
-    [connection.users.get, connection.oauth_token]
+    github = connection
+    github.oauth_token = github.get_token( oauth_code ).token
+    # connection.oauth_token = connection.get_token( oauth_code ).token
+    [github.users.get, github.oauth_token]
   end
 end
