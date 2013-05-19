@@ -18,7 +18,6 @@
 /coverage
 
 # Ignore VCR stuff
-/spec/fixtures
 
 # Ignore Dump file
 /dumb.rdb
