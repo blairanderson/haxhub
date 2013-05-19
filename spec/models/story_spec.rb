@@ -7,7 +7,7 @@ describe Story do
 
   it "fetches all stories for a given Pivotal Tracker project" do
     VCR.use_cassette('build_stories') do
-      planner = Planner.fetch_project('820647')
+      planner = Planner.fetch_planner('820647')
       stories = Story.fetch_all_stories(planner)
       result  = stories.first
       expect(stories).to_not be nil
@@ -19,7 +19,7 @@ describe Story do
 
   it "fetches all stories related to a project" do
     VCR.use_cassette('build_planner_stories') do
-      planner = Planner.fetch_project('820647')
+      planner = Planner.fetch_planner('820647')
       
       expect( planner.stories.all.count ).to be > 10
     end
@@ -27,9 +27,9 @@ describe Story do
 
   it "buils a story from a project" do
     VCR.use_cassette('build_planner_stories') do
-      planner = Planner.fetch_project('820647')
+      planner = Planner.fetch_planner('820647')
       story   = planner.stories.all.first
-      result  = Story.build_story(planner, story)
+      result  = Story.build_story(story)
       expect(result.class).to eq Story
     end
   end

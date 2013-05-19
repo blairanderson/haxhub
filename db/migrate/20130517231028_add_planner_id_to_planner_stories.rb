@@ -1,4 +1,4 @@
-class AddPlannerIDtoPlannerStory < ActiveRecord::Migration
+class AddPlannerIdToPlannerStories < ActiveRecord::Migration
   def change
     add_column :planner_stories, :planner_id, :integer
   end

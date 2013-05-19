@@ -18,6 +18,7 @@ gem 'resque-scheduler'
 gem 'redis-store', '~> 1.0.0'
 
 gem 'foreman'
+gem 'coveralls', require: false
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -40,13 +41,10 @@ end
 
 group :test do
   gem 'webmock'
+  gem 'simplecov'
 end
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-end
-
-group :test do
-  gem 'simplecov'
 end

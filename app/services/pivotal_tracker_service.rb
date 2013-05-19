@@ -4,7 +4,7 @@ class PivotalTrackerService
     PivotalTracker::Client.use_ssl = true
   end
 
-  def self.project(project_id)
-    PivotalTracker::Project.find(project_id)
+  def self.planner(pivotal_id)
+    PivotalTracker::Project.find(pivotal_id)
   end
 end

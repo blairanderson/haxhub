@@ -4,7 +4,7 @@ class Story < ActiveRecord::Base
                   :planner,
                   :url,
                   :status,
-                  :type,
+                  :story_type,
                   :story_id,
                   :points
 
@@ -13,7 +13,7 @@ class Story < ActiveRecord::Base
   def self.fetch_all_stories(planner)
     prepare_service
     stories = planner.stories.all
-    build_stories(planner, stories)
+    build_stories(stories)
   end
 
 private
@@ -21,15 +21,17 @@ private
     PivotalTrackerService.prepare
   end
 
-  def self.build_stories(planner, stories)
-    stories.collect { |story| build_story(planner, story) }
+  def self.build_stories(stories)
+    stories.collect { |story| build_story(story) }
   end
 
-  def self.build_story(planner, story)
-    pivotal_story = new
-    pivotal_story.requester = story.requested_by
-    pivotal_story.message   = story.name
-    pivotal_story.save
-    pivotal_story
+  def self.build_story(story)
+    create( requester:  story.requested_by,
+            message:    story.name,
+            story_type: story.story_type,
+            points:     story.estimate,
+            story_id:   story.id,
+            status:     story.current_state,
+            url:        story.url )
   end
 end
