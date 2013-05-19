@@ -1,6 +1,10 @@
 $(document).ready(function() {
   $('#projectTabs a:first').tab('show');
 
+  if ($('#projectTabs').children('li').length === 0) {
+    $('#projectTabs').find('.add_project').trigger('click');
+  };
+
   $('li.side-nav').tooltip();
 
   function startCarousel(){

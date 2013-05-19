@@ -87,6 +87,10 @@ img.gear-icon {
   width: 25px;
 }
 
+#notices {
+  min-height: 60px;
+}
+
 // FEED
 
 .span3.feed {
@@ -98,7 +102,7 @@ img.gear-icon {
 }
 
 p.feed-title {
-  margin-bottom: 2px;
+  margin-bottom: 0px;
   font-family: Helvetica, Arial, Sans-Serif;
   font-size: 20px;
   font-weight: bold;
