@@ -21,12 +21,11 @@ describe Project do
 
   it "adds a planner to a project" do
     VCR.use_cassette('project') do
-      project_id = project.id
-      planner_id = 820647
-      Project.add_planner(project_id, planner_id)
-      result = project.planner
-      expect(result).not_to eq nil
-      expect(result.name).to eq 'SOFTLINE'
+      pivotal_id = 820647
+      project.add_planner(pivotal_id)
+      planner = project.planner
+      expect(planner).not_to eq nil
+      expect(planner.pivotal_id).to eq 820647
     end
   end
 end

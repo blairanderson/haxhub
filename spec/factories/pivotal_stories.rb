@@ -1,9 +1,0 @@
-# Read about factories at https://github.com/thoughtbot/factory_girl
-
-FactoryGirl.define do
-  factory :pivotal_story do
-    story "MyString"
-    project "MyString"
-    requester "MyString"
-  end
-end

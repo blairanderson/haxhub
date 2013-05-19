@@ -3,18 +3,20 @@ class ProjectsController < ApplicationController
 
   def create
     if Project.create_with_repo(params[:repo_name_owner], current_user)
-      notice = "Project Added"
+      notice = "Project added"
     else
-      notice = "Sorry, That didn't Work."
+      notice = "Sorry, that didn't work."
     end
     redirect_to dashboard_path, notice: notice
   end
 
   def add_planner
     project_id = params[:project_id].to_i
+    project    = Project.find(project_id)
+
     planner_id = params[:planner_id].to_i
-    if Project.add_planner(project_id, planner_id)
-      notice = "Planner Added"
+    if project.add_planner(planner_id)
+      notice = "Planner added"
     end
     redirect_to dashboard_path, notice: notice
   end
