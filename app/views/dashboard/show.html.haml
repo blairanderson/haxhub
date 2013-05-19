@@ -15,20 +15,20 @@
   - @projects.each_with_index do |project, index|
     .tab-pane{:id => "tab_#{index+1}"}
       .span3.feed
-        %p.feed-title= "GitHub"
+        %p.feed-title GitHub
         .github{"data-git-url" => "#{git_actions_path(project.id)}"}
           - project.repo.git_actions.limit(8).each do |action|
             = render "github_feed_item", {action: action}
 
       .span3.feed
-        %p.feed-title= "Travis CI"
+        %p.feed-title Travis
         .travis
           - if true == false # This should be "project.travis" (when we built it!)
             - project.travis.test_builds.limit(8).each do |test_build|
               = render "travis_feed_item", {test_build: test_build}        
 
       .span3.feed
-        %p.feed-title= "Pivotal Tracker"
+        %p.feed-title Pivotal
         .pivotal
           - if project.planner
             - project.planner.stories.each do |story|

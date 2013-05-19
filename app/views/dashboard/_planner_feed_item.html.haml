@@ -5,4 +5,4 @@
   .media-body
     .media-heading
       = "#{story.message}"
-      = "(#{get_initials(story.requester)})".html_safe unless story.status == "unstarted"
+      = "(#{get_initials(story.requester)})".html_safe unless story.status_is("unstarted") || story.status_is("unscheduled")

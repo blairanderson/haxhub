@@ -17,6 +17,18 @@ describe Story do
     end
   end
 
+  describe "#status_is" do
+    it "returns true if the status matches" do
+      story = create_story(status: "unstarted")
+      expect(story.status_is("unstarted")).to eq true
+    end
+
+    it "returns false otherwise" do
+      story = create_story(status: "unstarted")
+      expect(story.status_is("finished")).to eq false
+    end
+  end
+
   it "fetches all stories for a given Pivotal Tracker project" do
     VCR.use_cassette('build_stories') do
       planner = Planner.fetch_planner('820647')

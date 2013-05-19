@@ -110,6 +110,8 @@ p.feed-title {
   min-height: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
+  text-transform:uppercase;
+  letter-spacing: 0.2em;
 }
 
 .feed-data {
@@ -121,6 +123,7 @@ p.feed-title {
   padding: 5px;
   margin: 5px;
 }
+
 .github div.feed-data:nth-of-type(even) {
   background-color: #FAFAFA;
 }
@@ -140,6 +143,7 @@ p.feed-title {
 .media-body {
   position: relative;
 }
+
 .feed-footer {
   position: absolute;
   bottom: 0;
@@ -182,7 +186,7 @@ p.feed-title {
 .points {
   position: absolute;
   left: 14;
-  top: 8;
+  top: 9;
   font-size: 12px;
   font-family: monospace;
 }
