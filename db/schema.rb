@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130519002259) do
+ActiveRecord::Schema.define(:version => 20130519175022) do
 
   create_table "authors", :force => true do |t|
     t.string   "login"
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(:version => 20130519002259) do
     t.integer  "planner_id"
     t.string   "url"
     t.string   "status"
-    t.string   "type"
+    t.string   "story_type"
     t.integer  "points",     :default => 0
     t.integer  "story_id"
   end

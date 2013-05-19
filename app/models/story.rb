@@ -4,7 +4,7 @@ class Story < ActiveRecord::Base
                   :planner,
                   :url,
                   :status,
-                  :type,
+                  :story_type,
                   :story_id,
                   :points
 
@@ -26,12 +26,12 @@ private
   end
 
   def self.build_story(story)
-    create( requester: story.requested_by,
-            message:   story.name,
-            type:      story.story_type,
-            points:    story.estimate,
-            story_id:  story.id,
-            status:    story.current_state,
-            url:       story.url )
+    create( requester:  story.requested_by,
+            message:    story.name,
+            story_type: story.story_type,
+            points:     story.estimate,
+            story_id:   story.id,
+            status:     story.current_state,
+            url:        story.url )
   end
 end
