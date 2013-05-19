@@ -1,43 +1,35 @@
 .span3.side-nav
-  - if flash.notice
-    .alert
-      %button.close{data: {dismiss:"alert"}}X
-      = flash.notice
-  %p.feed-title
+  #notices
+    - if flash.notice
+      .alert
+        %button.close{data: {dismiss:"alert"}}X
+        = flash.notice
   %ul.side-nav#projectTabs
     - @projects.each_with_index do |project, index|
       %li.side-nav{'data-toggle' => 'tooltip', 'data-animation'=> true, 'data-placement' => 'right', 'data-original-title' => "fn + control + option + #{index+1} for settings hot-key"}
         = render "project_settings", {project: project, count: index}
-
+    
     = render 'add_project', {search: @repo_auto_complete}
 
 .tab-content
   - @projects.each_with_index do |project, index|
     .tab-pane{:id => "tab_#{index+1}"}
       .span3.feed
-        %p.feed-title= "GitHub"
+        %p.feed-title GitHub
         .github{"data-git-url" => "#{git_actions_path(project.id)}"}
           - project.repo.git_actions.limit(8).each do |action|
             = render "github_feed_item", {action: action}
 
       .span3.feed
-        %p.feed-title= "Travis CI"
+        %p.feed-title Travis
         .travis
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
-          .feed-data Pull request 324234
+          - if true == false # This should be "project.travis" (when we built it!)
+            - project.travis.test_builds.limit(8).each do |test_build|
+              = render "travis_feed_item", {test_build: test_build}        
 
       .span3.feed
-        %p.feed-title= "Pivotal Tracker"
-        .travis
-        - if project.planner == nil
-          = "Add a Pivotal Tracker Project"
-        - else
-          - project.planner.stories.limit(8).each do |story|
-            = render "planner_feed_item", {story: story}
+        %p.feed-title Pivotal
+        .pivotal
+          - if project.planner
+            - project.planner.stories.each do |story|
+              = render "planner_feed_item", {story: story}
