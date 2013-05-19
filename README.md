@@ -1,5 +1,9 @@
 # HaxHub
 
+[![Code Climate](https://codeclimate.com/github/blairand/alpha-feed-engine.png)](https://codeclimate.com/github/blairand/alpha-feed-engine)
+[![Coverage Status](https://coveralls.io/repos/blairand/alpha-feed-engine/badge.png)](https://coveralls.io/r/blairand/alpha-feed-engine)
+[![Build Status](https://travis-ci.org/blairand/alpha-feed-engine.png)](https://travis-ci.org/blairand/alpha-feed-engine)
+
 _a gSchool project by Blair Anderson, James Denman, Geoffrey Schorkopf and Jorge Tellez_
 
 ### View the Live Site
@@ -38,7 +42,7 @@ to setup your test database. Then run:
 
 ### Tweet Us, Y'all
 
-* blairand
-* gschork
-* novohispano 
-* xacaxulu
+* [blairand](https://twitter.com/blairand)
+* [gschork](https://twitter.com/gschork)
+* [novohispano](https://twitter.com/novohispano)
+* [xacaxulu](https://twitter.com/xacaxulu)

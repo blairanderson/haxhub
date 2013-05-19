@@ -18,6 +18,7 @@ gem 'resque-scheduler'
 gem 'redis-store', '~> 1.0.0'
 
 gem 'foreman'
+gem 'coveralls', require: false
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
