@@ -6,8 +6,8 @@ var github = $('.tab-content').find('.active').find('.github')
       .hide()
       .fadeIn(3000)
     );
-  $(github).children().last().hide();
-  // Last hide doesn't really work, and add slide down functionality
+  $(github).children().last().fadeOut(3000).remove();
+  // Add slide down functionality
 <% end %>
 
 GitPoller.poll();
