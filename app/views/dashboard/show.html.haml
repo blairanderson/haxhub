@@ -39,5 +39,5 @@
         - if project.planner == nil
           = "Add a Pivotal Tracker Project"
         - else
-          - project.planner.planner_stories.limit(8).each do |story|
+          - project.planner.stories.limit(8).each do |story|
             = render "planner_feed_item", {story: story}
