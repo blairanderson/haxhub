@@ -129,12 +129,15 @@ p.feed-title {
   background-color: #F5F6CE;
 }
 
-span.pull-left img.thumb {
+.github img.thumb {
   height: 60px;
   width: 60px;
 }
-.media-body {
+.github .media-body {
   height: 60px;
+}
+
+.media-body {
   position: relative;
 }
 .feed-footer {
@@ -148,6 +151,33 @@ span.pull-left img.thumb {
 }
 .feed-footer .pull-left {
   font-style:italic;
+}
+
+// PIVOTAL SPECIFIC
+.pivotal img {
+  height: 25px;
+  width: 25px;
+}
+
+.badge {
+  margin-top: 15px;
+  margin-left: 1px;
+  background-color: white;
+  color: black;
+}
+
+.pivotal-accepted {
+  background-color: #CEF6CE;
+}
+.pivotal-delivered {
+  background-color: #F5F6CE;
+}
+.pivotal-unscheduled {
+  background-color: #CEECF5;
+}
+
+.initials {
+  color: #6E6E6E;
 }
 
 // NAVBAR
