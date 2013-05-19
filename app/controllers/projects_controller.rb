@@ -10,6 +10,10 @@ class ProjectsController < ApplicationController
     redirect_to dashboard_path, notice: notice
   end
 
+  def add_build_status
+    fail
+  end
+
   def add_planner
     project_id = params[:project_id].to_i
     project    = Project.find(project_id)
