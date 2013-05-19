@@ -29,7 +29,7 @@ describe Story do
     VCR.use_cassette('build_planner_stories') do
       planner = Planner.fetch_project('820647')
       story   = planner.stories.all.first
-      result  = Story.build_story(planner, story)
+      result  = Story.build_story(story)
       expect(result.class).to eq Story
     end
   end
