@@ -5,6 +5,18 @@ describe Story do
     PivotalTrackerService.prepare
   end
 
+  describe "#feature?" do
+    it "returns true if story is a feature" do
+      story = create_story(story_type: "feature")
+      expect(story.feature?).to eq true
+    end
+
+    it "returns false otherwise" do
+      story = create_story(story_type: "bug")
+      expect(story.feature?).to eq false
+    end
+  end
+
   it "fetches all stories for a given Pivotal Tracker project" do
     VCR.use_cassette('build_stories') do
       planner = Planner.fetch_planner('820647')

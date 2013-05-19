@@ -159,25 +159,32 @@ p.feed-title {
   width: 25px;
 }
 
-.badge {
-  margin-top: 15px;
-  margin-left: 1px;
-  background-color: white;
-  color: black;
-}
-
 .pivotal-accepted {
   background-color: #CEF6CE;
 }
+
 .pivotal-delivered {
   background-color: #F5F6CE;
 }
+
 .pivotal-unscheduled {
   background-color: #CEECF5;
 }
 
 .initials {
   color: #6E6E6E;
+}
+
+.pivotal .media {
+  position: relative;
+}
+
+.points {
+  position: absolute;
+  left: 14;
+  top: 8;
+  font-size: 12px;
+  font-family: monospace;
 }
 
 // NAVBAR
