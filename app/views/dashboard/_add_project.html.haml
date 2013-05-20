@@ -2,11 +2,10 @@
 #newProjectModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-    %h3#myModalLabel Add GitHub Repo
+    %h3#myModalLabel= @projects.empty? ? "Welcome to HaxHub!" : "Add a New Project" 
   .modal-body
     -if @projects.empty?
-      %p.lead Welcome to HaxHub!
-      %p Haxhub is your one-stop dashboard for tracking GitHub commits, Travis CI builds, and Pivotal Tracker stories. Let's get you started off right.
+      %p Haxhub is your one-stop dashboard for tracking GitHub commits, Travis CI builds, and Pivotal Tracker stories. Let's get you started off right. JEFF WANTED SOMETHING ELSE HERE
       %br
       %h4 Track your first GitHub repo
     - else  
