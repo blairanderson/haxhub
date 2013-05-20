@@ -10,8 +10,13 @@ class ProjectsController < ApplicationController
     redirect_to dashboard_path, notice: notice
   end
 
-  def add_build_status
-    redirect_to dashboard_path
+  def toggle_build_status
+    ci_source = current_user.projects.find(params[:project_id]).ci_source
+    params[:checked] ? value = :on : value = :off
+    
+    ci_source.build_status(value) ? notice = "Travis #{ci_source.status_to_s}!" : notice = "Something went wrong"
+
+    redirect_to dashboard_path, notice: notice
   end
 
   def add_planner

@@ -7,7 +7,7 @@ Softline::Application.routes.draw do
   resources :projects, only: [:create]
 
   post '/add_planner' => 'projects#add_planner'
-  post '/add_build_status' => 'projects#add_build_status'
+  put '/toggle_build_status' => 'projects#toggle_build_status'
 
   get '/dashboard' => 'dashboard#show'
 

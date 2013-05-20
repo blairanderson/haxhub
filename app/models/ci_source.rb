@@ -9,6 +9,18 @@ class CiSource < ActiveRecord::Base
     self.update_attributes(active: true)
   end
 
+  def deactivate
+    self.update_attributes(active: false)
+  end
+
+  def status_to_s
+    active == true ? "activated" : "deactivated"
+  end
+
+  def build_status(value)
+    value == :off ? deactivate : activate
+  end
+
   def fetch_all_test_builds
     travis_repo = TravisService.new("#{owner}/#{name}")
     travis_repo.recent_builds.collect do |test_build|
