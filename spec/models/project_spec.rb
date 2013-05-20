@@ -45,7 +45,7 @@ describe Project do
       expect(CiSource.count).to           eq 1
       expect(project.ci_source).not_to    eq nil
       target_source = CiSource.first
-      expect(project.ci_source_id).to     eq target_source.id
+      expect(project.ci_source.id).to     eq target_source.id
 
       expect(project.ci_source.name).to   eq project.repo.name
       expect(project.ci_source.owner).to  eq project.repo.owner

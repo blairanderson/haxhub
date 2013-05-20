@@ -30,6 +30,8 @@ class Project < ActiveRecord::Base
     new_ci_source.active = false
     new_ci_source.save
     self.ci_source = new_ci_source
+    self.save
+    self
   end
 
   def add_planner(pivotal_id)
