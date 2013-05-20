@@ -190,8 +190,6 @@ GEM
     redis (2.2.2)
     redis-namespace (1.1.0)
       redis (< 3.0.0)
-    redis-store (1.0.0.1)
-      redis (~> 2.2.1)
     resque (1.22.0)
       multi_json (~> 1.0)
       redis-namespace (~> 1.0)
@@ -289,7 +287,7 @@ DEPENDENCIES
   pivotal-tracker
   rails (= 3.2.13)
   rb-fsevent
-  redis-store (~> 1.0.0)
+  redis
   resque (~> 1.22.0)
   resque-scheduler
   rspec-rails (~> 2.0)

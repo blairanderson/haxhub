@@ -15,7 +15,7 @@ gem 'newrelic_rpm'
 
 gem 'resque', "~> 1.22.0"
 gem 'resque-scheduler'
-gem 'redis-store', '~> 1.0.0'
+gem 'redis'
 
 gem 'foreman'
 gem 'coveralls', require: false
