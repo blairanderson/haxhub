@@ -12,12 +12,15 @@ class Project < ActiveRecord::Base
   belongs_to  :planner
   belongs_to  :ci_source
 
-  def self.create_with_repo(repo_url, user)
-    repo = Repo.create_from_github(repo_url)
+  def self.create_with_repo(params, user)
+    params[:checked] ? value = :on : value = :off
+    repo = Repo.create_from_github(params[:repo_name_owner])
+
     if repo
       unless user.duplicate_projects?(repo)
         project = user.projects.create(title: repo.name, repo: repo)
         project.add_ci_source
+        project.ci_source.build_status(value)
       end
       Resque.enqueue(FetchGitActions, user.id, repo.id)
     else

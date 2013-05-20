@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   before_filter :require_login
 
   def create
-    if Project.create_with_repo(params[:repo_name_owner], current_user)
+    if Project.create_with_repo(params, current_user)
       notice = "Project added"
     else
       notice = "Sorry, that didn't work."
