@@ -35,7 +35,7 @@ class Project < ActiveRecord::Base
   end
 
   def add_planner(pivotal_id)
-    planner = Project.build_planner(pivotal_id)
+    planner      = Project.build_planner(pivotal_id)
     self.planner = planner
     self.save
     self

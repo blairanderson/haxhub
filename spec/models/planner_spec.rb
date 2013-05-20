@@ -9,10 +9,10 @@ describe Planner do
     end
   end
 
-  it "attaches the stories to the planner" do
+  it "attaches the activities to the planner" do
     VCR.use_cassette('build_planner') do
       planner = Planner.build_planner('820647')
-      expect(planner.stories.count).to be > 10
+      expect(planner.activities.count).to eq 8
     end
   end
 end

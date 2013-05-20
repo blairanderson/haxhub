@@ -3,14 +3,14 @@ class Planner < ActiveRecord::Base
                   :pivotal_id
 
   has_many :projects
-  has_many :stories
+  has_many :activities
 
   def self.build_planner(pivotal_id)
     prepare_service
     planner     = fetch_planner(pivotal_id)
     name        = planner.name
     new_planner = Planner.where(name: name, pivotal_id: pivotal_id).first_or_create
-    new_planner.stories = fetch_all_stories(planner)
+    new_planner.activities = fetch_all_activities(planner)
     new_planner
   end
 
@@ -23,7 +23,7 @@ private
     PivotalTrackerService.planner(pivotal_id)
   end
 
-  def self.fetch_all_stories(planner)
-    Story.fetch_all_stories(planner)
+  def self.fetch_all_activities(planner)
+    Activity.fetch_all_activities(planner)
   end
 end
