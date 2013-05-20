@@ -19,7 +19,9 @@ describe CiSource do
     it 'returns true if active' do 
       expect(ci_source.active?).to eq false
 
-      ci_source.activate
+      VCR.use_cassette('ci_source_activate') do 
+        ci_source.activate
+      end
 
       expect(ci_source.active?).to eq true
     end
@@ -29,7 +31,9 @@ describe CiSource do
     it 'should activate an inactive ci_source' do 
       expect(ci_source.active).to eq false
       
-      ci_source.activate
+      VCR.use_cassette('ci_source_activate') do 
+        ci_source.activate
+      end
 
       expect(ci_source.active).to eq true
     end
