@@ -10,7 +10,7 @@ class AuthenticationController < ApplicationController
   end
 
   def destroy
-    session[:login], session[:repos] = nil
+    session[:login] = nil
     redirect_to root_path
   end
 

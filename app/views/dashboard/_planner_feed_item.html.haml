@@ -1,8 +1,8 @@
-.feed-data.media.branch
+.feed-data.media{"class" => "pivotal-#{story.status}"}
   %span.pull-left
-    / = image_tag(action.author.avatar_url, class: "media-object thumb img-circle")
+    = image_tag("pivotal-#{story.story_type}.png")
+  .points= story.points if story.feature?
   .media-body
-    %span.media-heading= truncate story.message, length: 65
-    .feed-footer.pull-bottom
-      %span.pull-left= story.requester
-      %span.pull-right= "authored #{time_ago_in_words story.created_at} ago"
+    .media-heading
+      = "#{story.message}"
+      = "(#{get_initials(story.requester)})".html_safe unless story.status_is("unstarted") || story.status_is("unscheduled")

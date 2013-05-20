@@ -9,15 +9,9 @@ class DashboardController < ApplicationController
     end
   end
 
-def load_search
-  if session[:repos]
-    @repo_auto_complete = session[:repos]
-  else
+  def load_search
     @repo_auto_complete ||= current_user.repos
-    session[:repos] = @repo_auto_complete
   end
-  
-end
 end
 
 

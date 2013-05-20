@@ -52,4 +52,17 @@ module ObjectCreationMethods
     user.save
     user
   end
+
+  def new_story(overrides = {})
+    defaults = {
+      message: "I'm a story!"
+      }
+    Story.new(defaults.merge(overrides))
+  end
+
+  def create_story(overrides = {})
+    story = new_story(overrides)
+    story.save
+    story
+  end
 end

@@ -16,6 +16,14 @@ class Story < ActiveRecord::Base
     build_stories(stories)
   end
 
+  def feature?
+    story_type == "feature"
+  end
+
+  def status_is(string)
+    status == string
+  end
+
 private
   def self.prepare_service
     PivotalTrackerService.prepare
