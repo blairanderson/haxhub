@@ -9,7 +9,7 @@ class Activity < ActiveRecord::Base
 
   def self.fetch_all_activities(planner)
     prepare_service
-    activities = planner.activities.all
+    activities = planner.activities.all(number_of_activities)
     build_activities(activities)
   end
 
@@ -18,6 +18,10 @@ class Activity < ActiveRecord::Base
   end
 
 private
+  def self.number_of_activities
+    {limit: 100}
+  end
+
   def self.prepare_service
     PivotalTrackerService.prepare
   end

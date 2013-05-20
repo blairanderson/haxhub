@@ -23,7 +23,7 @@ describe Activity do
       activities = Activity.fetch_all_activities(planner)
       result     = activities.first
       expect(activities).to_not      be nil
-      expect(activities.count).to    eq 8
+      expect(activities.count).to    eq 84
       expect(result.author[0..4]).to eq "Blair"
       expect(result.description).to  eq "Blair Anderson added comment: \"Please help list all the use-cases that require saving:\""
     end

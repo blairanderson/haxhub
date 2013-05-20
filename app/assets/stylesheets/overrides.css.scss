@@ -158,6 +158,11 @@ p.feed-title {
 }
 
 // PIVOTAL SPECIFIC
+
+.media-body.pivotal {
+  min-height: 60px;
+}
+
 .pivotal img {
   height: 25px;
   width: 25px;
