@@ -191,6 +191,25 @@ p.feed-title {
   font-family: monospace;
 }
 
+// TRAVIS SPECIFIC
+
+.travis .feed-data {
+  background-color: white;
+}
+
+.travis-passed {
+  border: dashed 2px #81F781;
+}
+
+.travis-failed {
+  border: dashed 2px #F78181;
+}
+
+.travis img {
+  height: 25px;
+  width: 25px;
+}
+
 // NAVBAR
 
 .navbar-top .navbar-inner, .navbar-static-top .navbar-inner {
