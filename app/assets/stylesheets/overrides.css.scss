@@ -205,6 +205,10 @@ p.feed-title {
   border: dashed 2px #F78181;
 }
 
+.travis-created, .travis-started {
+  border: dashed 2px yellow;
+}
+
 .travis img {
   height: 25px;
   width: 25px;

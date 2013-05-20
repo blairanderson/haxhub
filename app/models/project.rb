@@ -16,7 +16,8 @@ class Project < ActiveRecord::Base
     repo = Repo.create_from_github(repo_url)
     if repo
       unless user.duplicate_projects?(repo)
-        user.projects.create(title: repo.name, repo: repo)
+        project = user.projects.create(title: repo.name, repo: repo)
+        project.add_ci_source
       end
       Resque.enqueue(FetchGitActions, user.id, repo.id)
     else

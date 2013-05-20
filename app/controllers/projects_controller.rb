@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
     ci_source = current_user.projects.find(params[:project_id]).ci_source
     params[:checked] ? value = :on : value = :off
     
-    ci_source.build_status(value) ? notice = "Travis #{ci_source.status_to_s}!" : notice = "Something went wrong"
+    ci_source.build_status(value) ? notice = "Travis #{ci_source.status_to_s}!" : notice = "Something went horribly wrong!"
 
     redirect_to dashboard_path, notice: notice
   end

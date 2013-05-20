@@ -6,6 +6,7 @@ class CiSource < ActiveRecord::Base
   validates_presence_of :owner, :name
 
   def activate
+    self.fetch_all_test_builds if self.test_builds == []
     self.update_attributes(active: true)
   end
 
