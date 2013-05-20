@@ -1,4 +1,17 @@
 module ObjectCreationMethods
+
+  def new_ci_source(overrides = {})
+    defaults = {name: "alpha-feed-engine", owner: "blairand", active:false}
+
+    CiSource.new(defaults.merge(overrides))  
+  end
+
+  def create_ci_source(overrides = {})
+    ci_source = new_ci_source(overrides)
+    ci_source.save
+    ci_source
+  end
+
   def new_project(overrides = {})
     defaults = {title: "Project Title"}
 
@@ -6,7 +19,7 @@ module ObjectCreationMethods
   end
 
   def create_project(overrides = {})
-    project = new_project
+    project = new_project(overrides)
     project.save
     project
   end
@@ -20,7 +33,7 @@ module ObjectCreationMethods
   end
 
   def create_repo(overrides = {})
-    repo = new_repo
+    repo = new_repo(overrides)
     repo.save
     repo
   end
@@ -35,7 +48,7 @@ module ObjectCreationMethods
   end
 
   def create_user(overrides = {})
-    user = new_user
+    user = new_user(overrides)
     user.save
     user
   end

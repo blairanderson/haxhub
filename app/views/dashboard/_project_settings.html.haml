@@ -5,14 +5,17 @@
 .modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1", :id => "myModal#{project.id}"}
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-    %h2#myModalLabel= "#{project.title}"
+    %h2#myModalLabel= "Services for #{project.title.titleize}"
   .modal-body
-    %h3 Services
-    %h4 Travis-CI
-    %input.input-large{:placeholder => 'ID'}
-    %button.btn Add
-    %br
-    %h4 Pivotal Tracker
-    =form_tag(add_planner_path(project_id: project.id), method: :post, class: 'form-inline') do
-      =text_field_tag(:planner_id, nil, class: "input input-large", placeholder: "Enter your project id")
-      =submit_tag("Add", class: 'btn')
+    .container
+      .span4
+        %h4 Pivotal Tracker
+        =form_tag(add_planner_path(project_id: project.id), method: :post, class: 'form-inline') do
+          =text_field_tag(:planner_id, nil, class: "input input-large", placeholder: "Enter your project id")
+          =submit_tag("Add", class: 'btn')
+      .span4
+        %h4 Travis-CI
+        =form_tag(add_build_status_path(project_id: project.id), method: :post, class: 'form-inline') do
+          %p
+            %input#checkbox-1{:type => "checkbox", :checked => checked?(project), :value => value_for_checkbox(project)}/
+            %label{:for => "checkbox-1"}

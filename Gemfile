@@ -10,6 +10,7 @@ gem 'haml-rails'
 gem 'simple_form'
 gem 'pivotal-tracker'   #https://github.com/jsmestad/pivotal-tracker
 gem 'github_api'        #https://github.com/peter-murach/github
+gem 'travis'            #https://github.com/travis-ci/travis
 gem 'bootstrap-sass'
 gem 'newrelic_rpm'
 

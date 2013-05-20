@@ -21,6 +21,14 @@ ActiveRecord::Schema.define(:version => 20130519212013) do
     t.string   "avatar_url"
   end
 
+  create_table "ci_sources", :force => true do |t|
+    t.string   "name"
+    t.string   "owner"
+    t.boolean  "active"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "git_actions", :force => true do |t|
     t.string   "message"
     t.integer  "repo_id"
@@ -49,11 +57,14 @@ ActiveRecord::Schema.define(:version => 20130519212013) do
 
   create_table "projects", :force => true do |t|
     t.string   "title"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.integer  "repo_id"
     t.integer  "planner_id"
+    t.integer  "ci_source_id"
   end
+
+  add_index "projects", ["ci_source_id"], :name => "index_projects_on_ci_source_id"
 
   create_table "repos", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -74,6 +85,24 @@ ActiveRecord::Schema.define(:version => 20130519212013) do
     t.integer  "points",     :default => 0
     t.integer  "story_id"
   end
+
+  create_table "test_builds", :force => true do |t|
+    t.integer  "build_id"
+    t.string   "state"
+    t.datetime "finished"
+    t.integer  "duration"
+    t.string   "message"
+    t.string   "config"
+    t.string   "commit"
+    t.string   "compare"
+    t.string   "author"
+    t.string   "committer"
+    t.integer  "ci_source_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "test_builds", ["ci_source_id"], :name => "index_test_builds_on_ci_source_id"
 
   create_table "users", :force => true do |t|
     t.string   "login"
