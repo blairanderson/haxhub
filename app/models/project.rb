@@ -2,13 +2,15 @@ class Project < ActiveRecord::Base
   attr_accessible :title,
                   :users,
                   :repo,
-                  :planner
+                  :planner,
+                  :ci_source
 
   has_many :project_users
   has_many :users, through: :project_users
 
   belongs_to  :repo
   belongs_to  :planner
+  belongs_to  :ci_source
 
   def self.create_with_repo(repo_url, user)
     repo = Repo.create_from_github(repo_url)
@@ -20,6 +22,14 @@ class Project < ActiveRecord::Base
     else
       return false
     end
+  end
+
+  def add_ci_source
+    new_ci_source = CiSource.where(name: self.repo.name,
+                                   owner: self.repo.owner).first_or_create
+    new_ci_source.active = false
+    new_ci_source.save
+    self.ci_source = new_ci_source
   end
 
   def add_planner(pivotal_id)
