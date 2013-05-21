@@ -3,7 +3,7 @@ module ObjectCreationMethods
   def new_ci_source(overrides = {})
     defaults = {name: "testrepo", owner: "blairtest", active:false}
 
-    CiSource.new(defaults.merge(overrides))  
+    CiSource.new(defaults.merge(overrides))
   end
 
   def create_ci_source(overrides = {})
@@ -53,16 +53,16 @@ module ObjectCreationMethods
     user
   end
 
-  def new_story(overrides = {})
+  def new_activity(overrides = {})
     defaults = {
-      message: "I'm a story!"
+      description: "I'm an activity!"
       }
-    Story.new(defaults.merge(overrides))
+    Activity.new(defaults.merge(overrides))
   end
 
-  def create_story(overrides = {})
-    story = new_story(overrides)
-    story.save
-    story
+  def create_activity(overrides = {})
+    activity = new_activity(overrides)
+    activity.save
+    activity
   end
 end

@@ -1,8 +1,8 @@
-.feed-data.media{"class" => "pivotal-#{story.status}"}
+.feed-data.media{"class" => "pivotal-#{activity.status}"}
   %span.pull-left
-    = image_tag("pivotal-#{story.story_type}.png")
-  .points= story.points if story.feature?
+    = image_tag("pivotal-#{activity.story_type}.png")
+  .points= activity.points if activity.feature?
   .media-body
     .media-heading
-      = "#{story.message}"
-      = "(#{get_initials(story.requester)})".html_safe unless story.status_is("unstarted") || story.status_is("unscheduled")
+      = "#{activity.message}"
+      = "(#{get_initials(activity.requester)})".html_safe unless activity.status_is("unstarted") || activity.status_is("unscheduled")

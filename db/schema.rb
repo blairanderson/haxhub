@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130519212013) do
+ActiveRecord::Schema.define(:version => 20130520202123) do
+
+  create_table "activities", :force => true do |t|
+    t.integer  "activity_id"
+    t.string   "author"
+    t.string   "description"
+    t.string   "event_type"
+    t.datetime "occurred_at"
+    t.integer  "planner_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.string   "requester"
+    t.string   "message"
+    t.string   "story_type"
+    t.integer  "points"
+    t.integer  "story_id"
+    t.string   "status"
+    t.string   "url"
+  end
 
   create_table "authors", :force => true do |t|
     t.string   "login"
@@ -71,19 +89,6 @@ ActiveRecord::Schema.define(:version => 20130519212013) do
     t.datetime "updated_at", :null => false
     t.string   "name"
     t.string   "owner"
-  end
-
-  create_table "stories", :force => true do |t|
-    t.string   "message"
-    t.string   "requester"
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
-    t.integer  "planner_id"
-    t.string   "url"
-    t.string   "status"
-    t.string   "story_type"
-    t.integer  "points",     :default => 0
-    t.integer  "story_id"
   end
 
   create_table "test_builds", :force => true do |t|
