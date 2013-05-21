@@ -6,7 +6,6 @@ class Planner < ActiveRecord::Base
   has_many :activities
 
   def self.build_planner(pivotal_id)
-    prepare_service
     planner     = fetch_planner(pivotal_id)
     name        = planner.name
     new_planner = Planner.where(name: name, pivotal_id: pivotal_id).first_or_create
@@ -19,11 +18,6 @@ class Planner < ActiveRecord::Base
   end
 
 private
-
-  def self.prepare_service
-    PivotalTrackerService.prepare
-  end
-
   def self.fetch_planner(pivotal_id)
     PivotalTrackerService.planner(pivotal_id)
   end
