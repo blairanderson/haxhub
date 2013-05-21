@@ -1,7 +1,7 @@
 module ObjectCreationMethods
 
   def new_ci_source(overrides = {})
-    defaults = {name: "alpha-feed-engine", owner: "blairand", active:false}
+    defaults = {name: "testrepo", owner: "blairtest", active:false}
 
     CiSource.new(defaults.merge(overrides))  
   end
@@ -26,8 +26,8 @@ module ObjectCreationMethods
 
   def new_repo(overrides = {})
     defaults = {
-      owner: "blairand",
-      name: "alpha-feed-engine"
+      owner: "blairtest",
+      name: "testrepo"
       }
     Repo.new(defaults.merge(overrides))
   end
@@ -40,8 +40,8 @@ module ObjectCreationMethods
 
   def new_user(overrides = {})
     defaults = {
-      full_name: "Blair Anderson",
-      login: 'blairand',
+      full_name: "blair",
+      login: 'blairtest',
       token: ENV['GITHUB_B_AUTH']
       }
     User.new(defaults.merge(overrides))

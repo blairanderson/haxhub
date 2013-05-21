@@ -30,13 +30,13 @@ class ProjectsController < ApplicationController
     redirect_to dashboard_path, notice: notice
   end
 
-  def webhook #this is not really doing anything. Don't mind me :)
+  def webhook
     push =  JSON.parse(params[:payload])
     repo = Repo.where(
       name: push['repository']['name'],
       owner: push['repository']['owner']['name']
       ).first
-    login = push["commits"][0]["committer"]["username"] ||push["commits"][0]["author"]["username"]
+    login = push["commits"][0]["committer"]["username"] || push["commits"][0]["author"]["username"]
     user = User.where(login: login).first
     Resque.enqueue(FetchGitActions, user.id, repo.id)
 
