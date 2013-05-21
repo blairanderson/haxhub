@@ -18,30 +18,14 @@
       .span3.feed
         %p.feed-title GitHub
         .github{"data-git-url" => "#{git_actions_path(project.id)}"}
-          - project.repo.git_actions.limit(8).each do |action|
-            = render "github_feed_item", {action: action}
+          = render 'github', project: project, index: index
 
       .span3.feed
         %p.feed-title Travis
         .travis
-          - if project.ci_source.active?
-            - unless project.ci_source.test_builds.empty?
-              - project.ci_source.test_builds.limit(12).each do |test_build|
-                = render "travis_feed_item", {test_build: test_build}
-            - else
-              .notice-window
-                We tried to find your builds, we really did. It looks like you either have no builds or (more likely) have set up Travis incorrectly. Check out
-                %a{href: "http://about.travis-ci.org/docs/user/getting-started/", target: "_blank"}the Travis documentation
-                for more information. When you're ready to try again click
-                %a{href: "#"} this link
-          - else
-            .notice-window= "Wouldn't your project tracking benefit from Travis CI?" + ' Type the shortcut "FN + CTRL + OPT + ' + "#{index+1}" + '" to edit your Travis settings'
+          = render 'travis', project: project, index: index
 
       .span3.feed
         %p.feed-title Pivotal
         .pivotal
-          - if project.planner
-            - project.planner.activities.limit(12).each do |activity|
-              = render "planner_feed_item", {activity: activity}
-          - else
-            .notice-window= "Why not track your to-dos, chores, and bugs with Pivotal Tracker?" + ' Type the shortcut "FN + CTRL + OPT + ' + "#{index+1}" + '" to edit your Pivotal Tracker settings'
+          = render 'pivotal', project: project, index: index

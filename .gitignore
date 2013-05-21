@@ -20,5 +20,5 @@
 # Ignore VCR stuff
 
 # Ignore Dump file
-/dumb.rdb
-dumb.rdb
+/dump.rdb
+*.rdb
