@@ -7,7 +7,7 @@
       %a{href: "http://about.travis-ci.org/docs/user/getting-started/", target: "_blank"}the Travis documentation
       for more information. When you're ready to try again click
       %a{href: "#"} this link
-  - if project.ci_source.test_builds.count < 8
+  - elsif project.ci_source.test_builds.count < 8
     - project.ci_source.test_builds.limit(8).each do |test_build|
       = render "travis_feed_item", test_build: test_build
     - (8-project.ci_source.test_builds.count).times do
