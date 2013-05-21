@@ -70,7 +70,7 @@ private
       story_type:  api_story.story_type,
       points:      api_story.estimate,
       story_id:    api_story.id,
-      status:      api_story.current_state,
+      status:      api_activity.description.match(/finished|delivered|started|accepted|edited|added|estimated/)[0],
       url:         api_story.url }
 
     new_activity.save

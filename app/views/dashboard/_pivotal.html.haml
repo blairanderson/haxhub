@@ -1,5 +1,5 @@
 - if project.planner
-  - project.planner.stories.limit(12).each do |story|
-    = render "planner_feed_item", {story: story}
+  - project.planner.activities.limit(12).each do |activity|
+    = render "planner_feed_item", {activity: activity}
 - else
   .notice-window= "Why not track your to-dos, chores, and bugs with Pivotal Tracker?" + ' Type the shortcut "FN + CTRL + OPT + ' + "#{index+1}" + '" to edit your Pivotal Tracker settings'
