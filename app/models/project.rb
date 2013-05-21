@@ -19,6 +19,7 @@ class Project < ActiveRecord::Base
     if repo
       unless user.duplicate_projects?(repo)
         project = user.projects.create(title: repo.name, repo: repo)
+        Resque.enqueue(AddHook, user.id, repo.id)
         project.add_ci_source
         project.ci_source.build_status(value)
       end

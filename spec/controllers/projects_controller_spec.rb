@@ -48,9 +48,14 @@ describe ProjectsController do
       expect(Project.count).to eq 0
       expect(Repo.count).to eq 0
     end
-
-    
-
   end
+
+  # describe 'POST webhook' do 
+  #   it 'should turn the payload into a GitAction' do 
+  #     expect{
+  #       post :webhook, payload: payload
+  #       }.to change(GitAction, :count).by(1)
+  #   end
+  # end
 end
 

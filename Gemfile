@@ -12,14 +12,15 @@ gem 'pivotal-tracker'   #https://github.com/jsmestad/pivotal-tracker
 gem 'github_api'        #https://github.com/peter-murach/github
 gem 'travis'            #https://github.com/travis-ci/travis
 gem 'bootstrap-sass'
-gem 'newrelic_rpm'
+# gem 'newrelic_rpm'
 
 gem 'resque', "~> 1.22.0"
 gem 'resque-scheduler'
-gem 'redis-store', '~> 1.0.0'
+gem 'redis'
 
 gem 'foreman'
 gem 'coveralls', require: false
+gem 'figaro'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

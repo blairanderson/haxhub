@@ -6,7 +6,7 @@ class CiSource < ActiveRecord::Base
   validates_presence_of :owner, :name
 
   def activate
-    self.fetch_all_test_builds if self.test_builds == []
+    Resque.enqueue(FetchCiBuilds, self.id) if self.test_builds.empty?
     self.update_attributes(active: true)
   end
 
@@ -28,4 +28,5 @@ class CiSource < ActiveRecord::Base
       TestBuild.create_from(test_build, id)
     end
   end
+  
 end
