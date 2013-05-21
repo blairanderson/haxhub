@@ -1,6 +1,7 @@
 class AuthenticationController < ApplicationController
 
   def github_auth
+    github = Github.new(GithubService.prepare)
     redirect_to github.authorize_url(:scope => 'public_repo')
   end
 
@@ -15,10 +16,6 @@ class AuthenticationController < ApplicationController
   end
 
 private
-
-  def github
-    @github_connection ||= Github.new(GithubService.prepare)
-  end
 
   def login(user)
     session[:login] = user.login

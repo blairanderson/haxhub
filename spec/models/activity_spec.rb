@@ -1,10 +1,6 @@
 require 'spec_helper'
 
 describe Activity do
-  before do
-    PivotalTrackerService.prepare
-  end
-
   describe "#story_type_is" do
     it "returns true if the status matches" do
       activity = create_activity(status: "unstarted")
