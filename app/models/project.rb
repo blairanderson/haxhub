@@ -15,6 +15,7 @@ class Project < ActiveRecord::Base
     if repo
       unless user.duplicate_projects?(repo)
         user.projects.create(title: repo.name, repo: repo)
+        Resque.enqueue(AddHook, user.id, repo.id)
       end
       Resque.enqueue(FetchGitActions, user.id, repo.id)
     else

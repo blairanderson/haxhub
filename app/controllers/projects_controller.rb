@@ -20,4 +20,10 @@ class ProjectsController < ApplicationController
     end
     redirect_to dashboard_path, notice: notice
   end
+
+  def webhook
+    push = JSON.parse(params[:payload])
+    puts "I got some JSON: #{push.inspect}"
+    render :nothing => true
+  end
 end

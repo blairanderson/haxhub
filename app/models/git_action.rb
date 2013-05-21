@@ -56,6 +56,52 @@ private
     commit.committer.login
   end
 
+  def self.build_from_payload(payload)
+
+        author = Author.build_author_from_commit(commit)
+    url    = commit.html_url
+    action = GitAction.where(
+      url: commit_url,#The url for the commit
+      author_id: author.id #the ID of the author after the author has been found or created above. 
+      ).first_or_create
+    action.event_at = #the commit date
+    action.message = #the commit message
+    payloads["commits"]
+
+    {
+  :before     => before,
+  :after      => after,
+  :ref        => ref,
+  :commits    => [{
+    :id        => commit.id,
+    :message   => commit.message,
+    :timestamp => commit.committed_date.xmlschema,
+    :url       => commit_url,
+    :added     => array_of_added_paths,
+    :removed   => array_of_removed_paths,
+    :modified  => array_of_modified_paths,
+    :author    => {
+      :name  => commit.author.name,
+      :email => commit.author.email
+    }
+  }],
+  :repository => {
+    :name        => repository.name,
+    :url         => repo_url,
+    :pledgie     => repository.pledgie.id,
+    :description => repository.description,
+    :homepage    => repository.homepage,
+    :watchers    => repository.watchers.size,
+    :forks       => repository.forks.size,
+    :private     => repository.private?,
+    :owner => {
+      :name  => repository.owner.login,
+      :email => repository.owner.email
+    }
+  }
+}
+  end
+
   def self.build_commit(commit)
     author = Author.build_author_from_commit(commit)
     url    = commit.html_url

@@ -2,7 +2,7 @@ class GithubService
 
   def self.prepare(params = {})
     github_auth = {}
-    if Rails.env == "production"
+    if Rails.env.production?
       github_auth[:redirect_uri] = "http://feed-softline.herokuapp.com/auth/github/callback"
     end
 
