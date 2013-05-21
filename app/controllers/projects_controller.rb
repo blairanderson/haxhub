@@ -24,6 +24,12 @@ class ProjectsController < ApplicationController
   def webhook
     push = JSON.parse(params[:payload])
     puts "I got some JSON: #{push.inspect}"
+    puts push["commits"][0]["id"]
+    puts push["commits"][0]["url"]
+    puts push["commits"][0]["message"]
+    puts push["commits"][0]["author"]
+    puts push["repository"]["owner"].inspect
+    puts push["repository"].inspect
     render :nothing => true
   end
 end
