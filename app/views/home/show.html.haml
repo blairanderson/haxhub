@@ -6,16 +6,42 @@
   %ul.thumbnails
     %li.span4
       .thumbnail.home
-        %img.home{:src => "assets/github-service.png"}
-          %h3.home GitHub
-          %p Track your team commits in a single place.
+        %a{"data-toggle" => "modal", :href => "#myModal1", :role => "button"}
+          %img.home{:src => "assets/github-service.png"}
+        %h3.home GitHub
+        %p Track your team commits in a single place.
+
+        #myModal1.modal.home.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-header.home
+            %button.close.home{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h3#myModalLabel GitHub
+          .modal-body.home
+            %img.home{:src => "assets/github-service.png"}
+
     %li.span4
       .thumbnail.home
-        %img.home{:src => "assets/travis-service.png"}
-          %h3.home Travis CI
-          %p Check all your recent passing builds on real-time.
+        %a{"data-toggle" => "modal", :href => "#myModal2", :role => "button"}
+          %img.home{:src => "assets/travis-service.png"}
+        %h3.home Travis CI
+        %p Check all your recent passing builds on real-time.
+
+        #myModal2.modal.home.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-header.home
+            %button.close.home{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h3#myModalLabel Travis CI
+          .modal-body.home
+            %img.home{:src => "assets/travis-service.png"}
+
     %li.span4
       .thumbnail.home
-        %img.home{:src => "assets/pivotal-tracker-service.png"}
-          %h3.home Pivotal Tracker
-          %p Get the latest activity from your Pivotal Tracker projects.
+        %a{"data-toggle" => "modal", :href => "#myModal3", :role => "button"}
+          %img{:src => "assets/pivotal-tracker-service.png"}
+        %h3.home Pivotal Tracker
+        %p Get the latest activity from your Pivotal Tracker projects.
+
+        #myModal3.modal.home.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-header.home
+            %button.close.home{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h3#myModalLabel Pivotal Tracker
+          .modal-body.home
+            %img.home{:src => "assets/pivotal-tracker-service.png"}
