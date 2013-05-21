@@ -15,8 +15,8 @@ describe Project do
 
   it "creates a project with a repo" do
     VCR.use_cassette('project') do
-      url = "https://github.com/novohispano/arepa"
-      Project.create_with_repo(url, user)
+      params = {repo_name_owner: "https://github.com/novohispano/arepa"}
+      Project.create_with_repo(params, user)
       result = Project.all.last
       expect(result.title).to eq "arepa"
       expect(result.repo_id).to eq 1

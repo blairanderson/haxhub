@@ -10,6 +10,14 @@
         = render "project_settings", {project: project, count: index}
     
     = render 'add_project', {search: @repo_auto_complete}
+  
+    %div{:id => 'carousel', "data-interval-id" => 'nil', class: "btn-group pull-right", "data-toggle" => "buttons-radio"}
+      %button{id: 'stop-carousel', class: 'btn active'}
+        %img{src: 'assets/standing-icon.png'}
+      %button{id: 'slow-carousel', class: 'btn'}
+        %img{src: 'assets/walking-icon.png'}
+      %button{id: 'fast-carousel', class: 'btn'}
+        %img{src: 'assets/running-icon.png'}
 
 .tab-content
   - @projects.each_with_index do |project, index|
@@ -23,9 +31,18 @@
       .span3.feed
         %p.feed-title Travis
         .travis
-          - if project.ci_source
-            - project.ci_source.test_builds.limit(12).each do |test_build|
-              = render "travis_feed_item", {test_build: test_build}        
+          - if project.ci_source.active?
+            - unless project.ci_source.test_builds.empty?
+              - project.ci_source.test_builds.limit(12).each do |test_build|
+                = render "travis_feed_item", {test_build: test_build}
+            - else
+              .notice-window 
+                We tried to find your builds, we really did. It looks like you either have no builds or (more likely) have set up Travis incorrectly. Check out 
+                %a{href: "http://about.travis-ci.org/docs/user/getting-started/", target: "_blank"}the Travis documentation
+                for more information. When you're ready to try again click
+                %a{href: "#"} this link
+          - else
+            .notice-window= "Wouldn't your project tracking benefit from Travis CI?" + ' Type the shortcut "FN + CTRL + OPT + ' + "#{index+1}" + '" to edit your Travis settings'
 
       .span3.feed
         %p.feed-title Pivotal
@@ -33,3 +50,5 @@
           - if project.planner
             - project.planner.stories.limit(12).each do |story|
               = render "planner_feed_item", {story: story}
+          - else
+            .notice-window= "Why not track your to-dos, chores, and bugs with Pivotal Tracker?" + ' Type the shortcut "FN + CTRL + OPT + ' + "#{index+1}" + '" to edit your Pivotal Tracker settings'

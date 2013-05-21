@@ -1,6 +1,6 @@
 @GitPoller =
   poll: ->
-    setTimeout @request, 5000
+    setTimeout @request, 15000
 
   request: ->
     github = $(".tab-content").find(".active").find(".github")
