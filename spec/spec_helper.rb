@@ -55,7 +55,7 @@ RSpec.configure do |config|
       rm -f #{REDIS_CACHE_PATH}dump.rdb
     }
   end
-  
+
   config.include ObjectCreationMethods
   # ## Mock Framework
   #
@@ -88,7 +88,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
-  
+
 end
 
 
