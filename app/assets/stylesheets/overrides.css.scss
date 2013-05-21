@@ -6,8 +6,81 @@ ul.thumbnails {
   margin-left:  auto;
   margin-top:   40px;
   margin-right: auto;
-  padding:      50px;
+  padding:      60px;
   width:        1000px;
+}
+
+.thumbnail.home {
+  display: block;
+  padding: 10px;
+  line-height: 20px;
+  box-shadow: none;
+  font-weight: lighter;
+}
+
+.btn-large.home {
+  padding:               19px 24px;
+  font-size:             24px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius:    6px;
+  border-radius:         6px;
+}
+
+img.home {
+  padding-bottom: 10px;
+}
+
+h3.home {
+  text-align: center;
+}
+
+// MODAL HOME
+
+.modal.home {
+  position:     fixed;
+  top:          10%;
+  left:         50%;
+  z-index:      1050;
+  width:        760px;
+  height:       auto;
+  margin-left: -380px;
+  background-color: white;
+  border: 1px solid #999;
+  border: 1px solid
+  rgba(0, 0, 0, 0.3);
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+  -webkit-background-clip: padding-box;
+  -moz-background-clip: padding-box;
+  background-clip: padding-box;
+  outline: none;
+}
+
+.modal-header.home {
+  background-color: #333;
+}
+
+.close.home {
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
+  color:
+  orange;
+  text-shadow: none;
+  opacity: 10;
+  filter: alpha(opacity=20);
+}
+
+.modal-body.home {
+  position: relative;
+  overflow-y: auto;
+  min-height: 450px;
+  padding: 15px;
 }
 
 // SIDEBAR

@@ -1,21 +1,47 @@
 .container.lead
   %h1.lead Track your team's progress.
-  %p.lead HaxHub is a dashboard tool for developer teams that allows you to track your team progress on Github, Travis-CI and Pivotal Tracker.
-  = link_to "Sign up today", github_auth_path, class: "btn btn-large btn-warning"
+  %p.lead Haxhub is a developer dashboard to visualize your project.
+  = link_to "Get started now", github_auth_path, class: "btn btn-large home btn-warning"
 %container
   %ul.thumbnails
     %li.span4
-      .thumbnail
-        %img{:src => "http://placehold.it/400x300"}
-          %h3 GitHub
-          %p Thumbnail caption...
+      .thumbnail.home
+        %a{"data-toggle" => "modal", :href => "#myModal1", :role => "button"}
+          %img.home{:src => "assets/github-service.png"}
+        %h3.home GitHub
+        %p Track your team commits in a single place.
+
+        #myModal1.modal.home.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-header.home
+            %button.close.home{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h3#myModalLabel GitHub
+          .modal-body.home
+            %img.home{:src => "assets/github-service.png"}
+
     %li.span4
-      .thumbnail
-        %img{:src => "http://placehold.it/400x300"}
-          %h3 Pivotal Tracker
-          %p Thumbnail caption...
+      .thumbnail.home
+        %a{"data-toggle" => "modal", :href => "#myModal2", :role => "button"}
+          %img.home{:src => "assets/travis-service.png"}
+        %h3.home Travis CI
+        %p Check all your recent builds on real-time.
+
+        #myModal2.modal.home.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-header.home
+            %button.close.home{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h3#myModalLabel Travis CI
+          .modal-body.home
+            %img.home{:src => "assets/travis-service.png"}
+
     %li.span4
-      .thumbnail
-        %img{:src => "http://placehold.it/400x300"}
-          %h3 Travis CI
-          %p Thumbnail caption...
+      .thumbnail.home
+        %a{"data-toggle" => "modal", :href => "#myModal3", :role => "button"}
+          %img{:src => "assets/pivotal-tracker-service.png"}
+        %h3.home Pivotal Tracker
+        %p Get the latest activity from your projects.
+
+        #myModal3.modal.home.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+          .modal-header.home
+            %button.close.home{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
+            %h3#myModalLabel Pivotal Tracker
+          .modal-body.home
+            %img.home{:src => "assets/pivotal-tracker-service.png"}
