@@ -15,6 +15,8 @@ class TestBuild < ActiveRecord::Base
   validates_presence_of :ci_source_id
   belongs_to :ci_source
 
+  default_scope order('started DESC')
+
   def self.create_from(build, ci_source_id)
     new_build = where( build_id: build.number, 
                        ci_source_id: ci_source_id).first_or_create
