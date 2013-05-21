@@ -43,16 +43,16 @@ http_interactions:
         cHJpdmF0ZSwgbWF4LWFnZT0wLCBtdXN0LXJldmFsaWRhdGU=
       !binary "U2V0LUNvb2tpZQ==":
       - !binary |-
-        dF9zZXNzaW9uPUJBaDdDRG9RWDJOemNtWmZkRzlyWlc0aU1YVlNiVkY1UVZs
-        dU9HWjRkV3hHVFZsWmJ6UXJZMUJwVjFSMk1HTTVhVk5uU1hwclNVSkhRazVF
-        Y2xVOU9nOXpaWE56YVc5dVgybGtJaVU0TkRRMFl6QmlaRFV3TmpOa1ptSmha
-        V1UxWmpZeFpXRTBZMlUxWXpBMU56b1BaWGh3YVhKbGMxOWhkRWwxT2dsVWFX
-        MWxEWU5USElCWG1pam9Cam9mUUcxaGNuTm9ZV3hmZDJsMGFGOTFkR05mWTI5
-        bGNtTnBiMjVHLS1lMWRmOWQ2ZTAyNGJkZjY5NjcxNTIyMmYzZmMyMmYzYmI5
-        MDA3N2E0OyBwYXRoPS87IHNlY3VyZTsgSHR0cE9ubHk=
+        dF9zZXNzaW9uPUJBaDdDRG9RWDJOemNtWmZkRzlyWlc0aU1YSTBRM2hGWkhW
+        R2NtTlRMMGx5WVdSeVRsZFRMMEZ5WldkcVJWcGhSMUYxVGtkWlVFbHlNV2R1
+        VHpBOU9nOXpaWE56YVc5dVgybGtJaVV5TkRObE16VTVOV1k1WVROaVl6ZGpZ
+        V1kzWldObVpXVXhZVGs1TVdVMFpEb1BaWGh3YVhKbGMxOWhkRWwxT2dsVWFX
+        MWxEWkZUSElBOVFCa3NCam9mUUcxaGNuTm9ZV3hmZDJsMGFGOTFkR05mWTI5
+        bGNtTnBiMjVHLS0wMjMzM2I4M2U4ZGRkM2FlNTVlYTk1YTdhMTcxMzM0OGQ3
+        OWExNWJmOyBwYXRoPS87IHNlY3VyZTsgSHR0cE9ubHk=
       !binary "WC1SdW50aW1l":
       - !binary |-
-        NzI=
+        Mjg=
       !binary "U2VydmVy":
       - !binary |-
         bmdpbngvMS4yLjIgKyBQaHVzaW9uIFBhc3NlbmdlciAzLjAuMTQgKG1vZF9y
@@ -83,7 +83,7 @@ http_interactions:
         dcadEYofKvNbSyd3S1CkX+S3u/9NJN3psdZ3F3wT4Cuvff69vGj8uttpfGDG
         mxfmfxFtOsGTCgAA
     http_version: 
-  recorded_at: Tue, 21 May 2013 03:57:59 GMT
+  recorded_at: Tue, 21 May 2013 17:11:01 GMT
 - request:
     method: get
     uri: https://www.pivotaltracker.com/services/v3/projects/820647/stories
@@ -121,13 +121,13 @@ http_interactions:
         UGh1c2lvbiBQYXNzZW5nZXIgKG1vZF9yYWlscy9tb2RfcmFjaykgMy4wLjE0
       !binary "U2V0LUNvb2tpZQ==":
       - !binary |-
-        dF9zZXNzaW9uPUJBaDdDRG9RWDJOemNtWmZkRzlyWlc0aU1TdE9jVlJyUTBk
-        ek0wSkNlR0p5YTNWelRuRmpPRmRPYWsxc2NVRnJUVVZzTW0xTGJtZGFTMjFQ
-        ZEVVOU9nOXpaWE56YVc5dVgybGtJaVV5TWpZd1pqQTRNREU1TjJJM01HVmtZ
-        elU1TjJZM056SXpNR014WmpCbFlqb1BaWGh3YVhKbGMxOWhkRWwxT2dsVWFX
-        MWxEWU5USElBM01Dem9Cam9mUUcxaGNuTm9ZV3hmZDJsMGFGOTFkR05mWTI5
-        bGNtTnBiMjVHLS0zOWRmZGU4MmRjZGFhYTg5OTcyZGNiYzczMWQxNjY1YzZi
-        YWIyZjZlOyBwYXRoPS87IHNlY3VyZTsgSHR0cE9ubHk=
+        dF9zZXNzaW9uPUJBaDdDRG9RWDJOemNtWmZkRzlyWlc0aU1VZ3hhSEpUVmxs
+        c1dXWTJUbFJ6T0ZFMFVsRk5URlJ5VGtGc2RtOVBVRVpIT1RGS1IxVmpSWGxL
+        WWpROU9nOXpaWE56YVc5dVgybGtJaVV3TVRKbVptVTNPR000Wm1ZNE56ZzVO
+        elptTURWbU0ySmlNV0UzTm1ReE1Ub1BaWGh3YVhKbGMxOWhkRWwxT2dsVWFX
+        MWxEWkZUSElCWkZod3NCam9mUUcxaGNuTm9ZV3hmZDJsMGFGOTFkR05mWTI5
+        bGNtTnBiMjVHLS05M2ZiYTlmZDAyYTk5ZmQ0OWY5NTZiZDA2NzNjMDk1M2Uy
+        ZjliMWJhOyBwYXRoPS87IHNlY3VyZTsgSHR0cE9ubHk=
       !binary "RXRhZw==":
       - !binary |-
         ImUyZjQwYTE4MWExN2RlNjljMGQwM2YwYjU0OWM0N2NhIg==
@@ -136,7 +136,7 @@ http_interactions:
         cHJpdmF0ZSwgbWF4LWFnZT0wLCBtdXN0LXJldmFsaWRhdGU=
       !binary "WC1SdW50aW1l":
       - !binary |-
-        MTEz
+        Mjc=
       !binary "U2VydmVy":
       - !binary |-
         bmdpbngvMS4yLjIgKyBQaHVzaW9uIFBhc3NlbmdlciAzLjAuMTQgKG1vZF9y
@@ -246,5 +246,5 @@ http_interactions:
         +jZbpdQdLGBZy7lB5nh6nSd5Suwnh7xNjV1EtYzWxRYjj0sc2u+iDOLc+i9O
         8EnXvVkAAA==
     http_version: 
-  recorded_at: Tue, 21 May 2013 03:57:59 GMT
+  recorded_at: Tue, 21 May 2013 17:11:01 GMT
 recorded_with: VCR 2.4.0

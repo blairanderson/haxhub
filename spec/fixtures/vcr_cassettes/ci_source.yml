@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.travis-ci.org/repos/blairand/alpha-feed-engine
+    uri: https://api.travis-ci.org/repos/blairtest/testrepo
     body:
       encoding: US-ASCII
       string: ''
@@ -17,8 +17,8 @@ http_interactions:
       - 30
   response:
     status:
-      code: 200
-      message: OK
+      code: 404
+      message: Not Found
     headers:
       Access-Control-Allow-Credentials:
       - 'true'
@@ -30,8 +30,6 @@ http_interactions:
       - no-cache
       Content-Type:
       - application/json;charset=utf-8
-      Etag:
-      - ! '"06bc837052304a26e7e31dc484fa0b12"'
       Strict-Transport-Security:
       - max-age=31536000
       Vary:
@@ -41,171 +39,12 @@ http_interactions:
       X-Oauth-Scopes:
       - public
       Content-Length:
-      - '817'
+      - '20'
       Connection:
       - keep-alive
     body:
       encoding: US-ASCII
-      string: ! '{"repo":{"id":886775,"slug":"blairand/alpha-feed-engine","description":"The
-        goal of this project is to practice consuming web service APIs as well as
-        publishing an API of your own. You will create a Tumblr or Friendfeed-like
-        system that lets users publish a timeline of activities that they have either
-        created on the site or that are activity imported from another third-party
-        site such as GitHub, Twitter, and Instagram. In addition, you will provide
-        an API for reading and writing to a user\u2019s activity stream, and publish
-        a gem to let other application developers consume your API.","last_build_id":7345382,"last_build_number":"54","last_build_state":"failed","last_build_duration":295,"last_build_language":null,"last_build_started_at":"2013-05-21T03:28:16Z","last_build_finished_at":"2013-05-21T03:33:11Z"}}'
+      string: ! '{"file":"not found"}'
     http_version: 
-  recorded_at: Tue, 21 May 2013 03:57:57 GMT
-- request:
-    method: get
-    uri: https://api.travis-ci.org/builds/?repository_id=886775
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.7
-      Accept:
-      - application/vnd.travis-ci.2+json, */*; q=0.01
-      Connection:
-      - keep-alive
-      Keep-Alive:
-      - 30
-  response:
-    status:
-      code: 200
-      message: OK
-    headers:
-      Access-Control-Allow-Credentials:
-      - 'true'
-      Access-Control-Allow-Origin:
-      - ! '*'
-      Access-Control-Expose-Headers:
-      - Content-Type, Cache-Control, Expires, Etag, Last-Modified
-      Cache-Control:
-      - no-cache
-      Content-Type:
-      - application/json;charset=utf-8
-      Etag:
-      - ! '"06bc837052304a26e7e31dc484fa0b12"'
-      Strict-Transport-Security:
-      - max-age=31536000
-      Vary:
-      - Accept,Accept-Encoding
-      X-Accepted-Oauth-Scopes:
-      - public
-      X-Oauth-Scopes:
-      - public
-      Content-Length:
-      - '22877'
-      Connection:
-      - keep-alive
-    body:
-      encoding: US-ASCII
-      string: ! '{"builds":[{"id":7345382,"repository_id":886775,"commit_id":2170513,"number":"54","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"failed","started_at":"2013-05-21T03:28:16Z","finished_at":"2013-05-21T03:33:11Z","duration":295,"job_ids":[7345383]},{"id":7344456,"repository_id":886775,"commit_id":2170312,"number":"53","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"failed","started_at":"2013-05-21T02:54:24Z","finished_at":"2013-05-21T03:00:07Z","duration":343,"job_ids":[7344457]},{"id":7344184,"repository_id":886775,"commit_id":2170255,"number":"52","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-21T02:41:45Z","finished_at":"2013-05-21T02:46:12Z","duration":267,"job_ids":[7344185]},{"id":7343665,"repository_id":886775,"commit_id":2170125,"number":"51","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-21T02:17:21Z","finished_at":"2013-05-21T02:21:53Z","duration":272,"job_ids":[7343666]},{"id":7343319,"repository_id":886775,"commit_id":2170018,"number":"50","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-21T01:56:13Z","finished_at":"2013-05-21T02:00:29Z","duration":256,"job_ids":[7343320]},{"id":7343178,"repository_id":886775,"commit_id":2169979,"number":"49","pull_request":true,"pull_request_title":"Travis
-        befe","pull_request_number":31,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-21T01:49:50Z","finished_at":"2013-05-21T01:55:34Z","duration":344,"job_ids":[7343179]},{"id":7343168,"repository_id":886775,"commit_id":2169976,"number":"48","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-21T01:49:28Z","finished_at":"2013-05-21T01:55:09Z","duration":341,"job_ids":[7343169]},{"id":7338109,"repository_id":886775,"commit_id":2168496,"number":"47","pull_request":true,"pull_request_title":"Travis
-        befe","pull_request_number":31,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-20T21:56:16Z","finished_at":"2013-05-20T22:02:37Z","duration":381,"job_ids":[7338110]},{"id":7338102,"repository_id":886775,"commit_id":2168493,"number":"46","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-20T21:55:51Z","finished_at":"2013-05-20T22:01:30Z","duration":339,"job_ids":[7338103]},{"id":7329260,"repository_id":886775,"commit_id":2166092,"number":"45","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-20T17:14:55Z","finished_at":"2013-05-20T17:20:04Z","duration":309,"job_ids":[7329261]},{"id":7311771,"repository_id":886775,"commit_id":2160688,"number":"44","pull_request":true,"pull_request_title":"Some
-        preliminary travis view templating","pull_request_number":30,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-20T01:58:25Z","finished_at":"2013-05-20T02:02:30Z","duration":245,"job_ids":[7311772]},{"id":7311769,"repository_id":886775,"commit_id":2160686,"number":"43","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-20T02:02:06Z","finished_at":"2013-05-20T02:05:56Z","duration":230,"job_ids":[7311770]},{"id":7311339,"repository_id":886775,"commit_id":2160545,"number":"42","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-20T01:13:52Z","finished_at":"2013-05-20T01:18:42Z","duration":290,"job_ids":[7311340]},{"id":7311194,"repository_id":886775,"commit_id":2160486,"number":"41","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-20T00:55:40Z","finished_at":"2013-05-20T00:59:59Z","duration":259,"job_ids":[7311195]},{"id":7310882,"repository_id":886775,"commit_id":2160400,"number":"40","pull_request":true,"pull_request_title":"Travis
-        integration ","pull_request_number":29,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-20T00:29:44Z","finished_at":"2013-05-20T00:33:46Z","duration":242,"job_ids":[7310883]},{"id":7310880,"repository_id":886775,"commit_id":2160399,"number":"39","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-20T00:25:41Z","finished_at":"2013-05-20T00:29:57Z","duration":256,"job_ids":[7310881]},{"id":7310517,"repository_id":886775,"commit_id":2160294,"number":"38","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-20T00:05:33Z","finished_at":"2013-05-20T00:09:42Z","duration":249,"job_ids":[7310518]},{"id":7310319,"repository_id":886775,"commit_id":2160248,"number":"37","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-19T23:55:15Z","finished_at":"2013-05-20T00:01:59Z","duration":404,"job_ids":[7310320]},{"id":7309914,"repository_id":886775,"commit_id":2160100,"number":"36","pull_request":true,"pull_request_title":"Css
-        to the max","pull_request_number":28,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-19T23:23:39Z","finished_at":"2013-05-19T23:28:15Z","duration":276,"job_ids":[7309915]},{"id":7309904,"repository_id":886775,"commit_id":2160097,"number":"35","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-19T23:22:01Z","finished_at":"2013-05-19T23:25:56Z","duration":235,"job_ids":[7309905]},{"id":7305752,"repository_id":886775,"commit_id":2158983,"number":"34","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-19T19:25:21Z","finished_at":"2013-05-19T19:29:32Z","duration":251,"job_ids":[7305753]},{"id":7305455,"repository_id":886775,"commit_id":2158899,"number":"33","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"passed","started_at":"2013-05-19T19:11:54Z","finished_at":"2013-05-19T19:16:07Z","duration":253,"job_ids":[7305456]},{"id":7305274,"repository_id":886775,"commit_id":2158833,"number":"32","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"failed","started_at":"2013-05-19T19:03:04Z","finished_at":"2013-05-19T19:07:07Z","duration":243,"job_ids":[7305275]},{"id":7305089,"repository_id":886775,"commit_id":2158780,"number":"31","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"failed","started_at":"2013-05-19T18:54:13Z","finished_at":"2013-05-19T18:58:44Z","duration":271,"job_ids":[7305090]},{"id":7304837,"repository_id":886775,"commit_id":2158700,"number":"30","pull_request":false,"pull_request_title":null,"pull_request_number":null,"config":{"language":"ruby","rvm":["1.9.3"],"script":["bundle
-        exec rake db:migrate","bundle exec rake db:reset","bundle exec rake db:test:prepare","bundle
-        exec rspec spec/"],".result":"configured"},"state":"failed","started_at":"2013-05-19T18:45:10Z","finished_at":"2013-05-19T18:51:30Z","duration":380,"job_ids":[7304838]}],"commits":[{"id":2170513,"sha":"2e33c09b7173990ac27c0582e966ebb773f0054a","branch":"pivotal_stories_to_activities","message":"Activity
-        tests passing. Github tests pending","committed_at":"2013-05-21T03:15:25Z","author_name":"novohispano@gmail.com","author_email":"novohispano@gmail.com","committer_name":"novohispano@gmail.com","committer_email":"novohispano@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/6b46f3ab8a46...2e33c09b7173","pull_request_number":null},{"id":2170312,"sha":"6b46f3ab8a468105389d8accb336d0081ff541d1","branch":"pivotal_stories_to_activities","message":"Geoff''s
-        views are working with new data. Still pending to display other attributes.","committed_at":"2013-05-21T02:52:37Z","author_name":"novohispano@gmail.com","author_email":"novohispano@gmail.com","committer_name":"novohispano@gmail.com","committer_email":"novohispano@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/991d1ccd240a...6b46f3ab8a46","pull_request_number":null},{"id":2170255,"sha":"991d1ccd240a821f1e9d8929bf0269d540d0235f","branch":"pivotal_stories_to_activities","message":"Activities
-        now instead of stories on Planner. Added stories to the activities so we can
-        fetch more attributes. Tests passing","committed_at":"2013-05-21T02:40:58Z","author_name":"novohispano@gmail.com","author_email":"novohispano@gmail.com","committer_name":"novohispano@gmail.com","committer_email":"novohispano@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/b34b4a4939c1^...991d1ccd240a","pull_request_number":null},{"id":2170125,"sha":"1a9488fb3c4aeb3856090dcc6c9df18396affac5","branch":"master","message":"Hid
-        buttons in partial, added if statement on partial","committed_at":"2013-05-21T02:16:28Z","author_name":"Geoff
-        Schorkopf","author_email":"gschorkopf@gmail.com","committer_name":"Geoff Schorkopf","committer_email":"gschorkopf@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/ad9bf0543261...1a9488fb3c4a","pull_request_number":null},{"id":2170018,"sha":"ad9bf0543261335fb6398721b06fae9fd760dd20","branch":"master","message":"Added
-        corresponding buttons and CSS","committed_at":"2013-05-21T01:48:41Z","author_name":"Geoff
-        Schorkopf","author_email":"gschorkopf@gmail.com","committer_name":"Geoff Schorkopf","committer_email":"gschorkopf@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/ccfccb380c91...ad9bf0543261","pull_request_number":null},{"id":2169979,"sha":"73c64be1f70fad5b7f47e5276856700cb1e5f5aa","branch":"master","message":"Added
-        corresponding buttons and CSS","committed_at":"2013-05-21T01:48:41Z","author_name":"Geoff
-        Schorkopf","author_email":"gschorkopf@gmail.com","committer_name":"Geoff Schorkopf","committer_email":"gschorkopf@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/pull/31","pull_request_number":31},{"id":2169976,"sha":"ad9bf0543261335fb6398721b06fae9fd760dd20","branch":"travis_befe","message":"Added
-        corresponding buttons and CSS","committed_at":"2013-05-21T01:48:41Z","author_name":"Geoff
-        Schorkopf","author_email":"gschorkopf@gmail.com","committer_name":"Geoff Schorkopf","committer_email":"gschorkopf@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/75364884d33a...ad9bf0543261","pull_request_number":null},{"id":2168496,"sha":"33b194ea7759114ace55f6b5374238bf8aee13ae","branch":"master","message":"Added
-        VCRs - tests pass","committed_at":"2013-05-20T21:41:53Z","author_name":"Geoff
-        Schorkopf","author_email":"gschorkopf@gmail.com","committer_name":"Geoff Schorkopf","committer_email":"gschorkopf@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/pull/31","pull_request_number":31},{"id":2168493,"sha":"75364884d33a10a6b17e4881a3eee65b0bfa7237","branch":"travis_befe","message":"Added
-        VCRs - tests pass","committed_at":"2013-05-20T21:41:53Z","author_name":"Geoff
-        Schorkopf","author_email":"gschorkopf@gmail.com","committer_name":"Geoff Schorkopf","committer_email":"gschorkopf@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/c5fd035fa96e^...75364884d33a","pull_request_number":null},{"id":2166092,"sha":"ccfccb380c91c7f901090791f471b4f995f824d6","branch":"master","message":"Some
-        preliminary travis view templating","committed_at":"2013-05-20T01:57:23Z","author_name":"Geoff
-        Schorkopf","author_email":"gschorkopf@gmail.com","committer_name":"Geoff Schorkopf","committer_email":"gschorkopf@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/b0d0410749a1...ccfccb380c91","pull_request_number":null},{"id":2160688,"sha":"cce5f5ccb6834b31192a71090f1e26acd35f8b2b","branch":"master","message":"Some
-        preliminary travis view templating","committed_at":"2013-05-20T01:57:23Z","author_name":"Geoff
-        Schorkopf","author_email":"gschorkopf@gmail.com","committer_name":"Geoff Schorkopf","committer_email":"gschorkopf@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/pull/30","pull_request_number":30},{"id":2160686,"sha":"ccfccb380c91c7f901090791f471b4f995f824d6","branch":"adding_travis_views","message":"Some
-        preliminary travis view templating","committed_at":"2013-05-20T01:57:23Z","author_name":"Geoff
-        Schorkopf","author_email":"gschorkopf@gmail.com","committer_name":"Geoff Schorkopf","committer_email":"gschorkopf@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/commit/ccfccb380c91","pull_request_number":null},{"id":2160545,"sha":"b0d0410749a14362fc2e13d031c9f2440fd2fda2","branch":"master","message":"Minor
-        fix to project","committed_at":"2013-05-20T01:09:09Z","author_name":"Geoff
-        Schorkopf","author_email":"gschorkopf@gmail.com","committer_name":"Geoff Schorkopf","committer_email":"gschorkopf@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/79267c27573e...b0d0410749a1","pull_request_number":null},{"id":2160486,"sha":"79267c27573ed7d0824a1ca13a3bd2285a8a18e1","branch":"master","message":"Merge
-        pull request #29 from blairand/travis\n\nTravis integration","committed_at":"2013-05-20T00:54:48Z","author_name":"Geoff
-        Schorkopf","author_email":"gschorkopf@gmail.com","committer_name":"Geoff Schorkopf","committer_email":"gschorkopf@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/6b1bf6b8ac16...79267c27573e","pull_request_number":null},{"id":2160400,"sha":"b64fba8ee89f3e84cfba3965cab224d146cc0347","branch":"master","message":"spec
-        helper stuff","committed_at":"2013-05-20T00:24:35Z","author_name":"Blair Anderson","author_email":"blair81@gmail.com","committer_name":"Blair
-        Anderson","committer_email":"blair81@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/pull/29","pull_request_number":29},{"id":2160399,"sha":"b997ca232b664a477880a0857f15aaa0872e9758","branch":"travis","message":"spec
-        helper stuff","committed_at":"2013-05-20T00:24:35Z","author_name":"Blair Anderson","author_email":"blair81@gmail.com","committer_name":"Blair
-        Anderson","committer_email":"blair81@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/145cb8ce5643...b997ca232b66","pull_request_number":null},{"id":2160294,"sha":"145cb8ce5643a9215cb4a938fee480d99a8422ad","branch":"travis","message":"create
-        Ci_Sources and test_builds. not yet wired to the front-end.","committed_at":"2013-05-20T00:04:29Z","author_name":"Blair
-        Anderson","author_email":"blair81@gmail.com","committer_name":"Blair Anderson","committer_email":"blair81@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/40f1e5662070^...145cb8ce5643","pull_request_number":null},{"id":2160248,"sha":"6b1bf6b8ac162403b728567246bc39edc0881a7a","branch":"master","message":"More
-        changes to dashboard: title, monospacing, fixed up stylesheet","committed_at":"2013-05-19T23:21:23Z","author_name":"Geoff
-        Schorkopf","author_email":"gschorkopf@gmail.com","committer_name":"Geoff Schorkopf","committer_email":"gschorkopf@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/6c95714a75c3...6b1bf6b8ac16","pull_request_number":null},{"id":2160100,"sha":"f5d470a4a1b36df3953edb50ff3b9fe66e7d0b50","branch":"master","message":"More
-        changes to dashboard: title, monospacing, fixed up stylesheet","committed_at":"2013-05-19T23:21:23Z","author_name":"Geoff
-        Schorkopf","author_email":"gschorkopf@gmail.com","committer_name":"Geoff Schorkopf","committer_email":"gschorkopf@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/pull/28","pull_request_number":28},{"id":2160097,"sha":"6b1bf6b8ac162403b728567246bc39edc0881a7a","branch":"css_to_the_max","message":"More
-        changes to dashboard: title, monospacing, fixed up stylesheet","committed_at":"2013-05-19T23:21:23Z","author_name":"Geoff
-        Schorkopf","author_email":"gschorkopf@gmail.com","committer_name":"Geoff Schorkopf","committer_email":"gschorkopf@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/63deb38d13b6^...6b1bf6b8ac16","pull_request_number":null},{"id":2158983,"sha":"6c95714a75c37935bb863d546aeb70496e73492d","branch":"master","message":"one
-        more attempt","committed_at":"2013-05-19T19:08:12Z","author_name":"Blair Anderson","author_email":"blair81@gmail.com","committer_name":"Blair
-        Anderson","committer_email":"blair81@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/1407a18a41db...6c95714a75c3","pull_request_number":null},{"id":2158899,"sha":"6c95714a75c37935bb863d546aeb70496e73492d","branch":"fix_travis","message":"one
-        more attempt","committed_at":"2013-05-19T19:08:12Z","author_name":"Blair Anderson","author_email":"blair81@gmail.com","committer_name":"Blair
-        Anderson","committer_email":"blair81@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/a2557aa4224f...6c95714a75c3","pull_request_number":null},{"id":2158833,"sha":"a2557aa4224f2a27f8465deed491ad3e626042f1","branch":"fix_travis","message":"One
-        more try","committed_at":"2013-05-19T19:01:59Z","author_name":"Blair Anderson","author_email":"blair81@gmail.com","committer_name":"Blair
-        Anderson","committer_email":"blair81@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/4827a78918eb...a2557aa4224f","pull_request_number":null},{"id":2158780,"sha":"4827a78918eb534a4735a2c3688bd96749e3f75c","branch":"fix_travis","message":"one
-        more try","committed_at":"2013-05-19T18:53:09Z","author_name":"Blair Anderson","author_email":"blair81@gmail.com","committer_name":"Blair
-        Anderson","committer_email":"blair81@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/dfc15b6b85a1...4827a78918eb","pull_request_number":null},{"id":2158700,"sha":"dfc15b6b85a1fa428e7d9ba2a3b8c09aaf4776f1","branch":"fix_travis","message":"Travis
-        is a turd","committed_at":"2013-05-19T18:43:38Z","author_name":"Blair Anderson","author_email":"blair81@gmail.com","committer_name":"Blair
-        Anderson","committer_email":"blair81@gmail.com","compare_url":"https://github.com/blairand/alpha-feed-engine/compare/35fa96111636...dfc15b6b85a1","pull_request_number":null}]}'
-    http_version: 
-  recorded_at: Tue, 21 May 2013 03:57:57 GMT
+  recorded_at: Tue, 21 May 2013 17:10:59 GMT
 recorded_with: VCR 2.4.0
