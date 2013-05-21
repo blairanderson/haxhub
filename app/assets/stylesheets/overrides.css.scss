@@ -210,11 +210,19 @@ p.feed-title {
   border: dashed 2px #F78181;
 }
 
+.travis-created, .travis-started {
+  border: dashed 2px yellow;
+}
+
 .travis img {
   height: 25px;
   width: 25px;
 }
 
+.notice-window {
+  padding: 30px;
+  padding-top: 0px;
+}
 // NAVBAR
 
 .navbar-top .navbar-inner, .navbar-static-top .navbar-inner {
@@ -275,6 +283,11 @@ p.feed-title {
   font-size:   16px;
   margin:      0 10px 0 0;
   color:       orange;
+}
+
+#carousel img {
+  height: 20px;
+  width: 20px;
 }
 
 // MASTHEAD

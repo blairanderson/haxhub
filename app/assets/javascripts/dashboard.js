@@ -7,22 +7,31 @@ $(document).ready(function() {
 
   $('li.side-nav').tooltip();
 
-  function startCarousel(){
-    delay = 10000; // We'll wanna set this as the data-field for some form
-    
-    var tabCarousel = setInterval(function() {
+  function startCarousel(delay){
+
+    var intervalID = setInterval(function() {
       var tabs = $('#projectTabs > li'),
           active = tabs.filter('.active'),
           next = active.next('li'),
           toClick = next.length ? next.find('a') : tabs.eq(0).find('a');
 
       toClick.trigger('click');
-  }, delay); 
+    }, delay);
+
+    return intervalID
   };
 
-  function stopCarousel(){
-    clearInterval(tabCarousel)
-  };
-
-  // startCarousel(); 
+  $('#fast-carousel').on('click', function(){
+    clearInterval($('#carousel').data('interval-id'));
+    var intervalID = startCarousel(1000);
+    $('#carousel').data('interval-id', intervalID);
+  });
+  $('#slow-carousel').on('click', function(){
+    clearInterval($('#carousel').data('interval-id'));
+    var intervalID = startCarousel(5000);
+    $('#carousel').data('interval-id', intervalID);
+  });
+  $('#stop-carousel').on('click', function(){
+    clearInterval($('#carousel').data('interval-id'));
+  });
 });

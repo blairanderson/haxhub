@@ -5,15 +5,15 @@ describe Activity do
     PivotalTrackerService.prepare
   end
 
-  describe "#event_type_is" do
+  describe "#story_type_is" do
     it "returns true if the status matches" do
-      activity = create_activity(event_type: "unstarted")
-      expect(activity.event_type_is("unstarted")).to eq true
+      activity = create_activity(status: "unstarted")
+      expect(activity.status_is("unstarted")).to eq true
     end
 
     it "returns false otherwise" do
-      activity = create_activity(event_type: "unstarted")
-      expect(activity.event_type_is("finished")).to eq false
+      activity = create_activity(status: "unstarted")
+      expect(activity.status_is("finished")).to eq false
     end
   end
 
