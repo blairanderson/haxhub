@@ -1,7 +1,7 @@
 class AuthenticationController < ApplicationController
 
   def github_auth
-    redirect_to github.authorize_url
+    redirect_to github.authorize_url(:scope => 'public_repo')
   end
 
   def github_callback

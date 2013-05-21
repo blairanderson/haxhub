@@ -1,5 +1,6 @@
-require 'coveralls'
-Coveralls.wear!
+
+# require 'coveralls'
+# Coveralls.wear!
 
 require 'simplecov'
 SimpleCov.start do
@@ -64,10 +65,6 @@ RSpec.configure do |config|
   # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
-
-  # redis_instance = MockRedis.new
-  # Redis.stubs(:new).returns(redis_instance)
-  # Redis::Store.stubs(:new).returns(redis_instance)
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

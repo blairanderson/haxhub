@@ -6,6 +6,8 @@ Softline::Application.routes.draw do
   root to: 'home#show'
   resources :projects, only: [:create]
 
+  match '/webhook' => 'projects#webhook', as: 'webhook'
+
   post '/add_planner' => 'projects#add_planner'
   put '/toggle_build_status' => 'projects#toggle_build_status'
 
