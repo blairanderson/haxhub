@@ -11,10 +11,13 @@
     
     = render 'add_project', {search: @repo_auto_complete}
   
-  %div{:id => 'carousel', "data-interval-id" => 'nil'}
-    %button{id: 'stop-carousel'}Stop
-    %button{id: 'turtle-carousel'}Turtle
-    %button{id: 'cheetah-carousel'}Cheetah
+    %div{:id => 'carousel', "data-interval-id" => 'nil', class: "btn-group pull-right", "data-toggle" => "buttons-radio"}
+      %button{id: 'stop-carousel', class: 'btn active'}
+        %img{src: 'assets/standing-icon.png'}
+      %button{id: 'slow-carousel', class: 'btn'}
+        %img{src: 'assets/walking-icon.png'}
+      %button{id: 'fast-carousel', class: 'btn'}
+        %img{src: 'assets/running-icon.png'}
 
 .tab-content
   - @projects.each_with_index do |project, index|

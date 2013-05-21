@@ -21,17 +21,22 @@ $(document).ready(function() {
     return intervalID
   };
 
-  $('#cheetah-carousel').on('click', function(){
+  $('#fast-carousel').on('click', function(){
+    clearInterval($('#carousel').data('interval-id'));
+    var intervalID = startCarousel(1000);
+    $('#carousel').data('interval-id', intervalID);
+  });
+  $('#slow-carousel').on('click', function(){
     clearInterval($('#carousel').data('interval-id'));
     var intervalID = startCarousel(5000);
     $('#carousel').data('interval-id', intervalID);
-  })
-  $('#turtle-carousel').on('click', function(){
-    clearInterval($('#carousel').data('interval-id'));
-    var intervalID = startCarousel(15000);
-    $('#carousel').data('interval-id', intervalID);
-  })
+  });
   $('#stop-carousel').on('click', function(){
     clearInterval($('#carousel').data('interval-id'));
-  })
+  });
+
+  $(".btn-slide").click(function(){
+    $("#panel").slideToggle("slow");
+    $(this).toggleClass("active-slider"); return false;
+  });
 });
