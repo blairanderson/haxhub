@@ -2,19 +2,28 @@
 #newProjectModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
-    %h3#myModalLabel Add GitHub Repo
+    %h3#myModalLabel= @projects.empty? ? "Welcome to HaxHub!" : "Add a New Project" 
   .modal-body
     -if @projects.empty?
-      %p.lead Welcome to HaxHub!
-      %p Haxhub is your one-stop dashboard for tracking GitHub commits, Travis CI builds, and Pivotal Tracker stories. Let's get you started off right.
-      %br
-      %h4 Track your first GitHub repo
-    - else  
-      %h4 Track a new GitHub repo
+      %p Haxhub is your one-stop dashboard for tracking GitHub commits, Travis CI builds, and Pivotal Tracker stories. Let's get you started off right. JEFF WANTED SOMETHING ELSE HERE
+      %br     
     =form_tag "/projects", method: :post, class: 'form-inline' do
-      =text_field_tag(:repo_name_owner, nil, class: "input input-large", placeholder: "Enter your repo", 'autocomplete' =>'off', 'data-provide' => 'typeahead', 'data-source' => search)
-      =submit_tag("Add", class: 'btn')
+      %p
+        %h4 Track a new GitHub repo
+        =text_field_tag(:repo_name_owner, nil, class: "input input-large", placeholder: "Enter your repo", 'autocomplete' =>'off', 'data-provide' => 'typeahead', 'data-source' => search)
+      
+      %p
+        %h4 Add Travis CI
+        %input{:id => "checkbox-new", :type => "checkbox", :checked => nil, :name => "checked"}
+        %label{:for => "checkbox-new"}
+
+      =submit_tag("Submit", class: 'btn')
       / this spacing is for the autocomplete
+    %br
+      Start Typing and We'll Try to Help You Out.
+    %br
+    %br
+    %br
     %br
     %br
     %br

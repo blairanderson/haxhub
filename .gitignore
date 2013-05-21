@@ -20,5 +20,8 @@
 # Ignore VCR stuff
 
 # Ignore Dump file
-/dumb.rdb
-dumb.rdb
+/dump.rdb
+dump.rdb
+
+# Ignore application configuration
+/config/application.yml

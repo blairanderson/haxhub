@@ -1,0 +1,5 @@
+.feed-data.media{"class" => "travis-#{test_build.state}"}
+  %span.pull-left
+    = image_tag("travis-#{test_build.state}.png")
+  .media-body
+    .media-heading= truncate test_build.message, length: 75

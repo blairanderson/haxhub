@@ -191,6 +191,33 @@ p.feed-title {
   font-family: monospace;
 }
 
+// TRAVIS SPECIFIC
+
+.travis .feed-data {
+  background-color: white;
+}
+
+.travis-passed {
+  border: dashed 2px #81F781;
+}
+
+.travis-failed {
+  border: dashed 2px #F78181;
+}
+
+.travis-created, .travis-started {
+  border: dashed 2px yellow;
+}
+
+.travis img {
+  height: 25px;
+  width: 25px;
+}
+
+.notice-window {
+  padding: 30px;
+  padding-top: 0px;
+}
 // NAVBAR
 
 .navbar-top .navbar-inner, .navbar-static-top .navbar-inner {
@@ -253,6 +280,11 @@ p.feed-title {
   color:       orange;
 }
 
+#carousel img {
+  height: 20px;
+  width: 20px;
+}
+
 // MASTHEAD
 
 .container.lead {
@@ -272,17 +304,39 @@ h1.lead {
   color: orange;
 }
 
-select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
-display: inline-block;
-height: 30px;
-padding: 4px 6px;
-margin-bottom: 10px;
-font-size: 14px;
-line-height: 20px;
-color:
-#555555;
--webkit-border-radius: 4px;
--moz-border-radius: 4px;
-border-radius: 4px;
-vertical-align: middle;
+// light Switch on project settings tab
+
+input[type=radio] + label:before, input[type=checkbox] + label:before {
+    content: '';
+    display: inline-block;
+    height: 25px;
+    width: 80px;
+    background: url(switch.png) no-repeat top right;
+}
+
+input[type=radio]:checked + label:before, input[type=checkbox]:checked + label:before {
+    background-position: top left;
+}
+
+input[type=radio]+label:before, input[type=checkbox]+label:before {
+    content: '';
+    display: inline-block;
+    height: 25px;
+    width: 80px;
+    background: url(switch.png) no-repeat top right;
+    /* Adding in some CSS3 transition goodness */
+    transition: background-position .2s;
+    -webkit-transition: background-position .2s;
+    -moz-transition: background-position .2s;
+    -o-transition: background-position .2s;
+    -ms-transition: background-position .2s;
+}
+
+input[type=radio], input[type=checkbox] {
+    position: absolute;
+    left: -9999px;
+}
+
+input[type=radio]:focus, input[type=checkbox]:focus {
+    position: static;
 }

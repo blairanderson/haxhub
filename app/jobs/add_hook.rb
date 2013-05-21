@@ -4,8 +4,6 @@ class AddHook
   @queue = :hooks
 
   def self.perform(user_id,repo_id)
-    puts webhook_url
-
     user = User.find(user_id)
     repo = Repo.find(repo_id)
 

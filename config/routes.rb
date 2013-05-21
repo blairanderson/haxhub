@@ -9,6 +9,7 @@ Softline::Application.routes.draw do
   match '/webhook' => 'projects#webhook', as: 'webhook'
 
   post '/add_planner' => 'projects#add_planner'
+  put '/toggle_build_status' => 'projects#toggle_build_status'
 
   get '/dashboard' => 'dashboard#show'
 

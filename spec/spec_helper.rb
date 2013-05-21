@@ -1,12 +1,13 @@
-require 'simplecov'
-# require 'coveralls'
 
+# require 'coveralls'
+# Coveralls.wear!
+
+require 'simplecov'
 SimpleCov.start do
   add_filter "/spec/"
   add_filter "/config"
 end
 
-# Coveralls.wear!
 
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 ENV["RAILS_ENV"] ||= 'test'
@@ -64,10 +65,6 @@ RSpec.configure do |config|
   # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
-
-  # redis_instance = MockRedis.new
-  # Redis.stubs(:new).returns(redis_instance)
-  # Redis::Store.stubs(:new).returns(redis_instance)
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
