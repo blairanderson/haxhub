@@ -8,6 +8,7 @@ class TestBuild < ActiveRecord::Base
                   :config,
                   :duration,
                   :finished,
+                  :started,
                   :message,
                   :state
 
@@ -25,6 +26,7 @@ class TestBuild < ActiveRecord::Base
       config:       build.config[:rvm],
       duration:     build.duration,
       finished:     build.finished_at,
+      started:      build.started_at,
       message:      build.commit.message, 
       state:        build.state
     }

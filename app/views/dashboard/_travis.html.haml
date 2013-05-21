@@ -9,11 +9,11 @@
       %a{href: "#"} this link
   - if project.ci_source.test_builds.count < 8
     - project.ci_source.test_builds.limit(8).each do |test_build|
-      = render "travis_feed_item", {test_build: test_build}
+      = render "travis_feed_item", test_build: test_build
     - (8-project.ci_source.test_builds.count).times do
       %li{"data-travis-event-at" => first_li_event_at, style: "display: none;"}
   - else
     - project.ci_source.test_builds.limit(8).each do |test_build|
-      = render "travis_feed_item", {test_build: test_build}
+      = render "travis_feed_item", test_build: test_build
 - else
   .notice-window= "Wouldn't your project tracking benefit from Travis CI?" + ' Type the shortcut "FN + CTRL + OPT + ' + "#{index+1}" + '" to edit your Travis settings'
