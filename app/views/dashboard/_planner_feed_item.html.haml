@@ -4,5 +4,9 @@
   .points= activity.points if activity.feature?
   .media-body
     .media-heading
-      = "#{activity.message}"
-      = "(#{get_initials(activity.requester)})".html_safe unless activity.status_is("unstarted") || activity.status_is("unscheduled")
+      = "#{activity.description}"
+      = "(#{get_initials(activity.requester)})".html_safe unless activity.status_is("unstarted") || activity.status_is("added")
+    %br
+    .feed-footer.pull-bottom
+      %span.pull-left.label= activity.status
+      %span.pull-right= "added #{time_ago_in_words activity.occurred_at} ago"

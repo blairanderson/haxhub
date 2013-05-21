@@ -118,8 +118,6 @@ p.feed-title {
   font-size: 14px;
   background-color: #EAEAEA;
   border: solid 1px #AAAAAA;
-  min-height: 6%;
-  max-height: 60px;
   padding: 5px;
   margin: 5px;
 }
@@ -150,7 +148,7 @@ p.feed-title {
   left: 0;
   width: 98%;
 }
-.feed-footer .pull-left, .feed-footer .pull-right {
+.feed-footer {
   font-size: 12px;
 }
 .feed-footer .pull-left {
@@ -176,7 +174,7 @@ p.feed-title {
   background-color: #F5F6CE;
 }
 
-.pivotal-unscheduled {
+.pivotal-added {
   background-color: #CEECF5;
 }
 
