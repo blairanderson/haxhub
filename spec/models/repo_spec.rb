@@ -30,12 +30,12 @@ describe Repo do
           Repo.fetch_new_commits(repo, 10)
         end
 
-        expect(repo.git_actions.count).to eq 11
+        expect(repo.git_actions.count).to eq 3
 
         VCR.use_cassette('fetch_new_commits_again') do
           Repo.fetch_new_commits(repo)
         end
-        expect(repo.git_actions.count).to eq 31
+        expect(repo.git_actions.count).to eq 3
 
       end
     end
@@ -43,16 +43,16 @@ describe Repo do
     describe '.create_from_github' do
       it 'should find a repo that alread exists' do
         repo.save
-        url = "https://github.com/blairand/alpha-feed-engine"
+        url = "https://github.com/blairtest/testrepo"
         new_repo = Repo.create_from_github(url)
         expect(repo.id).to eq new_repo.id
       end
 
       it 'should create repo from git_repo HTTP' do 
-        url = "https://github.com/blairand/alpha-feed-engine"
+        url = "https://github.com/blairtest/testrepo"
         repo = Repo.create_from_github(url)
-        expect(repo.owner).to eq "blairand"
-        expect(repo.name).to eq "alpha-feed-engine"
+        expect(repo.owner).to eq "blairtest"
+        expect(repo.name).to eq "testrepo"
       end
 
       it 'should create repo from git_repo SSH' do 

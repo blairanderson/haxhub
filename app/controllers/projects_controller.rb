@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_filter :require_login
+  before_filter :require_login, except: [:webhook]
 
   def create
     if Project.create_with_repo(params, current_user)
@@ -25,8 +25,21 @@ class ProjectsController < ApplicationController
 
     planner_id = params[:planner_id].to_i
     if project.add_planner(planner_id)
-      notice = "Planner added"
+      notice = "Pivotal Tracker Added"
     end
     redirect_to dashboard_path, notice: notice
+  end
+
+  def webhook
+    push =  JSON.parse(params[:payload])
+    repo = Repo.where(
+      name: push['repository']['name'],
+      owner: push['repository']['owner']['name']
+      ).first
+    login = push["commits"][0]["committer"]["username"] || push["commits"][0]["author"]["username"]
+    user = User.where(login: login).first
+    Resque.enqueue(FetchGitActions, user.id, repo.id)
+
+    render :nothing => true
   end
 end

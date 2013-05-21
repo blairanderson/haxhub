@@ -18,21 +18,21 @@ describe GitAction do
     it 'should fetch upto 30 recent commits for a user and repo' do
       VCR.use_cassette('git_action_fetch_all') do
         commits = GitAction.fetch_all_commits(user,repo)
-        expect( commits.count ).to eq 30
+        expect( commits.count ).to eq 2
       end
     end
 
     it 'should add fetched commits to the table' do 
       VCR.use_cassette('git_action_fetch_all') do
         GitAction.fetch_all_commits(user,repo)
-        expect( repo.git_actions.count ).to eq 30
+        expect( repo.git_actions.count ).to eq 2
       end
     end
 
     it 'should not add duplicate commits to the table' do 
       VCR.use_cassette('git_action_fetch_all') do
         GitAction.fetch_all_commits(user,repo)
-        expect( repo.git_actions.count ).to eq 30
+        expect( repo.git_actions.count ).to eq 2
       end
 
       VCR.use_cassette('second_request_for_commits') do 
@@ -47,8 +47,8 @@ describe GitAction do
         GitAction.fetch_all_commits(user,repo)
       end
 
-      our_full_names = ['Blair Anderson', 'Jorge Tellez', "Geoff Schorkopf"]
-      our_git_names = ["blairand", 'novohispano', 'gschorkopf']
+      our_full_names = ['blair']
+      our_git_names = ["blairtest"]
 
       target_author = repo.git_actions.first.author
       expect( target_author.class ).to eq Author
