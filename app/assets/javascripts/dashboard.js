@@ -34,9 +34,4 @@ $(document).ready(function() {
   $('#stop-carousel').on('click', function(){
     clearInterval($('#carousel').data('interval-id'));
   });
-
-  $(".btn-slide").click(function(){
-    $("#panel").slideToggle("slow");
-    $(this).toggleClass("active-slider"); return false;
-  });
 });
