@@ -22,8 +22,12 @@ class Activity < ActiveRecord::Base
     build_activities(api_stories, api_activities, planner_id)
   end
 
-  def event_type_is(string)
-    event_type == string
+  def feature?
+    story_type == "feature"
+  end
+
+  def status_is(string)
+    status == string
   end
 
 private

@@ -1,6 +1,8 @@
-.feed-data.media
-  .media-body.pivotal
-    %span.media-heading= activity.description
-    .feed-footer.pull-bottom
-      %span.pull-left= activity.event_type
-      %span.pull-right= "authored #{time_ago_in_words activity.occurred_at} ago"
+.feed-data.media{"class" => "pivotal-#{activity.status}"}
+  %span.pull-left
+    = image_tag("pivotal-#{activity.story_type}.png")
+  .points= activity.points if activity.feature?
+  .media-body
+    .media-heading
+      = "#{activity.message}"
+      = "(#{get_initials(activity.requester)})".html_safe unless activity.status_is("unstarted") || activity.status_is("unscheduled")
