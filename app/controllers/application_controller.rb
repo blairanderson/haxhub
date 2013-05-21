@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :first_data
 
   def current_user
     @current_user ||= User.find_by_login(session[:login])
@@ -15,5 +15,9 @@ class ApplicationController < ActionController::Base
     unless logged_in?
       redirect_to root_path, notice: "Please log in."
     end
+  end
+
+  def first_li_event_at
+    'Sat, 01 Jan 1994 00:00:00 +0000'
   end
 end
