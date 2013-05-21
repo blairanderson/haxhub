@@ -10,6 +10,11 @@
         = render "project_settings", {project: project, count: index}
     
     = render 'add_project', {search: @repo_auto_complete}
+  
+  %div{:id => 'carousel', "data-interval-id" => 'nil'}
+    %button{id: 'stop-carousel'}Stop
+    %button{id: 'turtle-carousel'}Turtle
+    %button{id: 'cheetah-carousel'}Cheetah
 
 .tab-content
   - @projects.each_with_index do |project, index|
