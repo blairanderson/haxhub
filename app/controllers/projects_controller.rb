@@ -26,14 +26,11 @@ class ProjectsController < ApplicationController
   end
 
   def add_planner
-    project_id = params[:project_id].to_i
-    project    = Project.find(project_id)
-
-    planner_id = params[:planner_id].to_i
-    if project.add_planner(planner_id)
-      notice = "Pivotal Tracker Added"
+    if Project.find(params[:project_id]).add_planner(params[:planner_id])
+      redirect_to dashboard_path, notice: "Processing Your Request"
+    else
+      redirect_to dashboard_path, notice: "Sorry, there was an error with your Request"
     end
-    redirect_to dashboard_path, notice: notice
   end
 
   def webhook
@@ -44,6 +41,7 @@ class ProjectsController < ApplicationController
       ).first
     login = push["commits"][0]["committer"]["username"] || push["commits"][0]["author"]["username"]
     user = User.where(login: login).first
+
     Resque.enqueue(FetchGitActions, user.id, repo.id)
 
     render :nothing => true

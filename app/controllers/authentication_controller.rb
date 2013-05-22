@@ -26,6 +26,7 @@ class AuthenticationController < ApplicationController
 private
 
   def login(user)
+    user.repos
     session[:login] = user.login
   end
 
