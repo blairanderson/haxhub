@@ -10,13 +10,13 @@ class BuildPlanner
       end
 
     rescue
-      if counter.to_i < 4
-        Resque.enqueue(BuildPlanner, planner_id, counter.to_i + 1)
-      else
-        planner = Planner.find(planner_id)
-        planner.status = "not-found"
-        planner.save
-      end
+      # if counter.to_i < 4
+      #   Resque.enqueue(BuildPlanner, planner_id, counter.to_i + 1)
+      # else
+      #   planner = Planner.find(planner_id)
+      #   planner.status = "not-found"
+      #   planner.save
+      # end
     end
   end
 end
