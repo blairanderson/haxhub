@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522013658) do
+ActiveRecord::Schema.define(:version => 20130521234003) do
 
   create_table "activities", :force => true do |t|
     t.integer  "activity_id"
@@ -93,18 +93,18 @@ ActiveRecord::Schema.define(:version => 20130522013658) do
 
   create_table "test_builds", :force => true do |t|
     t.integer  "build_id"
-    t.string   "state",                       :default => "pending"
+    t.string   "state"
     t.datetime "finished"
-    t.integer  "duration",                    :default => 1
-    t.string   "message",                     :default => "Great Commit"
-    t.string   "config",                      :default => "config"
-    t.integer  "commit",       :limit => 255, :default => 1
-    t.string   "compare",                     :default => "http://haxhub.herokuapp.com"
-    t.string   "author",                      :default => "Guest"
-    t.string   "committer",                   :default => "Guest"
+    t.integer  "duration"
+    t.string   "message"
+    t.string   "config"
+    t.string   "commit"
+    t.string   "compare"
+    t.string   "author"
+    t.string   "committer"
     t.integer  "ci_source_id"
-    t.datetime "created_at",                                                             :null => false
-    t.datetime "updated_at",                                                             :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
     t.datetime "started"
   end
 

@@ -16,4 +16,4 @@
     - project.ci_source.test_builds.limit(8).each do |test_build|
       = render "travis_feed_item", test_build: test_build
 - else
-  .notice-window= "Wouldn't your project tracking benefit from Travis CI?" + ' Type the shortcut "FN + CTRL + OPT + ' + "#{index+1}" + '" to edit your Travis settings'
+  %li.notice-window{"data-travis-event-at" => first_li_event_at}= "Wouldn't your project tracking benefit from Travis CI?" + ' Type the shortcut "FN + CTRL + OPT + ' + "#{index+1}" + '" to edit your Travis settings'
