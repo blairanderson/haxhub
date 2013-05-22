@@ -2,8 +2,12 @@ class ActivitiesController < ApplicationController
   before_filter :load_planner
 
   def index
-    @activities = @planner.activities.where('occurred_at > ?', DateTime.parse(params[:before])+(1.seconds))
-    @activities.reverse!
+    if @planner
+      @activities = @planner.activities.where('occurred_at > ?', DateTime.parse(params[:before])+(1.seconds))
+      @activities.reverse!
+    else
+      @activities = []
+    end
   end
 
 private
