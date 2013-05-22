@@ -56,12 +56,5 @@ class Project < ActiveRecord::Base
     self.planner = new_planner
     self.save
     self
-    
-    #in rescue if unfound then change status to not-found
-
-    # we need to schedule the building of the planner
-    # if found we need to schedule the fetching of activities
-    #if not found, we need to show the status
-    #add status to Planner building,fetching,active,not-found
   end
 end
