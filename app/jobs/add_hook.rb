@@ -1,6 +1,4 @@
 class AddHook
-  include Rails.application.routes.url_helpers
-
   @queue = :hooks
 
   def self.perform(user_id,repo_id)
@@ -8,7 +6,7 @@ class AddHook
     repo = Repo.find(repo_id)
 
     github = GithubService.user_connection(user)
-    additional_parameters = {"name" =>  "web", "active" => true, "config" => {"url" => webhook_url}}
+    additional_parameters = {"name" =>  "web", "active" => true, "config" => {"url" => "http://haxhub.herokuapp.com/webhook"}}
     github.repos.hooks.create repo.owner, repo.name, additional_parameters
   end
 

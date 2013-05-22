@@ -39,15 +39,22 @@ class Project < ActiveRecord::Base
     self
   end
 
-  def add_planner(pivotal_id)
-    self.planner = Project.build_planner(pivotal_id)
-    self.save
-    self
+  def clean_id(id)
+    id.gsub("https://www.pivotaltracker.com/s/projects/","").to_i
   end
 
-  private
-
-  def self.build_planner(pivotal_id)
-    Planner.build_planner(pivotal_id)
+  def add_planner(pivotal_id)
+    new_planner = Planner.where(pivotal_id: clean_id(pivotal_id)).first_or_initialize
+    if new_planner.persisted?
+      Resque.enqueue(FetchActivities, new_planner.id, 0)
+      new_planner.update_attribute(:status, "fetching")
+    else
+      new_planner.status = "building"
+      new_planner.save
+      Resque.enqueue(BuildPlanner, new_planner.id, 0)
+    end
+    self.planner = new_planner
+    self.save
+    self
   end
 end

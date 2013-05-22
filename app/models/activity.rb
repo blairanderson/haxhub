@@ -17,7 +17,7 @@ class Activity < ActiveRecord::Base
   default_scope order('occurred_at DESC')
 
   def self.fetch_all_activities(planner_id, pivotal_id, limit = 100)
-    planner        = Planner.fetch_planner(pivotal_id)
+    planner        = PivotalTrackerService.planner(pivotal_id)
     api_activities = planner.activities.all(:limit => limit)
     api_stories    = planner.stories.all
     build_activities(api_stories, api_activities, planner_id)

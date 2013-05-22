@@ -8,7 +8,13 @@ task :update_feeds => :environment do
 
   puts "Updating Pivotal Feeds..."
   Planner.all.each do |planner|
-    Resque.enqueue(FetchActivities,planner.id)
+    Resque.enqueue(FetchActivities,planner.id, 0)
   end
   puts "scheduled jobs for planners"
+
+  puts "Updating Builds"
+  CiSource.all.each do |source|
+    Resque.enqueue(FetchCiBuilds, source.id)
+  end
+  puts "scheduled jobs for sources"
 end
