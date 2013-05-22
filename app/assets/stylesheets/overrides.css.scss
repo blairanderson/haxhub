@@ -307,19 +307,19 @@ p.feed-title {
 }
 
 .travis-passed {
-  border: solid 4px #81F781;
+  border: solid 1px #81F781;
 }
 
 .travis-failed {
-  border: solid 4px #F78181;
+  border: solid 1px #F78181;
 }
 
 .travis-created, .travis-started, .travis-pending {
-  border: solid 4px #F7F781;
+  border: solid 1px #F7F781;
 }
 
 .travis-errored {
-  border: solid 4px gray;
+  border: solid 1px gray;
 }
 
 .travis img {
@@ -390,7 +390,6 @@ p.feed-title {
   line-height: 12px;
   font-weight: normal;
   font-size:   16px;
-  margin:      5px 10px 0 0;
   color:       orange;
 }
 

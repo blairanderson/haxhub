@@ -4,9 +4,7 @@
       %a.brand HaxHub
       .nav-collapse.collapse
         %ul.nav.pull-right
-          %li.nav
-            - if current_user
-              = "#{current_user.login}"
-              = link_to "logout", logout_path
-            - else
-              = link_to "Sign in with Github", github_auth_path
+          - if current_user
+            %li.nav #{current_user.login} #{link_to "logout", logout_path}
+          - else
+            %li.nav #{link_to "Sign in with Github", github_auth_path}
