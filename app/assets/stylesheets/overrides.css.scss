@@ -2,6 +2,10 @@
 
 // HOME
 
+.lead {
+  margin-bottom: 40px;
+}
+
 ul.thumbnails {
   margin-left:  auto;
   margin-top:   40px;
@@ -11,11 +15,12 @@ ul.thumbnails {
 }
 
 .thumbnail.home {
-  display: block;
-  padding: 10px;
-  line-height: 20px;
-  box-shadow: none;
+  box-shadow:  none;
+  display:     block;
   font-weight: lighter;
+  height:      280px;
+  line-height: 20px;
+  padding:     10px;
 }
 
 .btn-large.home {
@@ -32,6 +37,14 @@ img.home {
 
 h3.home {
   text-align: center;
+}
+
+p.home-footer {
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  text-align: center;
+  padding: 14px;
 }
 
 // MODAL HOME
@@ -153,6 +166,8 @@ span.side-nav {
 img.gear-icon {
   height: 25px;
   width: 25px;
+  opacity:0.4;
+  filter:alpha(opacity=40); /* For IE8 and earlier */
 }
 
 #notices {
@@ -296,19 +311,19 @@ span.status-bold {
 }
 
 .travis-passed {
-  border: solid 4px #81F781;
+  border: solid 1px #81F781;
 }
 
 .travis-failed {
-  border: solid 4px #F78181;
+  border: solid 1px #F78181;
 }
 
 .travis-created, .travis-started, .travis-pending {
-  border: solid 4px #F7F781;
+  border: solid 1px #F7F781;
 }
 
 .travis-errored {
-  border: solid 4px gray;
+  border: solid 1px gray;
 }
 
 .travis img {
@@ -379,7 +394,6 @@ span.status-bold {
   line-height: 12px;
   font-weight: normal;
   font-size:   16px;
-  margin:      0 10px 0 0;
   color:       orange;
 }
 
