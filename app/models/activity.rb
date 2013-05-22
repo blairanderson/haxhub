@@ -15,7 +15,6 @@ class Activity < ActiveRecord::Base
   belongs_to :planner
 
   def self.fetch_all_activities(planner_id, pivotal_id, limit = 100)
-    prepare_service
     planner        = Planner.fetch_planner(pivotal_id)
     api_activities = planner.activities.all(:limit => limit)
     api_stories    = planner.stories.all
@@ -31,10 +30,6 @@ class Activity < ActiveRecord::Base
   end
 
 private
-
-  def self.prepare_service
-    PivotalTrackerService.prepare
-  end
 
   def self.build_activities(api_stories, api_activities, planner_id)
     api_activities.collect do |api_activity|
