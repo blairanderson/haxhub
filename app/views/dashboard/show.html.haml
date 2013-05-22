@@ -27,5 +27,5 @@
 
       .span3.feed
         %p.feed-title Pivotal
-        .pivotal
+        .pivotal{"data-pivotal-url" => "#{activities_path(project.id)}"}
           = render 'pivotal', project: project, index: index
