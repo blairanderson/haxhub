@@ -6,7 +6,7 @@
   .modal-header
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
     %h3#myModalLabel= "Services for #{project.title.titleize}"
-  .modal-body
+  .modal-body.dashboard-body
     %p.dashboard-modal.pull-left Tracker
     =form_tag(add_planner_path(project_id: project.id), method: :post, class: 'form-inline') do
       %p
