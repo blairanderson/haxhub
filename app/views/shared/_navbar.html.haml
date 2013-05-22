@@ -4,7 +4,7 @@
       %a.brand HaxHub
       .nav-collapse.collapse
         - if @projects
-          %button#full-screen.btn
+          %button#full-screen.btn{:accesskey => "A"}
             %img{src: 'assets/full-screen-icon.png'}
           = render 'carousel_buttons' if @projects.count > 1
         %ul.nav.pull-right
