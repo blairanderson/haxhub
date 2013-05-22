@@ -1,0 +1,12 @@
+var travis = $('.tab-content').find('.active').find('.travis')
+
+<% @test_builds.each do |test_build| %>
+  $(travis).prepend(
+    $("<%= j render 'dashboard/travis_feed_item', test_build: test_build %>")
+      .hide()
+      .fadeIn(3000)
+    );
+  $(travis).children().last().fadeOut(3000).remove();
+<% end %>
+
+TbPoller.poll();

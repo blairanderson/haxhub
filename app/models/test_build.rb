@@ -8,11 +8,14 @@ class TestBuild < ActiveRecord::Base
                   :config,
                   :duration,
                   :finished,
+                  :started,
                   :message,
                   :state
 
   validates_presence_of :ci_source_id
   belongs_to :ci_source
+
+  default_scope order('started DESC')
 
   def self.create_from(build, ci_source_id)
     new_build = where( build_id: build.number, 
@@ -25,6 +28,7 @@ class TestBuild < ActiveRecord::Base
       config:       build.config[:rvm],
       duration:     build.duration,
       finished:     build.finished_at,
+      started:      build.started_at,
       message:      build.commit.message, 
       state:        build.state
     }

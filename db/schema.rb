@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130520202123) do
+ActiveRecord::Schema.define(:version => 20130521234003) do
 
   create_table "activities", :force => true do |t|
     t.integer  "activity_id"
@@ -105,6 +105,7 @@ ActiveRecord::Schema.define(:version => 20130520202123) do
     t.integer  "ci_source_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+    t.datetime "started"
   end
 
   add_index "test_builds", ["ci_source_id"], :name => "index_test_builds_on_ci_source_id"

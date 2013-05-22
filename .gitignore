@@ -26,3 +26,6 @@ dump.rdb
 # Ignore application configuration
 /config/application.yml
 *.rdb
+
+# Ignore public assets for precompile
+/public/assets
