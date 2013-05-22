@@ -73,27 +73,18 @@ p.home-footer {
   outline: none;
 }
 
-.modal-header.home {
-  background-color: #333;
-}
-
-.close.home {
-  float: right;
-  font-size: 20px;
-  font-weight: bold;
-  line-height: 20px;
-  color:
-  orange;
-  text-shadow: none;
-  opacity: 10;
-  filter: alpha(opacity=20);
-}
-
 .modal-body.home {
   position: relative;
   overflow-y: auto;
   min-height: 450px;
   padding: 15px;
+}
+
+// DASHBOARD MODAL
+
+p.dashboard-modal {
+  color:         gray;
+  padding-right: 20px;
 }
 
 // SIDEBAR
@@ -430,6 +421,50 @@ h1.lead {
 
 #myModalLabel {
   color: orange;
+}
+
+.modal-header {
+  background-color: #333;
+}
+
+.close {
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 20px;
+  color:
+  orange;
+  text-shadow: none;
+  opacity: 10;
+  filter: alpha(opacity=20);
+}
+
+// DASHBOARD MODAL
+
+input.dashboard-input {
+  display:               inline-block;
+  height:                30px;
+  padding:               4px 6px;
+  margin-top:           -4px;
+  margin-bottom:         10px;
+  margin-left:           11px;
+  font-size:             14px;
+  line-height:           20px;
+  color:                 #555555;
+  -webkit-border-radius: 4px;
+  -moz-border-radius:    4px;
+  border-radius:         4px;
+  vertical-align:        middle;
+}
+
+.btn.tracker-btn {
+  margin-left: 311px;
+  margin-top: -50px;
+}
+
+.btn.travis-btn {
+  margin-left: 182px;
+  margin-top: -42px;
 }
 
 // light Switch on project settings tab
