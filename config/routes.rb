@@ -11,6 +11,7 @@ Softline::Application.routes.draw do
   post '/add_planner' => 'projects#add_planner'
   put '/toggle_build_status' => 'projects#toggle_build_status'
 
+  delete '/projects' => 'projects#destroy', as: 'project'
   get '/dashboard' => 'dashboard#show'
 
   get '/:project_id/git_actions' => "git_actions#index", as: "git_actions"

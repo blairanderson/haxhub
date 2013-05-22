@@ -10,6 +10,12 @@ class ProjectsController < ApplicationController
     redirect_to dashboard_path, notice: notice
   end
 
+  def destroy
+    project = Project.find(params[:project_id])
+    project.destroy
+    redirect_to dashboard_path, notice: "its gone!"
+  end
+
   def toggle_build_status
     ci_source = current_user.projects.find(params[:project_id]).ci_source
     params[:checked] ? value = :on : value = :off
