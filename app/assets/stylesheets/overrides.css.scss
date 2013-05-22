@@ -275,15 +275,15 @@ p.feed-title {
 }
 
 .travis-passed {
-  border: dashed 2px #81F781;
+  border: solid 4px #81F781;
 }
 
 .travis-failed {
-  border: dashed 2px #F78181;
+  border: solid 4px #F78181;
 }
 
 .travis-created, .travis-started {
-  border: dashed 2px yellow;
+  border: solid 4px #F7F781;
 }
 
 .travis img {
