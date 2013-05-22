@@ -1,5 +1,16 @@
 - if project.planner
-  - project.planner.activities.limit(8).each do |activity|
-    = render "planner_feed_item", {activity: activity}
+  - if project.planner.activities.count == 0
+    - 7.times do
+      %li{"data-pivotal-event-at" => first_li_event_at, style: "display: none;"}
+    %li.notice-window{"data-pivotal-event-at" => first_li_event_at}
+      We tried to find your stories, we really did. It looks like you either have no notifications or (more likely) have chosen an invalid Pivotal ID. Feel free to add the ID again in the project settings section.
+  - elsif project.planner.activities.count < 8
+    - project.planner.activities.limit(8).each do |activity|
+      = render "planner_feed_item", {activity: activity}
+    - (8-project.planner.activities.count).times do
+      %li{"data-pivotal-event-at" => first_li_event_at}
+  - else 
+    - project.planner.activities.limit(8).each do |activity|
+      = render "planner_feed_item", {activity: activity}
 - else
   .notice-window= "Why not track your to-dos, chores, and bugs with Pivotal Tracker?" + ' Type the shortcut "FN + CTRL + OPT + ' + "#{index+1}" + '" to edit your Pivotal Tracker settings'

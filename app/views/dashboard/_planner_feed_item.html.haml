@@ -1,4 +1,4 @@
-.feed-data.media{"class" => "pivotal-#{activity.status}"}
+.feed-data.media{"class" => "pivotal-#{activity.status}", "data-pivotal-event-at" => "#{activity.occurred_at}"}
   %span.pull-left
     = image_tag("pivotal-#{activity.story_type}.png")
   .points= activity.points if activity.feature?
