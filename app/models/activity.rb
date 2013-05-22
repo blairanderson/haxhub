@@ -14,6 +14,8 @@ class Activity < ActiveRecord::Base
 
   belongs_to :planner
 
+  default_scope order('occurred_at DESC')
+
   def self.fetch_all_activities(planner_id, pivotal_id, limit = 100)
     planner        = Planner.fetch_planner(pivotal_id)
     api_activities = planner.activities.all(:limit => limit)
