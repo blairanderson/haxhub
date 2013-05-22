@@ -1,8 +1,16 @@
 class AuthenticationController < ApplicationController
 
   def github_auth
+    if Rails.env.production?
+      auth_setup = {
+        :redirect_uri => "http://haxhub.herokuapp.com/auth/github/callback",
+        :scope => "public_repo"
+      }
+    else
+      auth_setup = {:scope => 'public_repo'}
+    end
     github = Github.new(GithubService.prepare)
-    redirect_to github.authorize_url(:scope => 'public_repo')
+    redirect_to github.authorize_url(auth_setup)
   end
 
   def github_callback
