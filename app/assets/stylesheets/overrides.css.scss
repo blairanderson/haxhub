@@ -158,6 +158,8 @@ span.side-nav {
 img.gear-icon {
   height: 25px;
   width: 25px;
+  opacity:0.4;
+  filter:alpha(opacity=40); /* For IE8 and earlier */
 }
 
 #notices {
