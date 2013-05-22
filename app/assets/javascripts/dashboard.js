@@ -34,4 +34,18 @@ $(document).ready(function() {
   $('#stop-carousel').on('click', function(){
     clearInterval($('#carousel').data('interval-id'));
   });
+
+
+  $('#full-screen').on('click', function(){
+    $('div.side-nav').hide('slow');
+    $('div.navbar-top').hide('slow');
+  });
+
+  $('#return-full-screen').on('click', function(){
+    $('div.side-nav').show('slow');
+    $('div.navbar-top').show('slow');
+  });
+
+  $('.alert').find('button.close').hide();
+  $('.alert').show().delay(3000).fadeOut('slow');
 });

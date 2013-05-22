@@ -158,12 +158,15 @@ img.gear-icon {
 #notices {
   min-height: 60px;
 }
+#notices .alert {
+  padding-left: 25px;
+}
 
 // FEED
 
 .span3.feed {
   border-collapse: collapse;
-  width: 33%;
+  width: 33.3%;
   display: inline;
   margin: 0px;
   border: none;

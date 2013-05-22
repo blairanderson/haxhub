@@ -11,6 +11,7 @@
 
     = render 'add_project', {search: @repo_auto_complete}
     = render 'carousel_buttons' if @projects.count > 1
+  %button#full-screen.btn Full screen BITCHES
 
 .tab-content
   - @projects.each_with_index do |project, index|

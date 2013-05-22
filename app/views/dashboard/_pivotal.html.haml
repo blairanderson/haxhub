@@ -13,4 +13,4 @@
     - project.planner.activities.limit(8).each do |activity|
       = render "planner_feed_item", {activity: activity}
 - else
-  %li.notice-window{"data-pivotal-event-at" => first_li_event_at}= "Why not track your to-dos, chores, and bugs with Pivotal Tracker?" + ' Type the shortcut "FN + CTRL + OPT + ' + "#{index+1}" + '" to edit your Pivotal Tracker settings'
+  %li.notice-window{"data-pivotal-event-at" => last_li_event_at}= "Why not track your to-dos, chores, and bugs with Pivotal Tracker?" + ' Type the shortcut "FN + CTRL + OPT + ' + "#{index+1}" + '" to edit your Pivotal Tracker settings'
