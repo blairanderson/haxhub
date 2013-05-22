@@ -3,6 +3,10 @@
     .container
       %a.brand HaxHub
       .nav-collapse.collapse
+        - if @projects
+          %button#full-screen.btn
+            %img{src: 'assets/full-screen-icon.png'}
+          = render 'carousel_buttons' if @projects.count > 1
         %ul.nav.pull-right
           - if current_user
             %li.nav #{current_user.login} #{link_to "logout", logout_path}

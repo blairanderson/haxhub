@@ -4,9 +4,10 @@
   .points= activity.points if activity.feature?
   .media-body
     .media-heading
-      = "#{activity.description}"
-      = "(#{get_initials(activity.requester)})".html_safe unless activity.status_is("unstarted") || activity.status_is("added")
+      = activity.author
+      %span.status-bold= activity.status
+      "#{activity.message}"
     %br
     .feed-footer.pull-bottom
-      %span.pull-left.label= activity.status
+      %span.pull-left
       %span.pull-right= "added #{time_ago_in_words activity.occurred_at} ago"
