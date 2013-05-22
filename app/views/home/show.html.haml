@@ -35,7 +35,7 @@
     %li.span4
       .thumbnail.home
         %a{"data-toggle" => "modal", :href => "#myModal3", :role => "button"}
-          %img{:src => "assets/pivotal-tracker-service.png"}
+          %img.home{:src => "assets/pivotal-tracker-service.png"}
         %h3.home Pivotal Tracker
         %p Get the latest activity from your projects.
 
@@ -45,3 +45,6 @@
             %h3#myModalLabel Pivotal Tracker
           .modal-body.home
             %img.home{:src => "assets/pivotal-tracker-service.png"}
+
+%container
+  %p.home-footer #{link_to "HaxHub", "https://github.com/blairand/alpha-feed-engine"} was built by #{link_to "Blair Anderson", "https://github.com/blairand"}, #{link_to "Geoffrey Schorkopf", "https://github.com/gschorkopf"} and #{link_to "Jorge Téllez", "https://github.com/novohispano"}.

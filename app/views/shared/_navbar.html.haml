@@ -8,9 +8,7 @@
             %img{src: 'assets/full-screen-icon.png'}
           = render 'carousel_buttons' if @projects.count > 1
         %ul.nav.pull-right
-          %li.nav
-            - if current_user
-              = "#{current_user.login}"
-              = link_to "logout", logout_path
-            - else
-              = link_to "Sign in with Github", github_auth_path
+          - if current_user
+            %li.nav #{current_user.login} #{link_to "logout", logout_path}
+          - else
+            %li.nav #{link_to "Sign in with Github", github_auth_path}
