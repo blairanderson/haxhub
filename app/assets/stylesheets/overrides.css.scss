@@ -128,18 +128,13 @@ li.side-nav.active a:before {
 }
 
 a.side-nav {
-  color:       black;
+  color:       #A4A4A4;
   font-size:   20px;
-  font-weight: bold;
 }
 
-a.side-nav.logo {
-  font-size: 20px;
-  color: orange;
-  font-weight: bold;
-  border: none;
-  padding-top: 20px;
-  padding-bottom: 20px;
+li.side-nav.active a {
+  font-weight:bold;
+  color: black;
 }
 
 .span3.side-nav {
