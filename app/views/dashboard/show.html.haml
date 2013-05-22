@@ -10,9 +10,6 @@
         = render "project_settings", {project: project, count: index}
 
     = render 'add_project', {search: @repo_auto_complete}
-    = render 'carousel_buttons' if @projects.count > 1
-  %button#full-screen.btn.pull-right
-    %img{src: 'assets/full-screen-icon.png'}
 
 .tab-content
   - @projects.each_with_index do |project, index|
