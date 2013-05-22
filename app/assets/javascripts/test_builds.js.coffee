@@ -10,5 +10,4 @@
 jQuery ->
   travis = $(".tab-content").find(".active").find(".travis")
 
-  if $(travis).length > 0
-    TbPoller.poll()
+  TbPoller.poll()
