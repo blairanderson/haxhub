@@ -7,18 +7,16 @@
     %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", :type => "button"} ×
     %h3#myModalLabel= "Services for #{project.title.titleize}"
   .modal-body
-    .span3
-      %h4 Pivotal Tracker
-      =form_tag(add_planner_path(project_id: project.id), method: :post, class: 'form-inline') do
-        %p
-          =text_field_tag(:planner_id, nil, class: "input input-large", placeholder: "Enter your project id")
-        =submit_tag("Add", class: 'btn btn-large')
-    .span3
-      %h4 Travis-CI
-      =form_tag(toggle_build_status_path(project_id: project.id), method: :put, class: 'form-inline') do
-        %p
-          %input{:id => "checkbox-#{count+1}", :type => "checkbox", :checked => checked?(project), :name => "checked"}
-          %label{:for => "checkbox-#{count+1}"}
-        =submit_tag("Save", class: 'btn btn-large')
-      
-    = button_to 'Delete Project?', project_path(project_id: project.id), class: "btn btn-mini btn-danger pull-right",method: 'delete' , confirm: "Are you Sure?"
+    %p.dashboard-modal.pull-left Tracker
+    =form_tag(add_planner_path(project_id: project.id), method: :post, class: 'form-inline') do
+      %p
+        =text_field_tag(:planner_id, nil, class: "input input-large dashboard-input", placeholder: "Enter your project id")
+      =submit_tag("Add", class: 'btn tracker-btn')
+    %p.dashboard-modal.pull-left Travis-CI
+    =form_tag(toggle_build_status_path(project_id: project.id), method: :put, class: 'form-inline') do
+      %p
+        %input{:id => "checkbox-#{count+1}", :type => "checkbox", :checked => checked?(project), :name => "checked"}
+        %label{:for => "checkbox-#{count+1}"}
+      =submit_tag("Save", class: 'btn travis-btn')
+
+    = button_to 'Delete', project_path(project_id: project.id), class: "btn btn-link pull-right", method: 'delete', confirm: "You are about to delete #{project.title} from HaxHub. Are you sure?"
