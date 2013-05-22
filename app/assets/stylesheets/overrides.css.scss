@@ -265,10 +265,26 @@ p.feed-title {
   left: 14;
   top: 9;
   font-size: 12px;
-  font-family: monospace;
 }
 
 // TRAVIS SPECIFIC
+
+.travis-author {
+  font-size: 12px;
+  font-weight: bold;
+  font-style: Helvetica, Arial, Sans-Serif;
+}
+
+.travis-date {
+  font-weight: bold;
+}
+
+.travis .feed-data {
+  min-height: 80px;
+}
+.media-body.travis-body {
+  height: 80px;
+}
 
 .travis .feed-data {
   background-color: white;
@@ -282,8 +298,12 @@ p.feed-title {
   border: solid 4px #F78181;
 }
 
-.travis-created, .travis-started {
+.travis-created, .travis-started, .travis-pending {
   border: solid 4px #F7F781;
+}
+
+.travis-errored {
+  border: solid 4px gray;
 }
 
 .travis img {
