@@ -12,6 +12,12 @@ describe ProjectsController do
     controller.stub(current_user: user)
   end
 
+  describe '#destroy' do 
+    it 'should delete the project and keep the repo' do
+      
+    end
+  end
+
   describe "POST create" do
 
     it "creates new project and repo" do
