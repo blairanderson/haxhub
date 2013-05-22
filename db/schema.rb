@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130522013658) do
+ActiveRecord::Schema.define(:version => 20130522211031) do
 
   create_table "activities", :force => true do |t|
     t.integer  "activity_id"
@@ -61,9 +61,10 @@ ActiveRecord::Schema.define(:version => 20130522013658) do
   create_table "planners", :force => true do |t|
     t.string   "name"
     t.integer  "project_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.integer  "pivotal_id"
+    t.string   "status",     :default => "pending"
   end
 
   create_table "project_users", :force => true do |t|
@@ -117,6 +118,7 @@ ActiveRecord::Schema.define(:version => 20130522013658) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "token"
+    t.text     "search"
   end
 
 end

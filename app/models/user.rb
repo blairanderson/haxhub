@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
   attr_accessible :email, :full_name, 
                   :login, :token,
-                  :projects
+                  :projects, :search
+
+  serialize :search
 
   has_many :project_users
   has_many :projects, through: :project_users
@@ -22,10 +24,11 @@ class User < ActiveRecord::Base
   end
 
 
-  def repos ### this should be moved to background job and stored in a string for the user. 
-    Github.new(
-      oauth_token: token,
-      ssl: {:verify => false}).repos.all.map(&:html_url).to_json
+  def repos 
+    self.search = Github.new(
+          oauth_token: token,
+    ssl: {:verify => false}).repos.all.map(&:html_url).to_json
+    self.save
   end
 
   def self.find_or_create_from_token(oauth_code)

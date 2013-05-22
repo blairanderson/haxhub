@@ -14,7 +14,7 @@ describe Project do
   end
 
   it "creates a project with a repo" do
-    VCR.use_cassette('project') do
+    VCR.use_cassette('project_with_repo') do
       params = {repo_name_owner: "https://github.com/novohispano/arepa"}
       Project.create_with_repo(params, user)
       result = Project.all.last
@@ -24,8 +24,18 @@ describe Project do
   end
 
   it "adds a planner to a project" do
-    VCR.use_cassette('project') do
-      pivotal_id = 820647
+    VCR.use_cassette('planner_string_to_project') do
+      pivotal_id = "820647"
+      project.add_planner(pivotal_id)
+      planner = project.planner
+      expect(planner).not_to eq nil
+      expect(planner.pivotal_id).to eq 820647
+    end
+  end
+
+  it "adds a planner to a project" do
+    VCR.use_cassette('planner_url_to_project') do
+      pivotal_id = "https://www.pivotaltracker.com/s/projects/820647"
       project.add_planner(pivotal_id)
       planner = project.planner
       expect(planner).not_to eq nil

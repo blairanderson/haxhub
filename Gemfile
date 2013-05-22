@@ -15,7 +15,7 @@ gem 'bootstrap-sass'
 # gem 'newrelic_rpm'
 
 gem 'resque', "~> 1.22.0"
-gem 'resque-scheduler'
+gem 'resque-scheduler', :require => 'resque_scheduler'
 gem 'redis'
 
 gem 'foreman'

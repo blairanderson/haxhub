@@ -83,9 +83,10 @@ describe ProjectsController do
       expect(project.repo.id).to eq repo.id
 
       VCR.use_cassette("another_planner_fetch") do 
-        post :add_planner, project_id: project.id, planner_id: 820647
+        post :add_planner, project_id: project.id, planner_id: "820647"
       end
       expect(Planner.first.id).to eq 1
+      expect(Planner.first.pivotal_id).to eq 820647
     end
   end
 
