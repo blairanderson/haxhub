@@ -25,10 +25,10 @@ class User < ActiveRecord::Base
 
 
   def repos 
-    search = Github.new(
+    self.search = Github.new(
           oauth_token: token,
     ssl: {:verify => false}).repos.all.map(&:html_url).to_json
-    save
+    self.save
   end
 
   def self.find_or_create_from_token(oauth_code)

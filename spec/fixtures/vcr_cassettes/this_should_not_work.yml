@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.github.com/user/repos?access_token=token
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/vnd.github.v3.full+json,application/vnd.github.beta.full+json;q=0.7,application/vnd.github+json;q=0.5,application/json;q=0.1
+      Accept-Charset:
+      - utf-8
+      User-Agent:
+      - Github Ruby Gem 0.9.7
+      Content-Type:
+      - application/json
+      Authorization:
+      - Token token="token"
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      Server:
+      - GitHub.com
+      Date:
+      - Wed, 22 May 2013 22:04:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Connection:
+      - keep-alive
+      Status:
+      - 401 Unauthorized
+      X-Github-Media-Type:
+      - github.v3; param=full; format=json
+      Content-Length:
+      - '29'
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Access-Control-Expose-Headers:
+      - Link, X-RateLimit-Limit, X-RateLimit-Remaining, X-OAuth-Scopes, X-Accepted-OAuth-Scopes
+      Access-Control-Allow-Origin:
+      - ! '*'
+    body:
+      encoding: US-ASCII
+      string: ! '{"message":"Bad credentials"}'
+    http_version: 
+  recorded_at: Wed, 22 May 2013 22:04:11 GMT
+recorded_with: VCR 2.4.0

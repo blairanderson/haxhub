@@ -14,7 +14,13 @@ class AuthenticationController < ApplicationController
   end
 
   def github_callback
-    login( User.find_or_create_from_token(params[:code]) ) if params['code']
+
+    if params['code']
+      user = User.find_or_create_from_token(params[:code])
+      user.repos
+      login(user) 
+    end
+
     redirect_to dashboard_path
   end
 
@@ -26,7 +32,6 @@ class AuthenticationController < ApplicationController
 private
 
   def login(user)
-    user.repos
     session[:login] = user.login
   end
 

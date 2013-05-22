@@ -48,7 +48,13 @@ module ObjectCreationMethods
   end
 
   def create_user(overrides = {})
-    user = new_user(overrides)
+    defaults = {
+      full_name: "blair",
+      login: 'blairtest',
+      token: ENV['GITHUB_B_AUTH']
+      }
+      
+    user = new_user(defaults.merge(overrides))
     user.save
     user
   end
