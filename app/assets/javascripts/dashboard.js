@@ -37,15 +37,15 @@ $(document).ready(function() {
 
 
   $('#full-screen').on('click', function(){
-    $('div.side-nav').hide('slow');
-    $('div.navbar-top').hide('slow');
-    $('#reduce-screen').show('slow');
+    $('div.side-nav').hide('fast');
+    $('div.navbar-top').hide('fast');
+    $('#reduce-screen').show('fast');
   });
 
   $('#reduce-screen').on('click', function(){
-    $('#reduce-screen').fadeOut('slow').hide();
-    $('div.side-nav').show('slow');
-    $('div.navbar-top').show('slow');
+    $('#reduce-screen').fadeOut('fast').hide();
+    $('div.side-nav').show('fast');
+    $('div.navbar-top').show('fast');
   });
 
   $('.alert').find('button.close').hide();
