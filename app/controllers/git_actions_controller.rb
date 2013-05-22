@@ -2,8 +2,12 @@ class GitActionsController < ApplicationController
   before_filter :load_repo
 
   def index
-    @git_actions = @repo.git_actions.where('event_at > ?', DateTime.parse(params[:before])+(1.seconds))
-    @git_actions.reverse!
+    if @repo
+      @git_actions = @repo.git_actions.where('event_at > ?', DateTime.parse(params[:before])+(1.seconds))
+      @git_actions.reverse!
+    else
+      @git_actions = []
+    end
   end
 
 private
