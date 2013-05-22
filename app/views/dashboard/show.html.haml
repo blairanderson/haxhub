@@ -22,7 +22,7 @@
 
       .span3.feed
         %p.feed-title Travis
-        .travis
+        .travis{"data-travis-url" => "#{test_builds_path(project.id)}"}
           = render 'travis', project: project, index: index
 
       .span3.feed
