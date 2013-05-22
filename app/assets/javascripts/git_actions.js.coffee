@@ -10,5 +10,4 @@
 jQuery ->
   github = $(".tab-content").find(".active").find(".github")
 
-  if $(github).length > 0
-    GitPoller.poll()
+  GitPoller.poll()
