@@ -128,18 +128,13 @@ li.side-nav.active a:before {
 }
 
 a.side-nav {
-  color:       black;
+  color:       #A4A4A4;
   font-size:   20px;
-  font-weight: bold;
 }
 
-a.side-nav.logo {
-  font-size: 20px;
-  color: orange;
-  font-weight: bold;
-  border: none;
-  padding-top: 20px;
-  padding-bottom: 20px;
+li.side-nav.active a {
+  font-weight:bold;
+  color: black;
 }
 
 .span3.side-nav {
@@ -164,11 +159,23 @@ img.gear-icon {
   min-height: 60px;
 }
 
+#notices .alert {
+  padding-left: 25px;
+}
+
+#carousel {
+  padding-right: 10px;
+}
+
+.pivotal li, .github li, .travis li {
+  list-style-type: none;
+}
+
 // FEED
 
 .span3.feed {
   border-collapse: collapse;
-  width: 33%;
+  width: 33.3%;
   display: inline;
   margin: 0px;
   border: none;
@@ -199,11 +206,6 @@ p.feed-title {
 .github div.feed-data:nth-of-type(even) {
   background-color: #FAFAFA;
 }
-
-.github div.feed-data:hover {
-  background-color: #F5F6CE;
-}
-
 .github img.thumb {
   height: 60px;
   width: 60px;
@@ -258,6 +260,9 @@ p.feed-title {
 
 .pivotal .media {
   position: relative;
+}
+span.status-bold {
+  font-weight: bold;
 }
 
 .points {
@@ -381,6 +386,17 @@ p.feed-title {
 #carousel img {
   height: 20px;
   width: 20px;
+}
+#full-screen img, #reduce-screen img {
+  height: 20px;
+  width: 20px;
+}
+
+#reduce-screen {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 // MASTHEAD

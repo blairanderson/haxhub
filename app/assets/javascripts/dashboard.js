@@ -23,15 +23,31 @@ $(document).ready(function() {
 
   $('#fast-carousel').on('click', function(){
     clearInterval($('#carousel').data('interval-id'));
-    var intervalID = startCarousel(1000);
+    var intervalID = startCarousel(5000);
     $('#carousel').data('interval-id', intervalID);
   });
   $('#slow-carousel').on('click', function(){
     clearInterval($('#carousel').data('interval-id'));
-    var intervalID = startCarousel(5000);
+    var intervalID = startCarousel(15000);
     $('#carousel').data('interval-id', intervalID);
   });
   $('#stop-carousel').on('click', function(){
     clearInterval($('#carousel').data('interval-id'));
   });
+
+
+  $('#full-screen').on('click', function(){
+    $('div.side-nav').hide('slow');
+    $('div.navbar-top').hide('slow');
+    $('#reduce-screen').show('slow');
+  });
+
+  $('#reduce-screen').on('click', function(){
+    $('#reduce-screen').fadeOut('slow').hide();
+    $('div.side-nav').show('slow');
+    $('div.navbar-top').show('slow');
+  });
+
+  $('.alert').find('button.close').hide();
+  $('.alert').show().delay(3000).fadeOut('slow');
 });
