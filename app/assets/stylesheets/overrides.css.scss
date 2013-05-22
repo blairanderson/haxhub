@@ -167,6 +167,10 @@ img.gear-icon {
   padding-right: 10px;
 }
 
+.pivotal li, .github li, .travis li {
+  list-style-type: none;
+}
+
 // FEED
 
 .span3.feed {
@@ -202,11 +206,6 @@ p.feed-title {
 .github div.feed-data:nth-of-type(even) {
   background-color: #FAFAFA;
 }
-
-.github div.feed-data:hover {
-  background-color: #F5F6CE;
-}
-
 .github img.thumb {
   height: 60px;
   width: 60px;
@@ -388,9 +387,16 @@ span.status-bold {
   height: 20px;
   width: 20px;
 }
-#full-screen img {
+#full-screen img, #reduce-screen img {
   height: 20px;
   width: 20px;
+}
+
+#reduce-screen {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 // MASTHEAD

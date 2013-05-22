@@ -39,9 +39,11 @@ $(document).ready(function() {
   $('#full-screen').on('click', function(){
     $('div.side-nav').hide('slow');
     $('div.navbar-top').hide('slow');
+    $('#reduce-screen').show('slow');
   });
 
-  $('#return-full-screen').on('click', function(){
+  $('#reduce-screen').on('click', function(){
+    $('#reduce-screen').fadeOut('slow').hide();
     $('div.side-nav').show('slow');
     $('div.navbar-top').show('slow');
   });

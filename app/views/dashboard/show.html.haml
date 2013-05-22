@@ -28,3 +28,6 @@
         %p.feed-title Pivotal
         .pivotal{"data-pivotal-url" => "#{activities_path(project.id)}"}
           = render 'pivotal', project: project, index: index
+
+%button#reduce-screen.btn
+  %img{src: 'assets/full-screen-exit-icon.png'}
