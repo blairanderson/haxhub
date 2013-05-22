@@ -10,7 +10,6 @@
         = render "project_settings", {project: project, count: index}
 
     = render 'add_project', {search: @repo_auto_complete}
-    = render 'carousel_buttons' if @projects.count > 1
 
 .tab-content
   - @projects.each_with_index do |project, index|
@@ -29,3 +28,6 @@
         %p.feed-title Pivotal
         .pivotal{"data-pivotal-url" => "#{activities_path(project.id)}"}
           = render 'pivotal', project: project, index: index
+
+%button#reduce-screen.btn
+  %img{src: 'assets/full-screen-exit-icon.png'}

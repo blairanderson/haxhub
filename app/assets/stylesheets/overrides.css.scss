@@ -2,6 +2,10 @@
 
 // HOME
 
+.lead {
+  margin-bottom: 40px;
+}
+
 ul.thumbnails {
   margin-left:  auto;
   margin-top:   40px;
@@ -11,11 +15,12 @@ ul.thumbnails {
 }
 
 .thumbnail.home {
-  display: block;
-  padding: 10px;
-  line-height: 20px;
-  box-shadow: none;
+  box-shadow:  none;
+  display:     block;
   font-weight: lighter;
+  height:      280px;
+  line-height: 20px;
+  padding:     10px;
 }
 
 .btn-large.home {
@@ -32,6 +37,14 @@ img.home {
 
 h3.home {
   text-align: center;
+}
+
+p.home-footer {
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  text-align: center;
+  padding: 14px;
 }
 
 // MODAL HOME
@@ -128,18 +141,13 @@ li.side-nav.active a:before {
 }
 
 a.side-nav {
-  color:       black;
+  color:       #A4A4A4;
   font-size:   20px;
-  font-weight: bold;
 }
 
-a.side-nav.logo {
-  font-size: 20px;
-  color: orange;
-  font-weight: bold;
-  border: none;
-  padding-top: 20px;
-  padding-bottom: 20px;
+li.side-nav.active a {
+  font-weight:bold;
+  color: black;
 }
 
 .span3.side-nav {
@@ -158,17 +166,31 @@ span.side-nav {
 img.gear-icon {
   height: 25px;
   width: 25px;
+  opacity:0.4;
+  filter:alpha(opacity=40); /* For IE8 and earlier */
 }
 
 #notices {
   min-height: 60px;
 }
 
+#notices .alert {
+  padding-left: 25px;
+}
+
+#carousel {
+  padding-right: 10px;
+}
+
+.pivotal li, .github li, .travis li {
+  list-style-type: none;
+}
+
 // FEED
 
 .span3.feed {
   border-collapse: collapse;
-  width: 33%;
+  width: 33.3%;
   display: inline;
   margin: 0px;
   border: none;
@@ -199,11 +221,6 @@ p.feed-title {
 .github div.feed-data:nth-of-type(even) {
   background-color: #FAFAFA;
 }
-
-.github div.feed-data:hover {
-  background-color: #F5F6CE;
-}
-
 .github img.thumb {
   height: 60px;
   width: 60px;
@@ -259,6 +276,9 @@ p.feed-title {
 .pivotal .media {
   position: relative;
 }
+span.status-bold {
+  font-weight: bold;
+}
 
 .points {
   position: absolute;
@@ -291,19 +311,19 @@ p.feed-title {
 }
 
 .travis-passed {
-  border: solid 4px #81F781;
+  border: solid 1px #81F781;
 }
 
 .travis-failed {
-  border: solid 4px #F78181;
+  border: solid 1px #F78181;
 }
 
 .travis-created, .travis-started, .travis-pending {
-  border: solid 4px #F7F781;
+  border: solid 1px #F7F781;
 }
 
 .travis-errored {
-  border: solid 4px gray;
+  border: solid 1px gray;
 }
 
 .travis img {
@@ -374,13 +394,23 @@ p.feed-title {
   line-height: 12px;
   font-weight: normal;
   font-size:   16px;
-  margin:      0 10px 0 0;
   color:       orange;
 }
 
 #carousel img {
   height: 20px;
   width: 20px;
+}
+#full-screen img, #reduce-screen img {
+  height: 20px;
+  width: 20px;
+}
+
+#reduce-screen {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 // MASTHEAD
