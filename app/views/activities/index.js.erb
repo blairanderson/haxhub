@@ -1,0 +1,12 @@
+var pivotal = $('.tab-content').find('.active').find('.pivotal')
+
+<% @activities.each do |activity| %>
+  $(pivotal).prepend(
+    $("<%= j render 'dashboard/planner_feed_item', activity: activity %>")
+      .hide()
+      .fadeIn(3000)
+    );
+  $(pivotal).children().last().fadeOut(3000).remove();
+<% end %>
+
+PivPoller.poll();
