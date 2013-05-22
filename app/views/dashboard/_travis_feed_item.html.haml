@@ -1,5 +1,10 @@
 .feed-data.media{"class" => "travis-#{test_build.state}", "data-travis-event-at" => "#{test_build.started}"}
   %span.pull-left
     = image_tag("travis-#{test_build.state}.png")
-  .media-body
-    .media-heading= truncate test_build.message, length: 75
+  .media-body.travis-body
+    %span.pull-left.travis-author
+      = "author / #{test_build.author}"
+    %br
+    %span.media-heading= truncate test_build.message, length: 75
+    .feed-footer.pull-bottom
+      %span.pull-right.travis-date= "started #{time_ago_in_words test_build.started} ago"
