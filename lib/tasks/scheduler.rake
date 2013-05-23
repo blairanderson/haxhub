@@ -18,4 +18,5 @@ task :update_feeds => :environment do
   end
   puts "scheduled jobs for sources"
   Project.where(ci_source_id: nil).all.each(&:add_ci_source)
+  TestBuild.where(author: "Guest",commit: 1, duration: 1).all.each(&:destroy)
 end
