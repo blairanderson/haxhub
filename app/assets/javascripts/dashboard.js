@@ -50,4 +50,11 @@ $(document).ready(function() {
 
   $('.alert').find('button.close').hide();
   $('.alert').show().delay(3000).fadeOut('slow');
+
+  $('.github-spinner').show().delay(10000).fadeOut('slow');
+  $('.github-notice').hide().delay(10000).fadeIn('slow');
+  $('.travis-spinner').show().delay(10000).fadeOut('slow');
+  $('.travis-notice').hide().delay(10000).fadeIn('slow');
+  $('.pivotal-spinner').show().delay(10000).fadeOut('slow');
+  $('.pivotal-notice').hide().delay(10000).fadeIn('slow');
 });

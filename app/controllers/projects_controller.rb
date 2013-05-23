@@ -13,7 +13,7 @@ class ProjectsController < ApplicationController
   def destroy
     project = Project.find(params[:project_id])
     project.destroy
-    redirect_to dashboard_path, notice: "its gone!"
+    redirect_to dashboard_path, notice: "It's gone!"
   end
 
   def toggle_build_status
