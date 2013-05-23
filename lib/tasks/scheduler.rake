@@ -17,4 +17,5 @@ task :update_feeds => :environment do
     Resque.enqueue(FetchCiBuilds, source.id)
   end
   puts "scheduled jobs for sources"
+  Project.where(ci_source_id: nil).all.each(&:add_ci_source)
 end
