@@ -3,8 +3,7 @@ class ActivitiesController < ApplicationController
 
   def index
     if @planner
-      @activities = @planner.activities.where('occurred_at > ?', DateTime.parse(params[:before])+(1.seconds))
-      @activities.reverse!
+      @activities = @planner.activities.where('occurred_at > ?', DateTime.parse(params[:before])+(1.seconds)).order("created_at DESC")
     else
       @activities = []
     end
