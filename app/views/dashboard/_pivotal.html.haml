@@ -3,7 +3,9 @@
     - 7.times do
       %li{"data-pivotal-event-at" => first_li_event_at, style: "display: none;"}
     %li.notice-window{"data-pivotal-event-at" => first_li_event_at}
-      We tried to find your stories, we really did. It looks like you either have no notifications or (more likely) have chosen an invalid Pivotal ID. Feel free to add the ID again in the project settings section.
+      %p.pivotal-spinner We're looking for any notifications you might have now. Please be patient as we contact Pivotal Tracker.
+      %p.pivotal-notice We tried to find your stories, we really did. It looks like you either have no notifications or (more likely) have chosen an invalid Pivotal ID.
+      %p.pivotal-notice Feel free to add the ID again in the project settings section.
   - elsif project.planner.activities.count < 8
     - project.planner.activities.limit(8).each do |activity|
       = render "planner_feed_item", {activity: activity}
