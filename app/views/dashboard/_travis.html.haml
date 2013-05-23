@@ -3,12 +3,12 @@
     - 7.times do
       %li{"data-travis-event-at" => first_li_event_at, style: "display: none;"}
     %li.notice-window{"data-travis-event-at" => first_li_event_at}
-      %p We tried to find your builds, we really did. It looks like you either have no builds or (more likely) have set up Travis incorrectly. 
-      %p 
+      %p.travis-spinner We're looking for any test builds you might have now. Please be patient as we contact Travis CI.
+      %p.travis-notice We tried to find your builds, we really did. It looks like you either have no builds or (more likely) have set up Travis incorrectly. 
+      %p.travis-notice 
         Check out 
         %a{href: "http://about.travis-ci.org/docs/user/getting-started/", target: "_blank"}the Travis documentation
-        for more information. When you're ready to try again click
-        %a{href: "#"} this link
+        for more information. When you're ready to try again, please go to your project settings and resave your Travis settings.
   - elsif project.ci_source.test_builds.count < 8
     - project.ci_source.test_builds.limit(8).each do |test_build|
       = render "travis_feed_item", test_build: test_build
