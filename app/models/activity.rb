@@ -78,4 +78,26 @@ private
 
     return new_activity if new_activity
   end
+  
+  def self.build_activity(api_stories, api_activity, planner_id)
+    new_activity = where(planner_id:  planner_id, activity_id: api_activity.id).first_or_initialize
+    story_ids    = get_story_ids(api_activity)
+    api_story    = api_story_from_story_ids(story_ids, api_stories)
+
+    new_activity.attributes = {
+      author:      api_activity.author,
+      description: api_activity.description,
+      event_type:  api_activity.event_type,
+      occurred_at: api_activity.occurred_at,
+      requester:   api_story.requested_by,
+      message:     api_story.name,
+      story_type:  api_story.story_type,
+      points:      api_story.estimate,
+      story_id:    api_story.id,
+      status:      api_activity.description.match(/finished|delivered|started|accepted|edited|added|estimated/)[0],
+      url:         api_story.url }
+
+    new_activity.save
+  end
+  
 end
