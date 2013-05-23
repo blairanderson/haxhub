@@ -14,9 +14,12 @@ class User < ActiveRecord::Base
   end
 
   def self.find_or_create(github, token)
+    github.name ? full_name = github.name : full_name = "Guest"
+    github.email ? email = github.email : email = "guest@example.com"
+
     user = find_or_initialize_by_login(github.login,
-                                      {full_name: github.name,
-                                       email:     github.email,
+                                      {full_name: full_name,
+                                       email:     email,
                                        login:     github.login})
     user.token = token
     user.save
