@@ -434,6 +434,10 @@ h1.lead {
 
 // DASHBOARD MODAL
 
+.dashboard-text {
+  line-height: 1.25em;
+}
+
 .dashboard-body {
   color:         gray;
   padding-right: 20px;
@@ -464,7 +468,7 @@ input.dashboard-input {
 }
 
 .large {
-  width: 400px;
+  width: 430px;
 }
 
 .btn.tracker-btn {
@@ -475,6 +479,12 @@ input.dashboard-input {
 .btn.travis-btn {
   margin-left: 182px;
   margin-top: -42px;
+}
+
+.btn.project-create {
+  margin-left: 420px;
+  margin-top: 20px;
+  margin-bottom: -15px;
 }
 
 // light Switch on project settings tab
