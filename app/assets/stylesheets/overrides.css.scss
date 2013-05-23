@@ -80,13 +80,6 @@ p.home-footer {
   padding: 15px;
 }
 
-// DASHBOARD MODAL
-
-p.dashboard-modal {
-  color:         gray;
-  padding-right: 20px;
-}
-
 // SIDEBAR
 
 a.add_project {
@@ -441,6 +434,15 @@ h1.lead {
 
 // DASHBOARD MODAL
 
+.dashboard-body {
+  color:         gray;
+  padding-right: 20px;
+}
+
+.dashbard-tip {
+  font-size: 12px;
+}
+
 .modal-body.dashboard-body {
   margin-top: 15px;
 }
@@ -459,6 +461,10 @@ input.dashboard-input {
   -moz-border-radius:    4px;
   border-radius:         4px;
   vertical-align:        middle;
+}
+
+.large {
+  width: 400px;
 }
 
 .btn.tracker-btn {
