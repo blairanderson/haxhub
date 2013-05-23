@@ -6,7 +6,7 @@ class FetchCiBuilds
     begin
     ci_source.fetch_all_test_builds
     rescue
-      #do some exponential backoff here
+      #do some stuff
     end
   end
 end

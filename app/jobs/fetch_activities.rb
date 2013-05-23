@@ -10,7 +10,7 @@ class FetchActivities
         planner.update_attribute(:status, "not-found")
       end
     rescue Exception
-      Resque.enqueue(FetchActivities, planner.id, counter.to_i+1)
+      # Resque.enqueue(FetchActivities, planner.id, counter.to_i+1)
     end
   end
 end

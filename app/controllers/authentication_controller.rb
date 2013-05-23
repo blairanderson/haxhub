@@ -17,7 +17,6 @@ class AuthenticationController < ApplicationController
 
     if params['code']
       user = User.find_or_create_from_token(params[:code])
-      user.repos
       login(user) 
     end
 
@@ -33,6 +32,7 @@ private
 
   def login(user)
     session[:login] = user.login
+    user.repos
   end
 
 end
