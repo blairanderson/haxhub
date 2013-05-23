@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/blairand/alpha-feed-engine/badge.png)](https://coveralls.io/r/blairand/alpha-feed-engine)
 [![Build Status](https://travis-ci.org/blairand/alpha-feed-engine.png)](https://travis-ci.org/blairand/alpha-feed-engine)
 
-_a gSchool project by Blair Anderson, James Denman, Geoffrey Schorkopf and Jorge Tellez_
+_a gSchool project by Blair Anderson, Geoffrey Schorkopf and Jorge Tellez_
 
 ### View the Live Site
 
@@ -45,4 +45,3 @@ to setup your test database. Then run:
 * [blairand](https://twitter.com/blairand)
 * [gschork](https://twitter.com/gschork)
 * [novohispano](https://twitter.com/novohispano)
-* [xacaxulu](https://twitter.com/xacaxulu)
