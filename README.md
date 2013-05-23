@@ -12,7 +12,7 @@ There is currently no production site for this app.
 
 ### Installing Haxhub
 
-Once you've git cloned this repo, make sure to run
+Once you've git cloned this repo, make sure to RUN
 
 ```bundle install``` to load the gems used in this project.
 
