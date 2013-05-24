@@ -7,4 +7,8 @@ module ProjectHelper
       nil
     end
   end
+
+  def github_url(repo)
+    "http://github.com/#{repo.owner}/#{repo.name}"
+  end
 end
