@@ -15,7 +15,7 @@
   - @projects.each_with_index do |project, index|
     .tab-pane{:id => "tab_#{index+1}"}
       .span3.feed
-        %p.feed-title= link_to "GitHub", github_url(project)
+        %p.feed-title= link_to "GitHub", github_url(project.repo)
         .github{"data-git-url" => "#{git_actions_path(project.id)}"}
           = render 'github', project: project, index: index
 
