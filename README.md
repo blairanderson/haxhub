@@ -6,7 +6,7 @@
 
 _a gSchool project by Blair Anderson, Geoffrey Schorkopf and Jorge Tellez_
 
-### View the Live Site
+### View the Live Sity
 
 There is currently no production site for this app.
 
@@ -17,7 +17,7 @@ Once you've git cloned this repo, make sure to RUN
 ```bundle install``` to load the gems used in this project.
 
 
-Next, run ```rake db:migrate``` to setup your local database
+Next, run ```rake db:migrate``` to setup your local DB
 
 To view the site from your computer, you can then run ```redis-server``` and  ```foreman start  -p 3000``` to view it at http://localhost:3000.
 

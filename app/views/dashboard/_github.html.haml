@@ -2,7 +2,10 @@
   - 6.times do
     %li{"data-git-event-at" => first_li_event_at, style: "display: none;"}
   %li.github-notice.notice-window{"data-git-event-at" => first_li_event_at} 
-    %p We tried to find your commits, we really did. We'll keep doing some searching for a minute. Do you have any commits in your #{link_to 'repository?', "http://www.github.com/#{current_user.login}/#{project.repo.name}", target: '_blank'}
+    %p
+      We tried to find your commits, we really did. We'll keep doing some
+      searching for a minute. Do you have any commits in your
+      = link_to 'repository?', github_url(project.repo), target: '_blank'
   %li.github-spinner{"data-git-event-at" => first_li_event_at}
     %img{src: "assets/spinner.gif"}
     %br
