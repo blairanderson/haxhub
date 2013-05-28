@@ -2,7 +2,7 @@ class AuthenticationController < ApplicationController
 
   def github_auth
     github = Github.new(Github::Service.prepare)
-    redirect_to github.authorize_url(GithubAuth.params)
+    redirect_to github.authorize_url(Github::Auth.params)
   end
 
   def github_callback
