@@ -43,6 +43,6 @@ to setup your test database. Then run:
 
 ### Tweet Us, Y'all
 
-* [blairand](https://twitter.com/blairand)
+* [blairand](https://twitter.com/blairanderson)
 * [gschork](https://twitter.com/gschork)
 * [novohispano](https://twitter.com/novohispano)
