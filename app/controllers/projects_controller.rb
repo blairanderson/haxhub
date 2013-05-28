@@ -34,15 +34,7 @@ class ProjectsController < ApplicationController
   end
 
   def webhook
-    push =  JSON.parse(params[:payload])
-    repo = Repo.where(
-      name: push['repository']['name'],
-      owner: push['repository']['owner']['name']
-      ).first
-    login = push["commits"][0]["committer"]["username"] || push["commits"][0]["author"]["username"]
-    user = User.where(login: login).first
-
-    Resque.enqueue(FetchGitActions, user.id, repo.id)
+    Github::Fetcher.fetch JSON.parse(params[:payload])
 
     render :nothing => true
   end

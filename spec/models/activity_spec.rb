@@ -22,7 +22,7 @@ describe Activity do
       expect(activities).to_not      be nil
       expect(activities.count).to    eq 82
       expect(result.author).to       eq "Blair Anderson"
-      expect(result.description).to  eq "Blair Anderson started \"User create a feed that tracks his project information from Github.\""
+      expect(result.description).to  eq "Blair Anderson finished \"User create a feed that tracks his project information from Github.\""
     end
   end
 end

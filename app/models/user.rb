@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   end
 
   def self.find_or_create_from_token(oauth_code)
-    user, token = GithubService.current_user(oauth_code)
+    user, token = Github::Service.current_user(oauth_code)
     User.find_or_create( user, token )
   end
 end

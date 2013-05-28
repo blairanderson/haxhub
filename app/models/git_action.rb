@@ -11,7 +11,7 @@ class GitAction < ActiveRecord::Base
   default_scope order('event_at DESC')
 
   def self.fetch_all_commits(user, repo)
-    github = GithubService.user_connection(user)
+    github = Github::Service.user_connection(user)
     commits = github.repos.commits.all(repo.owner, repo.name)
     build_commits(repo, commits)
   end

@@ -7,7 +7,7 @@ class Repo < ActiveRecord::Base
   validates_presence_of :owner, :name
 
   def self.fetch_new_commits(repo, limit = 30)
-    github = GithubService.connection
+    github = Github::Service.connection
     
     commits = github.repos.commits.all(repo.owner, repo.name, per_page: limit)
     repo.verify_and_save_commits(commits)
