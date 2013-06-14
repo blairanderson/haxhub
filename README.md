@@ -6,7 +6,7 @@
 
 _a gSchool project by Blair Anderson, Geoffrey Schorkopf and Jorge Tellez_
 
-### View the Live Sity
+### View the Live Site
 
 There is currently no production site for this app.
 
